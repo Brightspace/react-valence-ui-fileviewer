@@ -1,6 +1,6 @@
 {
   "name": "react-vui-fileviewer",
-  "main": "src/index.js",
+  "main": "src/fileViewer.js",
   "license": "Apache-2.0",
   "ignore": [
     "node_modules",

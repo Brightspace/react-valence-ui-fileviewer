@@ -1,10 +1,10 @@
 'use strict';
 
-jest.dontMock('../index.js');
+jest.dontMock('../fileViewer.js');
 
 var React = require('react/addons'),
 	TestUtils = React.addons.TestUtils,
-	FileViewer = require('../index.js');
+	FileViewer = require('../fileViewer.js');
 
 describe('Hello World', function() {
 	it('contains "hello world"', function() {

@@ -2,7 +2,7 @@
   "name": "react-vui-fileviewer",
   "version": "0.0.1",
   "description": "React component for viewing files",
-  "main": "src/index.js",
+  "main": "src/fileViewer.js",
   "scripts": {
     "lint": "eslint src",
     "test:unit": "jest",
