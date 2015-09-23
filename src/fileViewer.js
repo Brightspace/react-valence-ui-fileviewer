@@ -10,10 +10,14 @@ var viewers = [
 ];
 
 var FileViewer = React.createClass({
+	propTypes: {
+		src: React.PropTypes.string.isRequired
+	},
 	render: function() {
+		var src = this.props.src;
 		for (var i = 0; i < viewers.length; i++) {
-			if (viewers[i].test()) {
-				return viewers[i].getComponent();
+			if (viewers[i].test(src)) {
+				return viewers[i].getComponent(src);
 			}
 		};
 		return null;

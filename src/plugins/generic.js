@@ -4,13 +4,13 @@ var React = require('react');
 
 var GenericViewer = React.createClass({
 	render: function() {
-		return React.DOM.div(null, 'Generic Viewer');
+		return (<div>Generic Viewer: {this.props.src}</div>);
 	}
 });
 
 var plugin = {
-	getComponent: function() {
-		return <GenericViewer />;
+	getComponent: function(src) {
+		return <GenericViewer src={src} />;
 	},
 	test: function() {
 		return true;
