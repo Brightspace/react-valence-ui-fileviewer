@@ -3,9 +3,11 @@
   "main": "src/fileViewer.js",
   "license": "Apache-2.0",
   "ignore": [
+    "dist",
     "node_modules",
     "bower_components",
     "src/__tests__",
+    "test",
     ".editorconfig",
     ".eslintrc"
     ".gitignore",

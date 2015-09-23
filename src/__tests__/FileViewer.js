@@ -12,11 +12,11 @@ describe('FileViewer', function() {
 	it('gets rendered by generic viewer', function() {
 
 		var elem = TestUtils.renderIntoDocument(
-			<FileViewer />
+			<FileViewer src="foo.wav" />
 		);
 
 		var div = TestUtils.findRenderedDOMComponentWithTag(elem, 'div');
-		expect(React.findDOMNode(div).textContent).toEqual('Generic Viewer');
+		expect(React.findDOMNode(div).textContent).toEqual('Generic Viewer: foo.wav');
 
 	});
 });
