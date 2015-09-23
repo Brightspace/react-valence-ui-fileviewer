@@ -31,6 +31,16 @@ Both unit tests and linting is performed during CI builds as part of the `test` 
 npm test
 ```
 
+## Sample
+
+Included is a sample application which allows you to launch the file viewer with many different file types. To build the sample application, run:
+
+```script
+npm run build-sample
+```
+
+Then open `sample/sample.html` in your browser.
+
 ## Contributing
 Contributions are welcome, please submit a pull request!
 
