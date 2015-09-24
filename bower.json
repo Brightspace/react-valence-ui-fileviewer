@@ -9,12 +9,12 @@
     "src/__tests__",
     "test",
     ".editorconfig",
-    ".eslintrc"
+    ".eslintrc",
     ".gitignore",
     ".travis.yml",
     "package.json"
   ],
   "dependencies": {
-
+    "vui-icons": "git@github.com:Brightspace/valence-ui-icons.git#~0.7.0"
   }
 }
