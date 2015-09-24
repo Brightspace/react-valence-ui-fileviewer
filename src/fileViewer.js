@@ -1,10 +1,12 @@
 'use strict';
 
 var React = require('react'),
-	GenericViewer = require('./plugins/generic.js');
+	image = require('./plugins/image.js'),
+	genericViewer = require('./plugins/generic.js');
 
 var viewers = [
-	GenericViewer
+	image,
+	genericViewer
 ];
 
 var FileViewer = React.createClass({
