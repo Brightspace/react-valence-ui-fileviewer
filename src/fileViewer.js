@@ -1,11 +1,9 @@
 'use strict';
 
 var React = require('react'),
-	GenericViewer = require('./plugins/generic.js'),
-	LegacyViewer = require('./plugins/legacy.js');
+	GenericViewer = require('./plugins/generic.js');
 
 var viewers = [
-	LegacyViewer,
 	GenericViewer
 ];
 
