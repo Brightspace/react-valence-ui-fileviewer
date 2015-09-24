@@ -4,7 +4,7 @@
   "description": "React component for viewing files",
   "main": "src/fileViewer.js",
   "scripts": {
-    "prebuild": "rimraf dist && mkdir dist",
+    "prebuild-sample": "rimraf dist && mkdir dist",
     "build-sample": "browserify -s app ./sample/app.js > ./dist/app.js",
     "lint": "eslint src",
     "test:unit": "jest",
