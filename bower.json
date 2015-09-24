@@ -15,6 +15,6 @@
     "package.json"
   ],
   "dependencies": {
-    "vui-icons": "git@github.com:Brightspace/valence-ui-icons.git#~0.7.0"
+    "vui-icons": "~0.7.0"
   }
 }

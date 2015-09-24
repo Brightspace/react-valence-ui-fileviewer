@@ -5,16 +5,13 @@ var Enums = require('../enums');
 
 var GenericViewer = React.createClass({
 	render: function() {
-		return (<div>Generic Viewer: {this.props.src}</div>);
+		return (<div><Icon src={this.props.src} />Generic Viewer: {this.props.src}</div>);
 	}
 });
 
 var plugin = {
 	getComponent: function(src) {
-		return (<span>
-					<Icon src={src} />
-					<GenericViewer src={src} />
-				</span>);
+		return (<GenericViewer src={src} />);
 	},
 	test: function() {
 		return true;
@@ -31,8 +28,7 @@ var Icon = React.createClass({
 });
 
 function getIconType(src) {
-	var splitSrc = src.split('.');
-	var fileType = splitSrc[splitSrc.length - 1].toLowerCase();
+	var fileType = getFileType(src);
 
 	if (Enums.ImageType[fileType] !== undefined) {
 		console.log("I'm an image");
@@ -41,6 +37,12 @@ function getIconType(src) {
 		console.log("I'm generic");
 		return Enums.IconType.generic;
 	}
+}
+
+function getFileType(fileName) {
+	var splitSrc = fileName.split('.');
+	var fileType = splitSrc[splitSrc.length - 1].toLowerCase();
+	return fileType;
 }
 
 module.exports = plugin;
