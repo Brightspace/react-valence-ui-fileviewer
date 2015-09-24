@@ -6,12 +6,7 @@ function getExtension(path) {
 		return '';
 	}
 
-	var index = path.lastIndexOf('.');
-	if (index < 0) {
-		return path.toLowerCase();
-	}
-
-	var extension = path.substr(index + 1).toLowerCase();
+	var extension = path.substr(path.lastIndexOf('.') + 1).toLowerCase();
 	return extension;
 
 }
