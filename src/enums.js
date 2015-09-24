@@ -1,3 +1,5 @@
+'use strict';
+
 var IconType = Object.freeze({
 	image : 'image',
 	audio : 'audio',
@@ -6,7 +8,6 @@ var IconType = Object.freeze({
 	flash: 'flash',
 	generic: 'generic',
 	html: 'html',
-	image: 'image',
 	presentation: 'presentation',
 	spreadsheet: 'spreadsheet',
 	text: 'text',
@@ -31,4 +32,4 @@ var ImageType = Object.freeze({
 module.exports = {
 	IconType: IconType,
 	ImageType: ImageType
-}
+};

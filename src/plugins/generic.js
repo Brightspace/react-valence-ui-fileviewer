@@ -22,19 +22,19 @@ var plugin = {
 };
 
 var Icon = React.createClass({
-	render: function(src) {
-		var iconString = "vui-icon-file-" + getIconType(this.props.src) + "-large";
+	render: function() {
+		var iconString = 'vui-icon-file-' + getIconType(this.props.src) + '-large';
 		return (
-			<div className={iconString}></div>
-		)
+			<span className={iconString}></span>
+		);
 	}
 });
 
-function getIconType (src) {
+function getIconType(src) {
 	var splitSrc = src.split('.');
 	var fileType = splitSrc[splitSrc.length - 1].toLowerCase();
 
-	if(Enums.ImageType[fileType] !== undefined) {
+	if (Enums.ImageType[fileType] !== undefined) {
 		console.log("I'm an image");
 		return Enums.IconType.image;
 	} else {

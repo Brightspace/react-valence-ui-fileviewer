@@ -39,6 +39,12 @@ Included is a sample application which allows you to launch the file viewer with
 npm run build-sample
 ```
 
+If you just want to build the sass, run:
+
+```script
+npm run build-sass
+```
+
 Then open `sample/sample.html` in your browser.
 
 ## Contributing
