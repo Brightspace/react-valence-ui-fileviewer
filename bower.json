@@ -9,7 +9,7 @@
     "src/__tests__",
     "test",
     ".editorconfig",
-    ".eslintrc"
+    ".eslintrc",
     ".gitignore",
     ".travis.yml",
     "package.json"
