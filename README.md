@@ -5,10 +5,10 @@ React component for viewing different types of files (HTML, media, documents, et
 
 ## Installation
 
-Install from [Bower](http://bower.io/):
+Install NPM dependencies:
 
 ```shell
-bower install react-vui-fileviewer
+npm install
 ```
 
 ## Testing
