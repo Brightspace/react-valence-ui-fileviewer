@@ -38,4 +38,14 @@ describe('GetExtension', function() {
 		expect(extension).toEqual('bar');
 	});
 
+	it('should return extension for path with leading .', function() {
+		var extension = getExtension('.foo');
+		expect(extension).toEqual('foo');
+	});
+
+	it('should return empty string for path with trailing .', function() {
+		var extension = getExtension('foo.');
+		expect(extension).toEqual('');
+	});
+
 });

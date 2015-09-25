@@ -2,7 +2,7 @@
 
 function getExtension(path) {
 
-	if (path === undefined || path === null || typeof(path) !== 'string') {
+	if (typeof(path) !== 'string') {
 		return '';
 	}
 
