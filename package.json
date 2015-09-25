@@ -5,7 +5,8 @@
   "main": "src/fileViewer.js",
   "scripts": {
     "prebuild-sample": "rimraf dist && mkdir dist",
-    "build-sample": "browserify -s app ./sample/app.js > ./dist/app.js",
+    "build-sample": "browserify -s app ./sample/app.js > ./dist/app.js && npm run build-sass",
+    "build-sass": "node-sass bower_components/vui-icons/icons.css.scss sample/icons.css && node-sass bower_components/vui-icons/icons.css.scss dist/icons.css",
     "lint": "eslint src",
     "test:unit": "jest",
     "test": "npm run lint && npm run test:unit"
@@ -22,7 +23,7 @@
   ],
   "author": "D2L Corporation",
   "license": "Apache-2.0",
-  "dependencies": {
+  "peerDependencies": {
     "react": "^0.13.3"
   },
   "devDependencies": {
@@ -31,6 +32,7 @@
     "eslint": "^1.5.1",
     "eslint-plugin-react": "^3.4.2",
     "jest-cli": "^0.5.7",
+    "node-sass": "^3.3.3",
     "reactify": "^1.1.1",
     "rimraf": "^2.4.3"
   },
