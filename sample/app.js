@@ -4,7 +4,11 @@ var React = require('react'),
 	FileViewer = require('../src/fileViewer.js');
 
 var files = [
-	{src: 'image1.jpg', name: 'JPG large'}
+	{src: 'image1.jpg', name: 'Toronto (JPG large)'},
+	{src: 'image2.png', name: 'Winnipeg (PNG medium)'},
+	{src: 'image3.gif', name: 'Kitchener (GIF medium)'},
+	{src: 'image4.svg', name: 'Canada Map (SVG)'},
+	{src: 'generic1.abc', name: 'Generic (ABC)'}
 ];
 
 var Main = React.createClass({
@@ -25,7 +29,7 @@ var Main = React.createClass({
 				<select onChange={this.fileSelected}>
 					<option value="">-- Select a File --</option>
 					{this.props.files.map(function(file) {
-						return <option key={file.src} value={file.src}>{file.name}</option>;
+						return <option key={file.src} value={'files/' + file.src}>{file.name}</option>;
 					})}
 				</select>
 			</label>
