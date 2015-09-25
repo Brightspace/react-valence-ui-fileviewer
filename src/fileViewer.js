@@ -15,12 +15,17 @@ var FileViewer = React.createClass({
 	},
 	render: function() {
 		var src = this.props.src;
+
+		var viewer;
 		for (var i = 0; i < viewers.length; i++) {
 			if (viewers[i].test(src)) {
-				return viewers[i].getComponent(src);
+				viewer = viewers[i].getComponent(src);
+				break;
 			}
 		};
-		return null;
+
+		return (<div className="vui-fileviewer">{viewer}</div>);
+
 	}
 });
 

@@ -5,8 +5,7 @@
   "main": "src/fileViewer.js",
   "scripts": {
     "prebuild-sample": "rimraf dist && mkdir dist",
-    "build-sample": "browserify -s app ./sample/app.js > ./dist/app.js && npm run build-sass",
-    "build-sass": "node-sass bower_components/vui-icons/icons.css.scss dist/icons.css",
+    "build-sample": "browserify -s app ./sample/app.js > ./dist/app.js && node-sass ./sample/app.scss dist/app.css",
     "lint": "eslint src",
     "postinstall": "bower install",
     "test:unit": "jest",

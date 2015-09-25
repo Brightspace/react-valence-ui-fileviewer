@@ -1,6 +1,7 @@
 'use strict';
 
 jest.dontMock('../getExtension.js');
+jest.dontMock('../getIconClassName.js');
 jest.dontMock('../plugins/generic.js');
 
 var React = require('react/addons'),
@@ -8,13 +9,14 @@ var React = require('react/addons'),
 	Generic = require('../plugins/generic.js');
 
 describe('Generic', function() {
-	it('Renders the image icon for a .jpg file', function() {
-		var genericViewer = Generic.getComponent('foo.jpg');
+	it('Renders the audio icon for a .mp3 file', function() {
+
+		var genericViewer = Generic.getComponent('foo.mp3');
 		var elem = TestUtils.renderIntoDocument(
 			genericViewer
 		);
 
-		var imageIcons = TestUtils.scryRenderedDOMComponentsWithClass(elem, 'vui-icon-file-image-large');
-		expect(imageIcons.length).toEqual(1);
+		var audioIcons = TestUtils.scryRenderedDOMComponentsWithClass(elem, 'audio');
+		expect(audioIcons.length).toEqual(1);
 	});
 });
