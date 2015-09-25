@@ -43,4 +43,9 @@ describe('GetExtension', function() {
 		expect(extension).toEqual('foo');
 	});
 
+	it('should return empty string for path with trailing .', function() {
+		var extension = getExtension('foo.');
+		expect(extension).toEqual('');
+	});
+
 });
