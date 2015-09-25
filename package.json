@@ -8,7 +8,8 @@
     "build-sample": "browserify -s app ./sample/app.js > ./dist/app.js && node-sass ./sample/app.scss dist/app.css",
     "lint": "eslint src",
     "postinstall": "bower install",
-    "test:unit": "jest",
+    "report-coverage": "cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js",
+    "test:unit": "jest --coverage",
     "test": "npm run lint && npm run test:unit"
   },
   "repository": {
@@ -30,6 +31,7 @@
     "babel-jest": "^5.3.0",
     "bower": "^1.5.3",
     "browserify": "^11.1.0",
+    "coveralls": "^2.11.4",
     "eslint": "^1.5.1",
     "eslint-plugin-react": "^3.4.2",
     "jest-cli": "^0.5.7",
