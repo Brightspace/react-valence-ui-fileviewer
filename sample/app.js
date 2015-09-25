@@ -7,7 +7,8 @@ var files = [
 	{src: 'image1.jpg', name: 'Toronto (JPG large)'},
 	{src: 'image2.png', name: 'Winnipeg (PNG medium)'},
 	{src: 'image3.gif', name: 'Kitchener (GIF medium)'},
-	{src: 'image4.svg', name: 'Canada Map (SVG)'}
+	{src: 'image4.svg', name: 'Canada Map (SVG)'},
+	{src: 'generic1.abc', name: 'Generic (ABC)'}
 ];
 
 var Main = React.createClass({

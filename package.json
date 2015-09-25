@@ -6,8 +6,9 @@
   "scripts": {
     "prebuild-sample": "rimraf dist && mkdir dist",
     "build-sample": "browserify -s app ./sample/app.js > ./dist/app.js && npm run build-sass",
-    "build-sass": "node-sass bower_components/vui-icons/icons.css.scss sample/icons.css && node-sass bower_components/vui-icons/icons.css.scss dist/icons.css",
+    "build-sass": "node-sass bower_components/vui-icons/icons.css.scss dist/icons.css",
     "lint": "eslint src",
+    "postinstall": "bower install",
     "test:unit": "jest",
     "test": "npm run lint && npm run test:unit"
   },
@@ -28,6 +29,7 @@
   },
   "devDependencies": {
     "babel-jest": "^5.3.0",
+    "bower": "^1.5.3",
     "browserify": "^11.1.0",
     "eslint": "^1.5.1",
     "eslint-plugin-react": "^3.4.2",

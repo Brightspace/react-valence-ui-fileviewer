@@ -1,7 +1,7 @@
 'use strict';
 
 var getExtension = require('../getExtension.js'),
-	React = require('react');;
+	React = require('react');
 
 var extensions = [
 	'jpg',
