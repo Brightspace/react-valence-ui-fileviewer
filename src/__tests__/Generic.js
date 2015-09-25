@@ -2,7 +2,6 @@
 
 jest.dontMock('../fileViewer.js');
 jest.dontMock('../plugins/generic.js');
-jest.dontMock('../plugins/legacy.js');
 
 var React = require('react/addons'),
 	TestUtils = React.addons.TestUtils,
