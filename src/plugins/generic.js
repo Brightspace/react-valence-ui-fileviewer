@@ -1,7 +1,8 @@
 'use strict';
 
 var React = require('react');
-var Enums = require('../enums');
+var Enums = require('../enums'),
+	getExtension = require('../getExtension');
 
 var GenericViewer = React.createClass({
 	render: function() {
@@ -28,21 +29,12 @@ var Icon = React.createClass({
 });
 
 function getIconType(src) {
-	var fileType = getFileType(src);
-
+	var fileType = getExtension(src);
 	if (Enums.ImageType[fileType] !== undefined) {
-		console.log("I'm an image");
 		return Enums.IconType.image;
 	} else {
-		console.log("I'm generic");
 		return Enums.IconType.generic;
 	}
-}
-
-function getFileType(fileName) {
-	var splitSrc = fileName.split('.');
-	var fileType = splitSrc[splitSrc.length - 1].toLowerCase();
-	return fileType;
 }
 
 module.exports = plugin;

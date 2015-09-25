@@ -1,6 +1,6 @@
 'use strict';
 
-jest.dontMock('../fileViewer.js');
+jest.dontMock('../getExtension.js');
 jest.dontMock('../plugins/generic.js');
 
 var React = require('react/addons'),
