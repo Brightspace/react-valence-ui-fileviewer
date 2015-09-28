@@ -10,7 +10,7 @@ function getIconClassName(extension) {
 			return className;
 		}
 	}
-	return 'generic';
+	return 'unknown';
 }
 
 module.exports = getIconClassName;

@@ -1,13 +1,5 @@
-@import '../bower_components/vui-icons/icons.scss';
-
 .vui-fileviewer {
 
-	.audio {
-		@include vui-icon-file-audio-xlarge;
-	}
-
-	.generic {
-		@include vui-icon-file-generic-xlarge;
-	}
+	@import './plugins/generic.scss';
 
 }

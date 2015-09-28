@@ -1,0 +1,48 @@
+@import '../../bower_components/vui-icons/icons.scss';
+
+.vui-fileviewer-generic {
+
+	background-color: #ffffff;
+	border: 1px solid #d4d4d4;
+	border-radius: 5px;
+	margin: 10px;
+	max-width: 90%;
+	width: 550px;
+	padding: 20px;
+
+	&:after {
+		content: '';
+		display: block;
+		clear: both;
+	}
+
+	.vui-fileviewer-icon {
+		float: left;
+		margin: 15px 40px 0 20px;
+		vertical-align: middle;
+	}
+
+	.vui-fileviewer-icon-audio {
+		@include vui-icon-file-audio-xlarge;
+	}
+
+	.vui-fileviewer-icon-unknown {
+		@include vui-icon-file-generic-xlarge;
+	}
+
+	.vui-fileviewer-generic-main {
+		float: left;
+	}
+
+	.vui-fileviewer-generic-filename {
+		font-size: 1.3em;
+		font-weight: bold;
+	}
+
+	.vui-fileviewer-generic-size {
+		color: #666666;
+		font-style: italic;
+		margin-top: 2px;
+	}
+
+}

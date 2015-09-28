@@ -16,7 +16,7 @@ describe('Generic', function() {
 			genericViewer
 		);
 
-		var audioIcons = TestUtils.scryRenderedDOMComponentsWithClass(elem, 'audio');
+		var audioIcons = TestUtils.scryRenderedDOMComponentsWithClass(elem, 'vui-fileviewer-icon-audio');
 		expect(audioIcons.length).toEqual(1);
 	});
 });
