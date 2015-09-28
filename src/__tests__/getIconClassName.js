@@ -14,9 +14,9 @@ describe('GetIconClassName', function() {
 	});
 
 	['abc'].forEach(function(extension) {
-		it('should should return generic type for "' + extension + '"', function() {
+		it('should should return unknown type for "' + extension + '"', function() {
 			var type = getIconClassName(extension);
-			expect(type).toEqual('generic');
+			expect(type).toEqual('unknown');
 		});
 	});
 

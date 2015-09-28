@@ -1,1 +1,22 @@
 @import '../src/fileViewer.scss';
+
+body {
+	background: #fafafa;
+	font-family: Arial, sans-serif;
+	font-size: 16px;
+	margin: 0;
+}
+
+.file-selector {
+	padding: 10px;
+}
+
+label > span {
+	margin-right: 10px;
+}
+
+hr {
+	border-top: 1px solid #666666;
+	border-bottom: none;
+	margin: 0;
+}
