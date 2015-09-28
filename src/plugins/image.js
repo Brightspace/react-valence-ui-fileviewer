@@ -23,8 +23,8 @@ var ImageViewer = React.createClass({
 });
 
 var plugin = {
-	getComponent: function(src) {
-		return <ImageViewer src={src} />;
+	getComponent: function(props) {
+		return <ImageViewer {...props} />;
 	},
 	test: function(src) {
 		var extension = getExtension(src);
