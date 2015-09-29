@@ -9,7 +9,8 @@ var files = [
 	{src: 'image3.gif', name: 'Kitchener (GIF medium)', size: 414555},
 	{src: 'image4.svg', name: 'Canada Map (SVG)', size: 66724},
 	{src: 'audio.mp3', name: 'Audio (MP3)', size: 10},
-	{src: 'generic1.abc', name: 'Generic (ABC)', size: 102932}
+	{src: 'generic1.abc', name: 'Generic (ABC)', size: 102932},
+	{src: 'html1.html', name: 'HTML1 (HTML)', size: 40}
 ];
 
 var Main = React.createClass({
