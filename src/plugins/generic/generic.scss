@@ -27,6 +27,10 @@
 		@include vui-icon-file-audio-xlarge;
 	}
 
+	.vui-fileviewer-icon-pdf {
+		@include vui-icon-file-pdf-xlarge;
+	}
+
 	.vui-fileviewer-icon-unknown {
 		@include vui-icon-file-generic-xlarge;
 	}
