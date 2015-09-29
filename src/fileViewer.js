@@ -1,6 +1,7 @@
 'use strict';
 
 var React = require('react'),
+	getExtension = require('./getExtension'),
 	image = require('./plugins/image.js'),
 	genericViewer = require('./plugins/generic/generic.js');
 
@@ -14,9 +15,10 @@ var FileViewer = React.createClass({
 		src: React.PropTypes.string.isRequired
 	},
 	render: function() {
+		var extension = getExtension(this.props.src);
 		var viewer;
 		for (var i = 0; i < viewers.length; i++) {
-			if (viewers[i].test(this.props.src)) {
+			if (viewers[i].test(extension)) {
 				viewer = viewers[i].getComponent(this.props);
 				break;
 			}
