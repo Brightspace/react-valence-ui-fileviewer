@@ -1,7 +1,6 @@
 'use strict';
 
-var getExtension = require('../getExtension.js'),
-	React = require('react');
+var React = require('react');
 
 var extensions = [
 	'jpg',
@@ -26,8 +25,7 @@ var plugin = {
 	getComponent: function(props) {
 		return <ImageViewer {...props} />;
 	},
-	test: function(src) {
-		var extension = getExtension(src);
+	test: function(extension) {
 		var isImage = (extensions.indexOf(extension) > -1);
 		return isImage;
 	}
