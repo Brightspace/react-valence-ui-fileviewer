@@ -1,4 +1,5 @@
-@import '../../bower_components/vui-icons/icons.scss';
+@import '../../../bower_components/vui-button/button.scss';
+@import '../../../bower_components/vui-icons/icons.scss';
 
 .vui-fileviewer-generic {
 
@@ -43,6 +44,14 @@
 		color: #666666;
 		font-style: italic;
 		margin-top: 2px;
+	}
+
+	.vui-fileviewer-generic-download {
+		margin-top: 10px;
+	}
+
+	button {
+		@include vui-button;
 	}
 
 }

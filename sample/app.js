@@ -23,7 +23,10 @@ var Main = React.createClass({
 	},
 	render: function() {
 		var viewer = this.state.file ?
-			<FileViewer src={'files/' + this.state.file.src} size={this.state.file.size} /> : null;
+			<FileViewer
+				src={'files/' + this.state.file.src}
+				srcdownload={'files/' + this.state.file.src}
+				size={this.state.file.size} /> : null;
 		return <div>
 			<div className="file-selector">
 				<h1>File Viewer Sample Application</h1>

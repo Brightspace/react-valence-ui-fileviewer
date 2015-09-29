@@ -2,7 +2,7 @@
 
 var React = require('react'),
 	image = require('./plugins/image.js'),
-	genericViewer = require('./plugins/generic.js');
+	genericViewer = require('./plugins/generic/generic.js');
 
 var viewers = [
 	image,
@@ -17,7 +17,7 @@ var FileViewer = React.createClass({
 		var viewer;
 		for (var i = 0; i < viewers.length; i++) {
 			if (viewers[i].test(this.props.src)) {
-				viewer = viewers[i].getComponent(this.props.src, this.props.size);
+				viewer = viewers[i].getComponent(this.props);
 				break;
 			}
 		};
