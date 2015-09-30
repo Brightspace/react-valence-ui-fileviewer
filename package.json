@@ -4,11 +4,12 @@
   "description": "React component for viewing files",
   "main": "src/fileViewer.js",
   "scripts": {
-    "prebuild-sample": "rimraf dist && mkdir dist",
-    "build-sample": "browserify -s app ./sample/app.js > ./dist/app.js && node-sass ./sample/app.scss dist/app.css",
+    "prebuild-sample": "rimraf ./sample/dist && mkdir ./sample/dist",
+    "build-sample": "browserify -s app ./sample/app.js > ./sample/dist/app.js && node-sass ./sample/app.scss ./sample/dist/app.css",
     "lint": "eslint src",
     "postinstall": "bower install",
     "report-coverage": "cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js",
+    "serve": "http-server -p 8080 ./sample/",
     "test:unit": "jest --coverage",
     "test": "npm run lint && npm run test:unit"
   },
@@ -34,6 +35,7 @@
     "coveralls": "^2.11.4",
     "eslint": "^1.5.1",
     "eslint-config-brightspace": "^0.0.2",
+    "http-server": "^0.8.5",
     "jest-cli": "^0.5.7",
     "node-sass": "^3.3.3",
     "reactify": "^1.1.1",
