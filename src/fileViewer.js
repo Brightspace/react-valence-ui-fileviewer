@@ -3,13 +3,15 @@
 var React = require('react'),
 	getExtension = require('./getExtension'),
 	image = require('./plugins/image.js'),
-	generic = require('./plugins/generic/generic.js'),
+	htmlNative = require('./plugins/html/native.js'),
+	genericViewer = require('./plugins/generic/generic.js'),
 	pdfNative = require('./plugins/pdf/native.js');
 
 var viewers = [
 	image,
+	htmlNative,
 	pdfNative,
-	generic
+	genericViewer
 ];
 
 var FileViewer = React.createClass({
