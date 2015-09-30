@@ -7,6 +7,7 @@
     "node_modules",
     "bower_components",
     "src/__tests__",
+    "src/plugins/pdf/__tests__",
     "test",
     ".editorconfig",
     ".eslintrc",
