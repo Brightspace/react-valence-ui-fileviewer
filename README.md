@@ -35,17 +35,17 @@ npm test
 
 Included is a sample application which allows you to launch the file viewer with many different file types. To build the sample application, run:
 
-```script
+```shell
 npm run build-sample
 ```
 
-If you just want to build the sass, run:
+To serve the sample application, run:
 
-```script
-npm run build-sass
+```shell
+npm run serve
 ```
 
-Then open `sample/sample.html` in your browser.
+Then open `http://localhost:8080/` in your browser.
 
 ## Contributing
 Contributions are welcome, please submit a pull request!
