@@ -24,7 +24,7 @@ var FileViewer = React.createClass({
 				viewer = viewers[i].getComponent(this.props);
 				break;
 			}
-		};
+		}
 		return (<div className="vui-fileviewer">{viewer}</div>);
 	}
 });
