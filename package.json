@@ -33,7 +33,7 @@
     "browserify": "^11.1.0",
     "coveralls": "^2.11.4",
     "eslint": "^1.5.1",
-    "eslint-plugin-react": "^3.4.2",
+    "eslint-config-brightspace": "^0.0.2",
     "jest-cli": "^0.5.7",
     "node-sass": "^3.3.3",
     "reactify": "^1.1.1",
