@@ -3,12 +3,12 @@
 var React = require('react'),
 	getExtension = require('./getExtension'),
 	image = require('./plugins/image.js'),
-	html = require('./plugins/html.js'),
+	htmlNative = require('./plugins/html/native.js'),
 	genericViewer = require('./plugins/generic/generic.js');
 
 var viewers = [
 	image,
-	html,
+	htmlNative,
 	genericViewer
 ];
 
