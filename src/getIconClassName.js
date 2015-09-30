@@ -1,8 +1,7 @@
 'use strict';
 
 var iconExtensionMap = {
-	'audio': ['mp3', 'wav'],
-	'html' : ['html', 'htm']
+	'audio': ['mp3', 'wav']
 };
 
 function getIconClassName(extension) {
