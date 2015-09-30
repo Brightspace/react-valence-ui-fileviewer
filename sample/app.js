@@ -9,6 +9,8 @@ var files = [
 	{src: 'image3.gif', name: 'Kitchener (GIF medium)', size: 414555},
 	{src: 'image4.svg', name: 'Canada Map (SVG)', size: 66724},
 	{src: 'audio.mp3', name: 'Audio (MP3)', size: 10},
+	{src: 'pdf1.pdf', name: 'PDF (Cooking)', size: 48546},
+	{src: 'pdf2.pdf', name: 'PDF (Sample)', size: 8951},
 	{src: 'generic1.abc', name: 'Generic (ABC)', size: 102932},
 	{src: 'html1.html', name: 'HTML1 (HTML)', size: 40},
 	{src: 'scrollingHtml.html', name: 'ScrollingHtml (HTML)', size: 180}
