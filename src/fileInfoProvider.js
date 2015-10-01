@@ -4,6 +4,7 @@ function getFileInfo(path, callback) {
 
 	var xhr = new XMLHttpRequest();
 	xhr.open('HEAD', path);
+	xhr.withCredentials = true;
 	xhr.onreadystatechange = function() {
 		if (xhr.status !== 200) {
 			return callback(new Error('Non-200 status:' + xhr.status));
