@@ -13,7 +13,7 @@ function getFileInfo(path, callback) {
 		}
 		var size = xhr.getResponseHeader('content-length');
 		if (size === null) {
-			return callback(new Error('Missing "content-length" header'));
+			size = 0;
 		}
 		var mimeType = xhr.getResponseHeader('content-type');
 		if (mimeType === null) {
