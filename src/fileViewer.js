@@ -10,6 +10,7 @@ var FileViewer = React.createClass({
 	},
 	componentWillReceiveProps: function(nextProps) {
 		if (nextProps.src !== this.props.src) {
+			this.setState({info:null});
 			this.fetchFileInfo(nextProps.src);
 		}
 	},
@@ -44,6 +45,7 @@ var FileViewer = React.createClass({
 		}
 		return <FileViewerResolved
 			{...this.props}
+			filename={this.state.info.filename}
 			mimeType={this.state.info.mimeType}
 			size={this.state.info.size} />;
 	}

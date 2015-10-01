@@ -1,27 +1,49 @@
 'use strict';
 
+var getFilename = require('./getFilename');
+
+function getSize(xhr) {
+	var size = xhr.getResponseHeader('content-length');
+	if (size === null) {
+		size = 0;
+	}
+	return parseInt(size);
+}
+
+function getMimeType(xhr) {
+	var mimeType = xhr.getResponseHeader('content-type');
+	if (mimeType === null) {
+		mimeType = 'application/octet-stream';
+	}
+	mimeType = mimeType.split(';')[0].trim();
+	return mimeType;
+}
+
 function getFileInfo(path, callback) {
 
 	var xhr = new XMLHttpRequest();
 	xhr.open('HEAD', path);
 	xhr.withCredentials = true;
 	xhr.onreadystatechange = function() {
+
 		if (xhr.status !== 200) {
 			return callback(new Error('Non-200 status:' + xhr.status));
 		}
 		if (xhr.readyState !== 4) {
 			return;
 		}
-		var size = xhr.getResponseHeader('content-length');
-		if (size === null) {
-			size = 0;
-		}
-		var mimeType = xhr.getResponseHeader('content-type');
-		if (mimeType === null) {
-			mimeType = 'application/octet-stream';
-		}
-		mimeType = mimeType.split(';')[0].trim();
-		callback(null, {size: parseInt(size), mimeType: mimeType});
+
+		var filename = getFilename(
+			path, xhr.getResponseHeader('content-disposition')
+		);
+
+		var fileInfo = {
+			size: getSize(xhr),
+			mimeType: getMimeType(xhr),
+			filename: filename
+		};
+		callback(null, fileInfo);
+
 	};
 	xhr.send();
 
