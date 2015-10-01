@@ -7,6 +7,7 @@ var NativeViewer = React.createClass({
 	componentDidMount: function() {
 		window.addEventListener('resize', this.handleResize);
 		document.body.style.overflow = 'hidden';
+		this.updateProgress(100);
 		this.handleResize();
 	},
 	componentWillUnmount: function() {
