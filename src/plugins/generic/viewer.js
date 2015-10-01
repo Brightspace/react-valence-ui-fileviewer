@@ -11,7 +11,7 @@ var Viewer = React.createClass({
 		return (<div className="vui-fileviewer-generic">
 			<Icon mimeType={this.props.mimeType} />
 			<div className="vui-fileviewer-generic-main">
-				<Filename src={this.props.src} />
+				<Filename value={this.props.filename} />
 				<Size value={this.props.size} />
 				<Download src={this.props.srcdownload} />
 			</div>
