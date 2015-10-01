@@ -6,16 +6,16 @@ var getIconClassName = require('../getIconClassName.js');
 
 describe('GetIconClassName', function() {
 
-	['wav', 'mp3'].forEach(function(extension) {
-		it('should should return audio icon for "' + extension + '"', function() {
-			var type = getIconClassName(extension);
+	['audio/wav', 'audio/mp3'].forEach(function(mimeType) {
+		it('should should return audio icon for "' + mimeType + '"', function() {
+			var type = getIconClassName(mimeType);
 			expect(type).toEqual('audio');
 		});
 	});
 
-	['abc'].forEach(function(extension) {
-		it('should should return unknown type for "' + extension + '"', function() {
-			var type = getIconClassName(extension);
+	['abc'].forEach(function(mimeType) {
+		it('should should return unknown type for "' + mimeType + '"', function() {
+			var type = getIconClassName(mimeType);
 			expect(type).toEqual('unknown');
 		});
 	});

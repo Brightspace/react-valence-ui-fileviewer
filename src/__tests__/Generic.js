@@ -1,6 +1,5 @@
 'use strict';
 
-jest.dontMock('../getExtension.js');
 jest.dontMock('../getIconClassName.js');
 jest.dontMock('../plugins/generic/icon.js');
 jest.dontMock('../plugins/generic/viewer.js');
@@ -13,7 +12,7 @@ describe('Generic', function() {
 	it('Renders the audio icon for a .mp3 file', function() {
 
 		var elem = TestUtils.renderIntoDocument(
-			<Generic src='foo.mp3' />
+			<Generic mimeType='audio/mp3' />
 		);
 
 		var audioIcons = TestUtils.scryRenderedDOMComponentsWithClass(elem, 'vui-fileviewer-icon-audio');

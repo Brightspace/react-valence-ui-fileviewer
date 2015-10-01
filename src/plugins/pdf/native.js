@@ -8,8 +8,8 @@ var plugin = {
 	getComponent: function(props) {
 		return <NativeViewer {...props} />;
 	},
-	test: function(extension) {
-		if (extension !== 'pdf') {
+	test: function(mimeType) {
+		if (mimeType !== 'application/pdf') {
 			return false;
 		}
 		var result = supportsNativePdf();
