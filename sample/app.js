@@ -4,16 +4,16 @@ var React = require('react'),
 	FileViewer = require('../src/fileViewer.js');
 
 var files = [
-	{src: 'image1.jpg', name: 'Toronto (JPG large)'},
-	{src: 'image2.png', name: 'Winnipeg (PNG medium)'},
-	{src: 'image3.gif', name: 'Kitchener (GIF medium)'},
-	{src: 'image4.svg', name: 'Canada Map (SVG)'},
-	{src: 'audio.mp3', name: 'Audio (MP3)'},
-	{src: 'pdf1.pdf', name: 'PDF (Cooking)'},
-	{src: 'pdf2.pdf', name: 'PDF (Sample)'},
-	{src: 'generic1.abc', name: 'Generic (ABC)'},
-	{src: 'html1.html', name: 'HTML1 (HTML)'},
-	{src: 'scrollingHtml.html', name: 'ScrollingHtml (HTML)'}
+	{src: 'image1.jpg', name: 'Toronto (JPG large)', size: 1361550},
+	{src: 'image2.png', name: 'Winnipeg (PNG medium)', size: 1272270},
+	{src: 'image3.gif', name: 'Kitchener (GIF medium)', size: 414555},
+	{src: 'image4.svg', name: 'Canada Map (SVG)', size: 66724},
+	{src: 'audio.mp3', name: 'Audio (MP3)', size: 10},
+	{src: 'pdf1.pdf', name: 'PDF (Cooking)', size: 48546},
+	{src: 'pdf2.pdf', name: 'PDF (Sample)', size: 8951},
+	{src: 'generic1.abc', name: 'Generic (ABC)', size: 102932},
+	{src: 'html1.html', name: 'HTML1 (HTML)', size: 40},
+	{src: 'scrollingHtml.html', name: 'ScrollingHtml (HTML)', size: 180}
 ];
 
 var Main = React.createClass({
@@ -25,15 +25,13 @@ var Main = React.createClass({
 	fileSelected: function(event) {
 		this.setState({file: files[event.target.selectedIndex - 1]});
 	},
-	logProgress: function(progress) {
-		console.log(this.state.file.src + ' - ' + progress + '/100');
-	},
 	render: function() {
 		var viewer = this.state.file ?
 			<FileViewer
 				progressCallback={this.logProgress}
 				src={'files/' + this.state.file.src}
-				srcdownload={'files/' + this.state.file.src} /> : null;
+				srcdownload={'files/' + this.state.file.src}
+				size={this.state.file.size} /> : null;
 		return <div>
 			<div className="file-selector">
 				<h1>File Viewer Sample Application</h1>
