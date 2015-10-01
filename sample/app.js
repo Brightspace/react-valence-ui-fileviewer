@@ -16,6 +16,10 @@ var files = [
 	{src: 'scrollingHtml.html', name: 'ScrollingHtml (HTML)'}
 ];
 
+function logProgress (progress) {
+	console.log(progress + '/100');
+}
+
 var Main = React.createClass({
 	getInitialState: function() {
 		return {
@@ -28,6 +32,7 @@ var Main = React.createClass({
 	render: function() {
 		var viewer = this.state.file ?
 			<FileViewer
+				progressCallback={logProgress}
 				src={'files/' + this.state.file.src}
 				srcdownload={'files/' + this.state.file.src} /> : null;
 		return <div>
