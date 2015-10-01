@@ -4,10 +4,11 @@ var React = require('react');
 
 var Size = React.createClass({
 	render: function() {
-		if (!this.props.value) {
-			return null;
+		var size = this.props.value;
+		if (size === 0) {
+			size = '??';
 		}
-		return <div className="vui-fileviewer-generic-size">{this.props.value}</div>;
+		return <div className="vui-fileviewer-generic-size">{size}</div>;
 	}
 });
 
