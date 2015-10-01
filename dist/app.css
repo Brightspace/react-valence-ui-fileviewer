@@ -1,0 +1,110 @@
+.vui-fileviewer .vui-fileviewer-generic {
+  background-color: #ffffff;
+  border: 1px solid #d4d4d4;
+  border-radius: 5px;
+  margin: 10px;
+  max-width: 90%;
+  width: 550px;
+  padding: 20px; }
+  .vui-fileviewer .vui-fileviewer-generic:after {
+    content: '';
+    display: block;
+    clear: both; }
+  .vui-fileviewer .vui-fileviewer-generic .vui-fileviewer-icon {
+    float: left;
+    margin: 15px 40px 0 20px;
+    vertical-align: middle; }
+  .vui-fileviewer .vui-fileviewer-generic .vui-fileviewer-icon-audio:before {
+    content: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAMAAAAp4XiDAAAAq1BMVEX///+nrrVfJ25+Q5GBR5ODS5aGUJiJVJuMWJ2PXaCZmZmkpKSmpqanrrWogLWqqqqzs7PAwMDQ0tXR1NbS1NfT1djU1NTU1tnV1dXV19rV2NvX2dzX2tzZ2dnc3Nzd3d3f39/m5ubo6Ojp6enq6urr6urr6+vs7Ozt7O3t7e3u7e3u7u7v7u7v7+/w8PDx8fHy8vLz8vLz8/P09PT19fX29vb8/Pz9/f3///8sUcsnAAAAAnRSTlMAnxYjQ+0AAAFjSURBVEjH1dTZeoIwEIBRY3eWAl2oXVDRVkQFFUX7/k/WZNgyDZGkXvW/m4QjCHz0en/MPhGRkG95EmPv5NkfRJtk70SXbDZvRJOkafpK9EhCexGMncmzY9Yz0SER9EROkonnGDTHmzDyVfRIThDPqPMomZY9IENvZF3kGFxOJHl3eIIENdyWzZN1XXFVbhCGgVtcW7PXTkI4LDjk+31+CGAIOwicJMiLIQ/wadoJ+yduXk05uzannaRV7GcH9ZQO2FxPrWTGDhk2ZNhNInbIriFxN1mjQ37PiCSQb8JdTbhgwfSLQSR++cAFYhi+SFYss9xfcZVLJgyILGnT6rVacqE1gXzqk0SPLFjV9oILrSECnwSr3I65yiULBpGM5GQkIdnYaifWOBPJHNoe4Vs/54KF47YYEImUOpfMlPoXpK8YT+6VQuROKURulULkRilErpVC5EopRC6VQuRCqf55j1KrH26Q0Kd4fmCrAAAAAElFTkSuQmCC"); }
+  .vui-fileviewer .vui-fileviewer-generic .vui-fileviewer-icon-pdf:before {
+    content: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAMAAAAp4XiDAAABKVBMVEX///+nrrVkAACZmZmenp6fn5+kpKSmpqanrrWpqamqqqqsLi+srKyuMzOurq6vr6+wODiwsLCxPT2xsbGzQkKzs7O0tLS1Rka3S0u4uLi5ubm6urq7u7u9vb2+vr6/v7/AwMDBwcHDw8PExMTFxcXGxsbHc3PIyMjJycnKysrLy8vMzMzNzc3Pzs7Pz8/Q0tXR0dHR1NbS0tLS1NfT1djU1tnV19rV2NvW1tbX19fX2dzX2tzZ2dna2trb29vd3d3e3t7f39/h4eHi4uLj4+Pk5OTo6Ojp6enq6urr6urr6+vs7Ozt7O3t7e3u7e3u7u7v7u7v7+/w7+/w8PDx8PDx8fHy8vLz8/P09PT19fX29vb39/f4+Pj5+fn6+vr7+/v8/Pz9/f3///9pJNgiAAAAAnRSTlMAnxYjQ+0AAAHESURBVEjHpdT9d5JQGMDxsQcUl+lssZprsc2RLnpZtVarlTo3LRCREeB8Sd3//0ckpsQzduHe9v3lPlzO55x7gMPKyn8mxsQRyA05ghF75MSvHDPxvnCsxHU/cRREfVYNiG3bJ1wygfeFgFizPkaM6OGqMPy8nEXD75hLJF45IPq8D1wSaSgB+fm3d1wsaYHyj7QWvUVm9iBRPVhTljPh27lN3CyobjQxTJxb7UPNiRZLzuA7K9mFA1aSAiGJ2LhvoMKhHSmObIMj8xoL0aDoGMImCzmAc9s9ih4NEQvFpz3L6stQwtsWmbyBU38ZyZC/JJNuuFT6er42i8DnMwCQ33w930DEDFWCC9OsVXI8ZCUZIHtWV5V0xb9DIi1eajxPbbys6zeT8W9XSUNWrdYP40gJ1vYa0/HAc/wrezjV1aK0Y0VIJ+gC5MnA7YT61R+Nh11/QsRYVJYkwTVI3UGaObkKRyYDaWZkj5euDTrS9stIw5zQa5NDxP9TvRLMLUEzdHIRsiMVhNqVTku0WT9KiuNocUWI2e+bGhtJ7p5klbIweUEVIk+pQuQJVYg8pgqRR1Qhsk4VIg+pQuQBVav3e5VM/QGQKaKq8GBlvwAAAABJRU5ErkJggg=="); }
+  .vui-fileviewer .vui-fileviewer-generic .vui-fileviewer-icon-unknown:before {
+    content: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAMAAAAp4XiDAAAAYFBMVEX///+nrrWnrrXQ0tXR1NbS1NfT1djU1tnV19rV2NvX2dzX2tzo6Ojp6Ojp6enq6enq6urr6urr6+vs7Ozt7O3t7e3u7e3u7u7v7u7v7+/w8PDx8fHy8vLz8/P09PT///90HhaIAAAAAnRSTlMAnxYjQ+0AAACfSURBVEjHY2AgGTCCSSY8Kv7/RxNggVCyuLU8ZviPVct/PNZwfUOVZSLsdiFORlK1/BfiYCRRy79/guyMJNry/78gGyNJ3v8DxHwff/8nyWFAwMvCSKqWfzzMjKgOwwf+QqPn67//xPrlCyJx/SfOFikE89l/Im1BB0ykJ376aBn1Cx1sGbSBPOqXwZlghlMWG+EJZtCGGCNJGv8xkAcA/O03w87pOcUAAAAASUVORK5CYII="); }
+  .vui-fileviewer .vui-fileviewer-generic .vui-fileviewer-generic-main {
+    float: left; }
+  .vui-fileviewer .vui-fileviewer-generic .vui-fileviewer-generic-filename {
+    font-size: 1.3em;
+    font-weight: bold; }
+  .vui-fileviewer .vui-fileviewer-generic .vui-fileviewer-generic-size {
+    color: #666666;
+    font-style: italic;
+    margin-top: 2px; }
+  .vui-fileviewer .vui-fileviewer-generic .vui-fileviewer-generic-download {
+    margin-top: 10px; }
+  .vui-fileviewer .vui-fileviewer-generic button {
+    border-radius: 3px;
+    border: 1px solid #cccccc;
+    cursor: pointer;
+    display: inline-block;
+    font-family: inherit;
+    font-size: inherit;
+    line-height: normal;
+    margin: 0;
+    min-height: 28px;
+    padding: 5px 10px;
+    text-align: center;
+    user-select: none;
+    vertical-align: middle;
+    white-space: nowrap;
+    width: auto; }
+    .vui-fileviewer .vui-fileviewer-generic button:after {
+      content: " ";
+      width: 0; }
+    .vui-fileviewer .vui-fileviewer-generic button::-moz-focus-inner {
+      border: 0;
+      padding: 0; }
+    .vui-fileviewer .vui-fileviewer-generic button,
+    .vui-fileviewer .vui-fileviewer-generic button:visited,
+    .vui-fileviewer .vui-fileviewer-generic button:link,
+    .vui-fileviewer .vui-fileviewer-generic button:hover,
+    .vui-fileviewer .vui-fileviewer-generic button:focus,
+    .vui-fileviewer .vui-fileviewer-generic button.vui-disabled:hover,
+    .vui-fileviewer .vui-fileviewer-generic button.vui-disabled:focus,
+    .vui-fileviewer .vui-fileviewer-generic button[disabled]:hover,
+    .vui-fileviewer .vui-fileviewer-generic button[disabled]:focus {
+      background: #f8f8f8;
+      background: linear-gradient(to bottom, #f8f8f8 0%, #f2f2f2 100%);
+      border-color: #cccccc;
+      box-shadow: 0 1px 0 0 #ffffff inset;
+      color: #000000;
+      outline: none;
+      text-decoration: none; }
+    .vui-fileviewer .vui-fileviewer-generic button.vui-disabled,
+    .vui-fileviewer .vui-fileviewer-generic button[disabled] {
+      opacity: 0.5;
+      cursor: default; }
+    .vui-fileviewer .vui-fileviewer-generic button:hover {
+      border-color: #aeaeae;
+      box-shadow: 0 2px 0 0 #ffffff inset; }
+    .vui-fileviewer .vui-fileviewer-generic button:focus {
+      border-color: #94ccda;
+      box-shadow: 0 0 1px 0 #f2f2f2 inset, 0 0 3px 1px #94ccda; }
+    .vui-fileviewer .vui-fileviewer-generic button:hover,
+    .vui-fileviewer .vui-fileviewer-generic button:focus {
+      background: #fdfdfd;
+      background: linear-gradient(to bottom, #fdfdfd 0%, #fafafa 100%);
+      border-width: 1px;
+      border-style: solid; }
+
+.vui-fileviewer .vui-fileviewer-html-native {
+  width: 100%; }
+
+.vui-fileviewer .vui-fileviewer-pdf-native {
+  width: 100%; }
+
+body {
+  background: #fafafa;
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  margin: 0; }
+
+.file-selector {
+  padding: 10px; }
+
+label > span {
+  margin-right: 10px; }
+
+hr {
+  border-top: 1px solid #666666;
+  border-bottom: none;
+  margin: 0; }
