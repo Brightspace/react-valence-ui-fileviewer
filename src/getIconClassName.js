@@ -1,14 +1,14 @@
 'use strict';
 
 var iconExtensionMap = {
-	'audio': ['mp3', 'wav'],
-	'pdf': ['pdf']
+	'audio/': 'audio',
+	'application/pdf': 'pdf'
 };
 
-function getIconClassName(extension) {
-	for (var className in iconExtensionMap) {
-		if (iconExtensionMap[className].indexOf(extension) > -1) {
-			return className;
+function getIconClassName(mimeType) {
+	for (var pattern in iconExtensionMap) {
+		if (mimeType.startsWith(pattern)) {
+			return iconExtensionMap[pattern];
 		}
 	}
 	return 'unknown';

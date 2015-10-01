@@ -2,12 +2,11 @@
 
 var React = require('react');
 
-var extensions = [
-	'jpg',
-	'jpeg',
-	'gif',
-	'png',
-	'svg'
+var mimeTypes = [
+	'image/jpeg',
+	'image/gif',
+	'image/png',
+	'image/svg+xml'
 ];
 
 var style = {
@@ -25,8 +24,8 @@ var plugin = {
 	getComponent: function(props) {
 		return <ImageViewer {...props} />;
 	},
-	test: function(extension) {
-		var isImage = (extensions.indexOf(extension) > -1);
+	test: function(mimeType) {
+		var isImage = (mimeTypes.indexOf(mimeType) > -1);
 		return isImage;
 	}
 };

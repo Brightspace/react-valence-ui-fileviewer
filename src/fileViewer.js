@@ -1,33 +1,51 @@
 'use strict';
 
 var React = require('react'),
-	getExtension = require('./getExtension'),
-	image = require('./plugins/image.js'),
-	htmlNative = require('./plugins/html/native.js'),
-	genericViewer = require('./plugins/generic/generic.js'),
-	pdfNative = require('./plugins/pdf/native.js');
-
-var viewers = [
-	image,
-	htmlNative,
-	pdfNative,
-	genericViewer
-];
+	FileViewerResolved = require('./fileViewerResolved'),
+	fileInfoProvider = require('./fileInfoProvider');
 
 var FileViewer = React.createClass({
+	componentDidMount: function() {
+		this.fetchFileInfo(this.props.src);
+	},
+	componentWillReceiveProps: function(nextProps) {
+		if (nextProps.src !== this.props.src) {
+			this.fetchFileInfo(nextProps.src);
+		}
+	},
+	fetchFileInfo: function(src) {
+		var me = this;
+		fileInfoProvider(src, function(err, fileInfo) {
+			if (!me.isMounted()) {
+				return;
+			}
+			if (err) {
+				me.setState({error: err});
+				return;
+			}
+			me.setState({info: fileInfo});
+		});
+	},
+	getInitialState: function() {
+		return {
+			error: null,
+			info: null
+		};
+	},
 	propTypes: {
 		src: React.PropTypes.string.isRequired
 	},
 	render: function() {
-		var extension = getExtension(this.props.src);
-		var viewer;
-		for (var i = 0; i < viewers.length; i++) {
-			if (viewers[i].test(extension)) {
-				viewer = viewers[i].getComponent(this.props);
-				break;
-			}
+		if (this.state.error) {
+			return <div>{this.state.error}</div>;
 		}
-		return (<div className="vui-fileviewer">{viewer}</div>);
+		if (!this.state.info) {
+			return null;
+		}
+		return <FileViewerResolved
+			{...this.props}
+			mimeType={this.state.info.mimeType}
+			size={this.state.info.size} />;
 	}
 });
 

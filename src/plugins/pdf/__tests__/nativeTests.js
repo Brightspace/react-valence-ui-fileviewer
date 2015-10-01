@@ -9,19 +9,19 @@ describe('PDF Native Plugin', function() {
 
 	it('does not handle non-PDF files', function() {
 		supportsNativePdf.mockImpl(function() { return true; });
-		var result = native.test('foo');
+		var result = native.test('foo/bar');
 		expect(result).toBeFalsy();
 	});
 
 	it('does not handle PDF files if no native support', function() {
 		supportsNativePdf.mockImpl(function() { return false; });
-		var result = native.test('pdf');
+		var result = native.test('application/pdf');
 		expect(result).toBeFalsy();
 	});
 
 	it('does handle PDF files if native support', function() {
 		supportsNativePdf.mockImpl(function() { return true; });
-		var result = native.test('pdf');
+		var result = native.test('application/pdf');
 		expect(result).toBeTruthy();
 	});
 
