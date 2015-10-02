@@ -25,6 +25,9 @@ var Main = React.createClass({
 	fileSelected: function(event) {
 		this.setState({file: files[event.target.selectedIndex - 1]});
 	},
+	logProgress: function(progress) {
+		console.log(this.state.file.src + ' - ' + progress + '/100');
+	},
 	render: function() {
 		var viewer = this.state.file ?
 			<FileViewer
