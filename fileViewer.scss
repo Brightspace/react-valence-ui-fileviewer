@@ -1,0 +1,10 @@
+@import 'bower_components/vui-button/button';
+@import 'bower_components/vui-icons/icons';
+
+.vui-fileviewer {
+
+	@import './src/plugins/generic/generic.scss';
+	@import './src/plugins/html/html.scss';
+	@import './src/plugins/pdf/pdf.scss';
+
+}
