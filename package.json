@@ -39,7 +39,8 @@
     "jest-cli": "^0.5.7",
     "node-sass": "^3.3.3",
     "reactify": "^1.1.1",
-    "rimraf": "^2.4.3"
+    "rimraf": "^2.4.3",
+    "sinon": "^1.17.1"
   },
   "private": true,
   "browserify": {
