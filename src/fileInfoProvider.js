@@ -26,11 +26,11 @@ function getFileInfo(path, callback) {
 	xhr.withCredentials = true;
 	xhr.onreadystatechange = function() {
 
-		if (xhr.status !== 200) {
-			return callback(new Error('Non-200 status:' + xhr.status));
-		}
 		if (xhr.readyState !== 4) {
 			return;
+		}
+		if (xhr.status !== 200) {
+			return callback(new Error('Non-200 status:' + xhr.status));
 		}
 
 		var filename = getFilename(
