@@ -9,11 +9,13 @@ var React = require('react'),
 var Viewer = React.createClass({
 	render: function() {
 		return (<div className="vui-fileviewer-generic">
-			<Icon mimeType={this.props.mimeType} />
-			<div className="vui-fileviewer-generic-main">
-				<Filename value={this.props.filename} />
-				<Size value={this.props.size} />
-				<Download src={this.props.srcdownload} />
+			<div className="vui-fileviewer-generic-container">
+				<Icon mimeType={this.props.mimeType} />
+				<div className="vui-fileviewer-generic-main">
+					<Filename value={this.props.filename} />
+					<Size value={this.props.size} />
+					<Download src={this.props.srcdownload} />
+				</div>
 			</div>
 		</div>);
 	}
