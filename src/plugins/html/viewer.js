@@ -24,7 +24,6 @@ var NativeViewer = React.createClass({
 			src={this.props.src}
 			// this forces react to destroy the iframe instead of updating it when the src changes
 			key={this.props.src}
-			type="application/html"
 			className="vui-fileviewer-html-native"
 			ref="wrapper"
 			style={style}>

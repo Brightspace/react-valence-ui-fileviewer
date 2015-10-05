@@ -1,6 +1,7 @@
 'use strict';
 
-var React = require('react');
+var ImageViewer = require('./viewer'),
+	React = require('react'); // eslint-disable-line no-unused-vars
 
 var mimeTypes = [
 	'image/jpeg',
@@ -8,17 +9,6 @@ var mimeTypes = [
 	'image/png',
 	'image/svg+xml'
 ];
-
-var style = {
-	maxWidth: '100%',
-	maxHeight: '100%'
-};
-
-var ImageViewer = React.createClass({
-	render: function() {
-		return <img src={this.props.src} alt="" style={style} />;
-	}
-});
 
 var plugin = {
 	getComponent: function(props) {

@@ -1,8 +1,8 @@
 'use strict';
 
 var React = require('react'),
-	image = require('./plugins/image.js'),
-	htmlNative = require('./plugins/html/native.js'),
+	image = require('./plugins/image/image.js'),
+	htmlNative = require('./plugins/html/html.js'),
 	genericViewer = require('./plugins/generic/generic.js'),
 	pdfNative = require('./plugins/pdf/native.js');
 
