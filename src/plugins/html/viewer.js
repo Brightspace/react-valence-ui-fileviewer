@@ -28,8 +28,6 @@ var NativeViewer = React.createClass({
 		var style = this.state.height ? { height: this.state.height } : null;
 		return <iframe
 			src={this.props.src}
-			// this forces react to destroy the iframe instead of updating it when the src changes
-			key={this.props.src}
 			className="vui-fileviewer-html-native"
 			ref="wrapper"
 			style={style}>

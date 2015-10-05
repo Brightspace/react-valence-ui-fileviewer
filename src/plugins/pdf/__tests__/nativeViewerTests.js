@@ -17,4 +17,18 @@ describe('PDF Native Viewer', function() {
 		);
 		expect(div.length).toBe(1);
 	});
+
+	it('Makes at least one call to the progress callback', function() {
+
+		var called = false;
+		var progressFunc = function() { called = true; };
+
+		TestUtils.renderIntoDocument(
+			<NativeViewer
+				src='test.pdf'
+				progressCallback={progressFunc} />
+		);
+
+		expect(called).toBeTruthy();
+	});
 });
