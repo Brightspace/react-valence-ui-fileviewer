@@ -28,7 +28,8 @@ describe('HTML Viewer', function() {
 				progressCallback={progressFunc} />
 		);
 
-		expect(progressFunc.mock.calls.length).toBe(1);
-		expect(progressFunc.mock.calls[0][0]).toBe(100);
+		expect(progressFunc.mock.calls.length).toBe(2);
+		expect(progressFunc.mock.calls[0][0]).toBe(0);
+		expect(progressFunc.mock.calls[1][0]).toBe(100);
 	});
 });

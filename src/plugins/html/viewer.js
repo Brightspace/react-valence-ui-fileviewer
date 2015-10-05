@@ -2,7 +2,6 @@
 
 var React = require('react');
 
-
 var NativeViewer = React.createClass({
 	getInitialState: function() {
 		return {
@@ -19,9 +18,6 @@ var NativeViewer = React.createClass({
 	componentWillUnmount: function() {
 		window.removeEventListener('resize', this.handleResize);
 	},
-	getInitialState: function() {
-		return { height: null };
-	},
 	handleResize: function() {
 		var rect = React.findDOMNode(this.refs.wrapper).getBoundingClientRect();
 		var height = (window.innerHeight - rect.top);
@@ -30,7 +26,7 @@ var NativeViewer = React.createClass({
 	updateProgress: function(progress) {
 		// The iframe calls 'onLoad' both during 'render' and after mounting, we only want to use the second call
 		// Can't use isMounted() because this function triggers during the render and makes react throw a warning
-		if (this.props.progressCallback && this.state.mounted) {
+		if (this.props.progressCallback && (this.state.mounted || progress === 0)) {
 			this.props.progressCallback(progress);
 		}
 	},
