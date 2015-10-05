@@ -1,7 +1,7 @@
 'use strict';
 
 var React = require('react'), // eslint-disable-line no-unused-vars
-	NativeViewer = require('./nativeViewer');
+	NativeViewer = require('./viewer');
 
 var plugin = {
 	getComponent: function(props) {
