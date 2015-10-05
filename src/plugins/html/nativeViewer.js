@@ -1,7 +1,6 @@
 'use strict';
 
-var React = require('react'),
-	GenericViewer = require('../generic/viewer.js');
+var React = require('react');
 
 var NativeViewer = React.createClass({
 	componentDidMount: function() {
@@ -29,7 +28,6 @@ var NativeViewer = React.createClass({
 			className="vui-fileviewer-html-native"
 			ref="wrapper"
 			style={style}>
-			<GenericViewer {...this.props} />;
 		</iframe>;
 	}
 });
