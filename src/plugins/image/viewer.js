@@ -3,6 +3,9 @@
 var React = require('react');
 
 var ImageViewer = React.createClass({
+	propTypes: {
+		src: React.PropTypes.string.isRequired
+	},
 	componentDidMount: function() {
 		this.updateProgress(100);
 	},
