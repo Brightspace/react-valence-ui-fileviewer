@@ -5,6 +5,7 @@ var React = require('react');
 var NativeViewer = React.createClass({
 	componentDidMount: function() {
 		window.addEventListener('resize', this.handleResize);
+		this.updateProgress(100);
 		this.handleResize();
 	},
 	componentWillUnmount: function() {
@@ -18,12 +19,15 @@ var NativeViewer = React.createClass({
 		var height = (window.innerHeight - rect.top);
 		this.setState({height: height});
 	},
+	updateProgress: function(progress) {
+		if (this.props.progressCallback) {
+			this.props.progressCallback(progress);
+		}
+	},
 	render: function() {
 		var style = this.state.height ? { height: this.state.height } : null;
 		return <iframe
 			src={this.props.src}
-			// this forces react to destroy the iframe instead of updating it when the src changes
-			key={this.props.src}
 			className="vui-fileviewer-html-native"
 			ref="wrapper"
 			style={style}>
