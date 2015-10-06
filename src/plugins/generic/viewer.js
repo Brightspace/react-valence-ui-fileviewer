@@ -7,6 +7,12 @@ var React = require('react'),
 	Size = require('./size.js');
 
 var Viewer = React.createClass({
+	propTypes: {
+		mimeType: React.PropTypes.string.isRequired,
+		filename: React.PropTypes.string.isRequired,
+		size: React.PropTypes.number.isRequired,
+		srcdownload: React.PropTypes.string
+	},
 	render: function() {
 		return (<div className="vui-fileviewer-generic">
 			<div className="vui-fileviewer-generic-container">

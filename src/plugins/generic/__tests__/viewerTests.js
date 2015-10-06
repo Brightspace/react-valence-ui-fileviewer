@@ -1,10 +1,5 @@
 'use strict';
 
-jest.dontMock('../../../getIconClassName.js');
-jest.dontMock('../download.js');
-jest.dontMock('../filename.js');
-jest.dontMock('../icon.js');
-jest.dontMock('../size.js');
 jest.dontMock('../viewer.js');
 
 var React = require('react/addons'),
@@ -12,14 +7,16 @@ var React = require('react/addons'),
 	Viewer = require('../viewer.js');
 
 describe('Generic Viewer', function() {
-	it('Renders the audio icon for a .mp3 file', function() {
+
+	it('should render wrapper with expected class name', function() {
 		var elem = TestUtils.renderIntoDocument(
-			<Viewer mimeType='audio/mp3' size={1234} />
+			<Viewer mimeType='audio/mp3' size={1234} filename='foo.mp3' />
 		);
-		var audioIcons = TestUtils.scryRenderedDOMComponentsWithClass(
+		var wrapper = TestUtils.findRenderedDOMComponentWithClass(
 			elem,
-			'vui-fileviewer-icon-audio'
+			'vui-fileviewer-generic'
 		);
-		expect(audioIcons.length).toEqual(1);
+		expect(wrapper).toBeDefined();
 	});
+
 });
