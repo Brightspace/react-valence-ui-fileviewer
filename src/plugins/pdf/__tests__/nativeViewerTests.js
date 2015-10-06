@@ -28,6 +28,7 @@ describe('PDF Native Viewer', function() {
 				progressCallback={progressFunc} />
 		);
 
+		expect(progressFunc.mock.calls.length).toBe(1);
 		expect(progressFunc.mock.calls[0][0]).toBe(100);
 	});
 });
