@@ -3,6 +3,9 @@
 var React = require('react');
 
 var Download = React.createClass({
+	propTypes: {
+		src: React.PropTypes.string
+	},
 	download: function() {
 		document.location.href = this.props.src;
 	},
