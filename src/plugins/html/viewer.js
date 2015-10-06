@@ -5,11 +5,13 @@ var React = require('react');
 var NativeViewer = React.createClass({
 	componentDidMount: function() {
 		window.addEventListener('resize', this.handleResize);
+		document.body.style.overflow = 'hidden';
 		this.updateProgress(100);
 		this.handleResize();
 	},
 	componentWillUnmount: function() {
 		window.removeEventListener('resize', this.handleResize);
+		document.body.style.overflow = 'visible';
 	},
 	getInitialState: function() {
 		return { height: null };
