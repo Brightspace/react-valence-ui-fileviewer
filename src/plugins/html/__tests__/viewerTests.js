@@ -18,10 +18,9 @@ describe('HTML Viewer', function() {
 		expect(wrapper.length).toBe(1);
 	});
 
-	it('Makes at least one call to the progress callback', function() {
+	it('Calls the progressCallback and passes 100 in as the value', function() {
 
-		var called = false;
-		var progressFunc = function() { called = true; };
+		var progressFunc = jest.genMockFunction();
 
 		TestUtils.renderIntoDocument(
 			<Viewer
@@ -29,6 +28,6 @@ describe('HTML Viewer', function() {
 				progressCallback={progressFunc} />
 		);
 
-		expect(called).toBeTruthy();
+		expect(progressFunc.mock.calls[0][0]).toBe(100);
 	});
 });
