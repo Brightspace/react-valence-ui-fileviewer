@@ -1,17 +1,14 @@
 'use strict';
 
 jest.dontMock('../image.js');
+jest.dontMock('../mimeTypes.js');
 
-var ImagePlugin = require('../image.js');
+var ImagePlugin = require('../image.js'),
+	mimeTypes = require('../mimeTypes.js');
 
 describe('Image Plugin', function() {
 
-	[
-		'image/jpeg',
-		'image/png',
-		'image/gif',
-		'image/svg+xml'
-	].forEach(function(mimeType) {
+	mimeTypes.forEach(function(mimeType) {
 		it('should return true for "' + mimeType + '" mime type', function() {
 			var value = ImagePlugin.test(mimeType);
 			expect(value).toBeTruthy();

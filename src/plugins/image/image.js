@@ -1,14 +1,8 @@
 'use strict';
 
 var ImageViewer = require('./viewer'),
+	mimeTypes = require('./mimeTypes'),
 	React = require('react'); // eslint-disable-line no-unused-vars
-
-var mimeTypes = [
-	'image/jpeg',
-	'image/gif',
-	'image/png',
-	'image/svg+xml'
-];
 
 var plugin = {
 	getComponent: function(props) {
