@@ -14,7 +14,7 @@ var React = require('react/addons'),
 describe('Generic Viewer', function() {
 	it('Renders the audio icon for a .mp3 file', function() {
 		var elem = TestUtils.renderIntoDocument(
-			<Viewer mimeType='audio/mp3' />
+			<Viewer mimeType='audio/mp3' size={1234} />
 		);
 		var audioIcons = TestUtils.scryRenderedDOMComponentsWithClass(
 			elem,
