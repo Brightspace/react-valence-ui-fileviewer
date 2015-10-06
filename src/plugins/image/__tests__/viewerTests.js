@@ -41,4 +41,17 @@ describe('Image Viewer', function() {
 		expect(React.findDOMNode(img).src).toBe('foo.bar');
 	});
 
+	it('Calls the progressCallback and passes 100 in as the value', function() {
+
+		var progressFunc = jest.genMockFunction();
+
+		TestUtils.renderIntoDocument(
+			<Viewer
+				src='test.jpg'
+				progressCallback={progressFunc} />
+		);
+
+		expect(progressFunc.mock.calls.length).toBe(1);
+		expect(progressFunc.mock.calls[0][0]).toBe(100);
+	});
 });
