@@ -5,8 +5,8 @@ var React = require('react');
 var NativeViewer = React.createClass({
 	componentDidMount: function() {
 		window.addEventListener('resize', this.handleResize);
-		this.updateProgress(100);
 		this.handleResize();
+		this.updateProgress(0);
 	},
 	componentWillUnmount: function() {
 		window.removeEventListener('resize', this.handleResize);
@@ -27,9 +27,13 @@ var NativeViewer = React.createClass({
 			this.props.progressCallback(progress);
 		}
 	},
+	handleOnLoad: function() {
+		this.updateProgress(100);
+	},
 	render: function() {
 		var style = this.state.height ? { height: this.state.height } : null;
 		return <iframe
+			onLoad={this.handleOnLoad}
 			src={this.props.src}
 			className="vui-fileviewer-html-native"
 			ref="wrapper"

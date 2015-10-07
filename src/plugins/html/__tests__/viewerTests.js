@@ -64,14 +64,16 @@ describe('HTML Viewer', function() {
 
 		var progressFunc = jest.genMockFunction();
 
-		TestUtils.renderIntoDocument(
+		var elem = TestUtils.renderIntoDocument(
 			<Viewer
 				src='test.html'
 				progressCallback={progressFunc} />
 		);
 
-		expect(progressFunc.mock.calls.length).toBe(1);
-		expect(progressFunc.mock.calls[0][0]).toBe(100);
-	});
+		TestUtils.Simulate.load(TestUtils.findRenderedDOMComponentWithClass(elem, 'vui-fileviewer-html-native'));
 
+		expect(progressFunc.mock.calls.length).toBe(2);
+		expect(progressFunc.mock.calls[0][0]).toBe(0);
+		expect(progressFunc.mock.calls[1][0]).toBe(100);
+	});
 });
