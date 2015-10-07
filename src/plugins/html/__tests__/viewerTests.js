@@ -70,7 +70,7 @@ describe('HTML Viewer', function() {
 				progressCallback={progressFunc} />
 		);
 
-		TestUtils.findRenderedDOMComponentWithClass(elem, 'vui-fileviewer-html-native').props.onLoad();
+		TestUtils.Simulate.load(TestUtils.findRenderedDOMComponentWithClass(elem, 'vui-fileviewer-html-native'));
 
 		expect(progressFunc.mock.calls.length).toBe(2);
 		expect(progressFunc.mock.calls[0][0]).toBe(0);

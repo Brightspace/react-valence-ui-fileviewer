@@ -3,9 +3,6 @@
 var React = require('react');
 
 var NativeViewer = React.createClass({
-	getInitialState: function() {
-		return { height: null };
-	},
 	componentDidMount: function() {
 		window.addEventListener('resize', this.handleResize);
 		this.handleResize();
@@ -13,6 +10,9 @@ var NativeViewer = React.createClass({
 	},
 	componentWillUnmount: function() {
 		window.removeEventListener('resize', this.handleResize);
+	},
+	getInitialState: function() {
+		return { height: null };
 	},
 	handleResize: function() {
 		var rect = React.findDOMNode(this.refs.wrapper).getBoundingClientRect();
