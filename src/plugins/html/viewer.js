@@ -4,16 +4,12 @@ var React = require('react');
 
 var NativeViewer = React.createClass({
 	getInitialState: function() {
-		return {
-			mounted: false,
-			height: null
-		};
+		return { height: null };
 	},
 	componentDidMount: function() {
-		this.setState({mounted: true});
 		window.addEventListener('resize', this.handleResize);
-		this.updateProgress(0);
 		this.handleResize();
+		this.updateProgress(0);
 	},
 	componentWillUnmount: function() {
 		window.removeEventListener('resize', this.handleResize);
@@ -24,16 +20,17 @@ var NativeViewer = React.createClass({
 		this.setState({height: height});
 	},
 	updateProgress: function(progress) {
-		// The iframe calls 'onLoad' both during 'render' and after mounting, we only want to use the second call
-		// Can't use isMounted() because this function triggers during the render and makes react throw a warning
-		if (this.props.progressCallback && (this.state.mounted || progress === 0)) {
+		if (this.props.progressCallback) {
 			this.props.progressCallback(progress);
 		}
+	},
+	handleOnLoad: function() {
+		this.updateProgress(100);
 	},
 	render: function() {
 		var style = this.state.height ? { height: this.state.height } : null;
 		return <iframe
-			onLoad={this.updateProgress(100)}
+			onLoad={this.handleOnLoad}
 			src={this.props.src}
 			className="vui-fileviewer-html-native"
 			ref="wrapper"

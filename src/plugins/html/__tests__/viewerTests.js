@@ -18,15 +18,17 @@ describe('HTML Viewer', function() {
 		expect(wrapper.length).toBe(1);
 	});
 
-	it('Calls the progressCallback and passes 100 in as the value', function() {
+	it('Calls the progressCallback twice with values 0 then 100', function() {
 
 		var progressFunc = jest.genMockFunction();
 
-		TestUtils.renderIntoDocument(
+		var elem = TestUtils.renderIntoDocument(
 			<Viewer
 				src='test.html'
 				progressCallback={progressFunc} />
 		);
+
+		TestUtils.findRenderedDOMComponentWithClass(elem, 'vui-fileviewer-html-native').props.onLoad();
 
 		expect(progressFunc.mock.calls.length).toBe(2);
 		expect(progressFunc.mock.calls[0][0]).toBe(0);
