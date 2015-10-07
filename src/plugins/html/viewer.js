@@ -19,6 +19,9 @@ var NativeViewer = React.createClass({
 		var height = (window.innerHeight - rect.top);
 		this.setState({height: height});
 	},
+	propTypes: {
+		src: React.PropTypes.string.isRequired
+	},
 	updateProgress: function(progress) {
 		if (this.props.progressCallback) {
 			this.props.progressCallback(progress);
