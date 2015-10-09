@@ -4,7 +4,7 @@
   "description": "React component for viewing files",
   "main": "src/fileViewer.js",
   "scripts": {
-    "prebuild-sample": "rimraf ./sample/dist && mkdir ./sample/dist",
+    "prebuild-sample": "rimraf ./sample/dist .\\sample\\dist && mkdir ./sample/dist",
     "build-sample": "browserify -s app ./sample/app.js > ./sample/dist/app.js && node-sass ./sample/app.scss ./sample/dist/app.css",
     "lint": "eslint src",
     "postinstall": "bower install",
