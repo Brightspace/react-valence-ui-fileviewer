@@ -7,9 +7,11 @@ var NativeViewer = React.createClass({
 		window.addEventListener('resize', this.handleResize);
 		this.handleResize();
 		this.updateProgress(0);
+		document.body.style.overflow = 'hidden';
 	},
 	componentWillUnmount: function() {
 		window.removeEventListener('resize', this.handleResize);
+		document.body.style.overflow = 'visible';
 	},
 	getInitialState: function() {
 		return { height: null };
