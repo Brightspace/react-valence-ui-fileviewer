@@ -50,9 +50,7 @@ Then open `http://localhost:8080/` in your browser.
 ## Parameters
 FlieViewer has the following parameters:
 
-```
-progressCallback
-``` Takes a callback function, which should accept a decimal, indicating the percentage loaded out of 100. May or may not be accurate.
+`progressCallback` Takes a callback function, which should accept a decimal, indicating the percentage loaded out of 100. May or may not be accurate.
 
 ## Contributing
 Contributions are welcome, please submit a pull request!
