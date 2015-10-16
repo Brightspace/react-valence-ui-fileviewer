@@ -20,11 +20,19 @@ var files = [
 var Main = React.createClass({
 	getInitialState: function() {
 		return {
-			file: null
+			file: null,
+			locale: 'en-CA'
 		};
 	},
 	fileSelected: function(event) {
-		this.setState({file: files[event.target.selectedIndex - 1]});
+		var selections = this.state;
+		selections.file = files[event.target.selectedIndex - 1];
+		this.setState(selections);
+	},
+	localeSelected: function(event) {
+		var selections = this.state;
+		selections.locale = event.target.value;
+		this.setState(selections);
 	},
 	logProgress: function(progress) {
 		console.log(this.state.file.src + ' - ' + progress + '/100');
@@ -34,7 +42,8 @@ var Main = React.createClass({
 			<FileViewer
 				progressCallback={this.logProgress}
 				src={'files/' + this.state.file.src}
-				srcdownload={'files/' + this.state.file.src} /> : null;
+				srcdownload={'files/' + this.state.file.src}
+				locale={this.state.locale} /> : null;
 		return <div>
 			<div className="file-selector">
 				<h1>File Viewer Sample Application</h1>
@@ -45,6 +54,15 @@ var Main = React.createClass({
 						{this.props.files.map(function(file) {
 							return <option key={file.src}>{file.name}</option>;
 						})}
+					</select>
+				</label>
+				<label>
+					Locale:
+					<select onChange={this.localeSelected}>
+						<option value="en-CA">en-CA</option>
+						<option value="fr-CA">fr-CA</option>
+						<option value="ko-KR">ko-KR</option>
+						<option value="ar-SA">ar-SA</option>
 					</select>
 				</label>
 			</div>

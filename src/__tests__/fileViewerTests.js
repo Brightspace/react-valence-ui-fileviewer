@@ -6,7 +6,8 @@ jest.dontMock('../fileViewer.js');
 var React = require('react/addons'),
 	TestUtils = React.addons.TestUtils,
 	FileViewer = require('../fileViewer'),
-	provider = require('../fileInfoProvider');
+	provider = require('../fileInfoProvider'),
+	FileViewerResolved = require('../fileViewerResolved');
 
 provider.mockImpl(function(src, callback) {
 	switch (src) {
@@ -85,4 +86,14 @@ describe('FileViewer', function() {
 		expect(elem.state.info.mimeType).toBe('image/gif');
 	});
 
+	it('should pass locale to FileViewerResolved', function() {
+		var wrapper = TestUtils.renderIntoDocument(
+			<FileViewer src='file1.gif' locale='en-ca' />
+		);
+		var fileViewerResolvedComponent = TestUtils.findRenderedComponentWithType(
+			wrapper,
+			FileViewerResolved
+		);
+		expect(fileViewerResolvedComponent.props.locale).toBe('en-ca');
+	});
 });
