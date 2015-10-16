@@ -1,7 +1,7 @@
 'use strict';
 
 var React = require('react'),
-	d2lIntl = require('d2l-intl');
+	d2lIntl = require('../../../bower_components/d2l-intl');
 
 var Size = React.createClass({
 	propTypes: {

@@ -33,7 +33,6 @@
     "bower": "^1.5.3",
     "browserify": "^11.1.0",
     "coveralls": "^2.11.4",
-    "d2l-intl": "^0.1.0",
     "eslint": "^1.5.1",
     "eslint-config-brightspace": "^0.0.2",
     "http-server": "^0.8.5",
