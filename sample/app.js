@@ -12,6 +12,7 @@ var files = [
 	{src: 'pdf1.pdf', name: 'PDF (Cooking)'},
 	{src: 'pdf2.pdf', name: 'PDF (Sample)'},
 	{src: 'generic1.abc', name: 'Generic (ABC)'},
+	{src: 'largeGeneric.txt', name: 'Generic (TXT)'},
 	{src: 'html1.html', name: 'HTML1 (HTML)'},
 	{src: 'scrollingHtml.html', name: 'ScrollingHtml (HTML)'}
 ];
