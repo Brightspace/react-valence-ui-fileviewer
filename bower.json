@@ -17,6 +17,7 @@
   ],
   "dependencies": {
     "vui-button": "~0.7.4",
-    "vui-icons": "~0.7.0"
+    "vui-icons": "~0.7.0",
+    "d2l-intl": "~0.2.0"
   }
 }

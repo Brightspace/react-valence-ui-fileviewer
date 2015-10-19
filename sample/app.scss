@@ -11,8 +11,12 @@ body {
 	padding: 10px;
 }
 
-label > span {
-	margin-right: 10px;
+label {
+	display: block;
+	padding-bottom: .5em;
+	span {
+		margin-right: 10px;
+	}
 }
 
 hr {
