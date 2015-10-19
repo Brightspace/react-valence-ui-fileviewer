@@ -25,14 +25,10 @@ var Main = React.createClass({
 		};
 	},
 	fileSelected: function(event) {
-		var selections = this.state;
-		selections.file = files[event.target.selectedIndex - 1];
-		this.setState(selections);
+		this.setState({file: files[event.target.selectedIndex - 1]});
 	},
 	localeSelected: function(event) {
-		var selections = this.state;
-		selections.locale = event.target.value;
-		this.setState(selections);
+		this.setState({locale: event.target.value});
 	},
 	logProgress: function(progress) {
 		console.log(this.state.file.src + ' - ' + progress + '/100');
