@@ -17,8 +17,8 @@ var NativeViewer = React.createClass({
 		return { height: null };
 	},
 	handleResize: function() {
-		var rect = React.findDOMNode(this.refs.wrapper).getBoundingClientRect();
-		var height = (window.innerHeight - rect.top);
+		var chromeHeight = (this.props.chromeElement) ? this.props.chromeElement.getBoundingClientRect().height : 0;
+		var height = (window.innerHeight - chromeHeight);
 		this.setState({height: height});
 	},
 	propTypes: {

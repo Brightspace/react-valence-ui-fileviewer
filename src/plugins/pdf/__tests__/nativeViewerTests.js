@@ -31,4 +31,33 @@ describe('PDF Native Viewer', function() {
 		expect(progressFunc.mock.calls.length).toBe(1);
 		expect(progressFunc.mock.calls[0][0]).toBe(100);
 	});
+
+	it('should resize to the window height when no chromeElement is passed in', function() {
+		var setState = jest.genMockFunction();
+		NativeViewer.prototype.setState = setState;
+
+		TestUtils.renderIntoDocument(
+			<NativeViewer src='foo.bar' />
+		);
+
+		expect(setState).toBeCalledWith({ height : window.innerHeight });
+	});
+
+	it('should resize to the window height minus the height of the chromeElement', function() {
+		var setState = jest.genMockFunction();
+		NativeViewer.prototype.setState = setState;
+		var chromeHeight = 50;
+
+		var chrome = {
+			getBoundingClientRect : function() {
+				return {height : chromeHeight};
+			}
+		};
+
+		TestUtils.renderIntoDocument(
+			<NativeViewer src='foo.bar' chromeElement={chrome} />
+		);
+
+		expect(setState).toBeCalledWith({ height : window.innerHeight - chromeHeight });
+	});
 });
