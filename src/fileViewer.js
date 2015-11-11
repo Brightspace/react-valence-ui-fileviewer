@@ -36,7 +36,8 @@ var FileViewer = React.createClass({
 	propTypes: {
 		src: React.PropTypes.string.isRequired,
 		locale: React.PropTypes.string,
-		progressCallback: React.PropTypes.func
+		progressCallback: React.PropTypes.func,
+		chromeElement: React.PropTypes.object
 	},
 	render: function() {
 		if (this.state.error) {
