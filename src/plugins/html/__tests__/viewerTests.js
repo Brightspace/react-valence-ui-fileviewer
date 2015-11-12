@@ -44,22 +44,6 @@ describe('HTML Viewer', function() {
 		expect(React.findDOMNode(iframe).src).toBe('foo.bar');
 	});
 
-	it('should add event listener when mounted', function() {
-		TestUtils.renderIntoDocument(<Viewer src='foo.bar' />);
-		expect(addEventListener.calledOnce).toBeTruthy();
-	});
-
-	it('should remove event listener when unmounted', function() {
-		var elem = TestUtils.renderIntoDocument(
-			<Viewer src='foo.bar' />
-		);
-		var success = React.unmountComponentAtNode(
-			React.findDOMNode(elem).parentNode
-		);
-		expect(success).toBeTruthy();
-		expect(removeEventListener.calledOnce).toBeTruthy();
-	});
-
 	it('should calls the progressCallback and pass 100 in as the value', function() {
 
 		var progressFunc = jest.genMockFunction();
