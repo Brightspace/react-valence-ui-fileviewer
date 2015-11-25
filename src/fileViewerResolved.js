@@ -4,12 +4,14 @@ var React = require('react'),
 	image = require('./plugins/image/image.js'),
 	htmlNative = require('./plugins/html/html.js'),
 	genericViewer = require('./plugins/generic/generic.js'),
-	pdfNative = require('./plugins/pdf/native.js');
+	pdfNative = require('./plugins/pdf/native.js'),
+	pdfAlternate = require('./plugins/pdf/alternate.js');
 
 var viewers = [
 	image,
 	htmlNative,
 	pdfNative,
+	pdfAlternate,
 	genericViewer
 ];
 
