@@ -7,7 +7,7 @@ var iconExtensionMap = {
 
 function getIconClassName(mimeType) {
 	for (var pattern in iconExtensionMap) {
-		if (mimeType.startsWith(pattern)) {
+		if (mimeType.indexOf(pattern) === 0) {
 			return iconExtensionMap[pattern];
 		}
 	}
