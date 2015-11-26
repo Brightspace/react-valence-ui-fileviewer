@@ -17,40 +17,6 @@ var AlternativeViewer = React.createClass({
 	getMaxScale: function() {
 		return this.props.maxScale || MAX_SCALE;
 	},
-	componentDidMount: function() {
-		this.updateProgress(10);
-		document.addEventListener('scroll', this.onScroll);
-
-		var url = this.props.src;
-		PDFJS.getDocument(url).then(this.onDocumentLoaded);
-	},
-	updateProgress: function(progress) {
-		if (this.props.progressCallback) {
-			this.props.progressCallback(progress);
-		}
-	},
-	getInitialState: function() {
-		return {
-			pages: [],
-			pixelRatio: this.getPixelRatio(),
-			scale: 1
-		};
-	},
-	render: function() {
-		var self = this;
-		return (
-			<div className="vui-fileviewer-pdf-alternate">
-				{self.state.pages.map(function(page) {
-					return <AlternateViewerPage key={page.ref} ref={page.ref}
-						page={page}
-						pixelRatio={self.state.pixelRatio}
-						scale={self.state.scale}
-						pageHeight={self.state.pageHeight}
-						pageWidth={self.state.pageWidth} />;
-				})}
-			</div>
-		);
-	},
 	getPixelRatio: function() {
 		var ctx = document.createElement('canvas').getContext('2d'),
 			devicePixelRatio = window.devicePixelRatio || 1,
@@ -144,6 +110,40 @@ var AlternativeViewer = React.createClass({
 		return (elementTop >= visibleAreaStart && elementTop <= visibleAreaEnd)
 			|| (elementBottom >= visibleAreaStart && elementBottom <= visibleAreaEnd)
 			|| (elementTop <= visibleAreaStart && elementBottom >= visibleAreaEnd);
+	},
+	componentDidMount: function() {
+		this.updateProgress(10);
+		document.addEventListener('scroll', this.onScroll);
+
+		var url = this.props.src;
+		PDFJS.getDocument(url).then(this.onDocumentLoaded);
+	},
+	updateProgress: function(progress) {
+		if (this.props.progressCallback) {
+			this.props.progressCallback(progress);
+		}
+	},
+	getInitialState: function() {
+		return {
+			pages: [],
+			pixelRatio: this.getPixelRatio(),
+			scale: 1
+		};
+	},
+	render: function() {
+		var self = this;
+		return (
+			<div className="vui-fileviewer-pdf-alternate">
+				{self.state.pages.map(function(page) {
+					return <AlternateViewerPage key={page.ref} ref={page.ref}
+						page={page}
+						pixelRatio={self.state.pixelRatio}
+						scale={self.state.scale}
+						pageHeight={self.state.pageHeight}
+						pageWidth={self.state.pageWidth} />;
+				})}
+			</div>
+		);
 	}
 });
 
