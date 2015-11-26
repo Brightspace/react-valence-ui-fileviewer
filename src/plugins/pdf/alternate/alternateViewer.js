@@ -2,7 +2,8 @@
 'use strict';
 
 var React = require('react'),
-	AlternateViewerPage = require('./AlternateViewerPage');
+	AlternateViewerPage = require('./AlternateViewerPage'),
+	isInView = require('./isInView');
 
 require('./pdfjs-lib');
 
@@ -52,7 +53,6 @@ var AlternativeViewer = React.createClass({
 
 			for (var i = 1; i <= pdf.numPages; i++) {
 				pages.push({
-					isInView: i === 1,
 					pageNumber: i,
 					pdfPage: i === 1 ? page : null,
 					ref: 'page_' + i,
@@ -93,23 +93,12 @@ var AlternativeViewer = React.createClass({
 		for (var page of this.state.pages) {
 			var pageDOMNode = this.refs[page.ref].getDOMNode();
 
-			page.isInView = this.isInView(pageDOMNode, scrollPosition, visibleAreaHeight);
-
-			if (page.isInView && !page.requested) {
+			if (!page.requested && isInView(pageDOMNode, scrollPosition, visibleAreaHeight))
+			{
 				page.requested = true;
 				this.loadPage(page);
 			}
 		}
-	},
-	isInView: function(element, scrollPosition, visibleAreaHeight) {
-		var visibleAreaStart = scrollPosition,
-			visibleAreaEnd = visibleAreaStart + visibleAreaHeight,
-			elementTop = element.offsetTop,
-			elementBottom = elementTop + element.offsetHeight;
-
-		return (elementTop >= visibleAreaStart && elementTop <= visibleAreaEnd)
-			|| (elementBottom >= visibleAreaStart && elementBottom <= visibleAreaEnd)
-			|| (elementTop <= visibleAreaStart && elementBottom >= visibleAreaEnd);
 	},
 	componentDidMount: function() {
 		this.updateProgress(10);
