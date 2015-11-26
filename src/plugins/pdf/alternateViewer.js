@@ -9,8 +9,16 @@ require('./pdfjs-lib');
 var MAX_SCALE = 1.5;
 
 var AlternativeViewer = React.createClass({
+	propTypes: {
+		src: React.PropTypes.string.isRequired,
+		progressCallback: React.PropTypes.func,
+		maxScale: React.PropTypes.number
+	},
+	getMaxScale: function() {
+		return this.props.maxScale || MAX_SCALE;
+	},
 	componentDidMount: function() {
-		this.updateProgress(100);
+		this.updateProgress(10);
 		document.addEventListener('scroll', this.onScroll);
 
 		var url = this.props.src;
@@ -67,10 +75,12 @@ var AlternativeViewer = React.createClass({
 
 		var self = this;
 
+		self.updateProgress(70);
+
 		pdf.getPage(1).then(function(page) {
 			var unscaledViewport = page.getViewport(1),
 				containerNode = React.findDOMNode(self),
-				scale = Math.min(MAX_SCALE, (containerNode.clientWidth - 20) / unscaledViewport.width),
+				scale = Math.min(self.getMaxScale(), (containerNode.clientWidth - 20) / unscaledViewport.width),
 				pageViewport = page.getViewport(scale),
 				pages = [];
 
@@ -93,6 +103,8 @@ var AlternativeViewer = React.createClass({
 			});
 
 			self.loadVisiblePages();
+
+			self.updateProgress(100);
 		});
 	},
 	loadPage: function(page) {
