@@ -3,7 +3,8 @@
 
 var React = require('react'),
 	AlternateViewerPage = require('./AlternateViewerPage'),
-	isInView = require('./isInView');
+	isInView = require('./isInView'),
+	getPixelRatio = require('./pixelRatio/getPixelRatio');
 
 require('./pdfjs-lib');
 
@@ -17,23 +18,6 @@ var AlternativeViewer = React.createClass({
 	},
 	getMaxScale: function() {
 		return this.props.maxScale || MAX_SCALE;
-	},
-	getPixelRatio: function() {
-		var ctx = document.createElement('canvas').getContext('2d'),
-			devicePixelRatio = window.devicePixelRatio || 1,
-			backingStorePixelRatio = 1;
-
-		if (ctx) {
-			backingStorePixelRatio =
-				ctx.webkitBackingStorePixelRatio
-				|| ctx.mozBackingStorePixelRatio
-				|| ctx.msBackingStorePixelRatio
-				|| ctx.oBackingStorePixelRatio
-				|| ctx.backingStorePixelRatio
-				|| 1;
-		}
-
-		return devicePixelRatio / backingStorePixelRatio;
 	},
 	onDocumentLoaded: function(pdf) {
 		if (!pdf || !this.isMounted()) {
@@ -115,7 +99,7 @@ var AlternativeViewer = React.createClass({
 	getInitialState: function() {
 		return {
 			pages: [],
-			pixelRatio: this.getPixelRatio(),
+			pixelRatio: getPixelRatio(),
 			scale: 1
 		};
 	},

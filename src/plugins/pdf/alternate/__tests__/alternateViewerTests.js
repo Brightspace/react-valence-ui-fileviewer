@@ -4,7 +4,8 @@ jest.dontMock('../alternateViewer.js');
 
 var React = require('react/addons'),
 	TestUtils = React.addons.TestUtils,
-	AlternateViewer = require('../alternateViewer.js');
+	AlternateViewer = require('../alternateViewer.js'),
+	getPixelRatio = require('../pixelRatio/getPixelRatio.js');
 
 require('../pdfjs-lib');
 
@@ -22,6 +23,14 @@ describe('PDF Alternate Viewer', function() {
 			'vui-fileviewer-pdf-alternate'
 		);
 		expect(div.length).toBe(1);
+	});
+
+	it('gets the pixel ratio', function() {
+		TestUtils.renderIntoDocument(
+			<AlternateViewer src='some/path' />
+		);
+
+		expect(getPixelRatio).toBeCalled();
 	});
 
 	it('getMaxScale returns the default if no maxScale prop is provided', function() {
