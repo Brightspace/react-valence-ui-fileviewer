@@ -49,15 +49,6 @@ describe('PDF Alternate Viewer', function() {
 		expect(window.PDFJS.getDocument).toBeCalledWith('test.pdf');
 	});
 
-	xit('loads the first page', function() {
-		TestUtils.renderIntoDocument(
-			<AlternateViewer
-				src='test.pdf' />
-		);
-
-		expect(window.PDFJS.getDocument().getPage).toBeCalledWith(1);
-	});
-
 	it('Calls the progressCallback and passes 10 in as the initial value', function() {
 
 		var progressFunc = jest.genMockFunction();

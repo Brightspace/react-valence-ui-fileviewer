@@ -73,10 +73,10 @@ var AlternativeViewer = React.createClass({
 			self.updateProgress(100);
 		});
 	},
-	loadPage: function(page) {
+	loadPage: function(pageNumber) {
 		var self = this;
-		this.state.pdf.getPage(page.pageNumber).then(function(newPage) {
-			var pageFromState = self.state.pages[page.pageNumber - 1];
+		this.state.pdf.getPage(pageNumber).then(function(newPage) {
+			var pageFromState = self.state.pages[pageNumber - 1];
 			pageFromState.pdfPage = newPage;
 			self.setState({
 				pages: self.state.pages
@@ -96,7 +96,7 @@ var AlternativeViewer = React.createClass({
 			if (!page.requested && isInView(pageDOMNode, scrollPosition, visibleAreaHeight))
 			{
 				page.requested = true;
-				this.loadPage(page);
+				this.loadPage(page.pageNumber);
 			}
 		}
 	},

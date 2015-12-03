@@ -3,13 +3,12 @@
 window.PDFJS = {
 	getDocument: jest.genMockFunction().mockImpl(
 		function() {
-			return Promise.resolve(function() {
-				return {
+			return Promise.resolve(
+				{
 					getPage: jest.genMockFunction().mockImpl(function() {
 						return Promise.resolve();
 					})
-				};
-			});
+				});
 		}
 	),
 	workerSrc: ''
