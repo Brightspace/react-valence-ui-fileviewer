@@ -8,6 +8,7 @@ var files = [
 	{src: 'image2.png', name: 'Winnipeg (PNG medium)'},
 	{src: 'image3.gif', name: 'Kitchener (GIF medium)'},
 	{src: 'image4.svg', name: 'Canada Map (SVG)'},
+	{src: 'hello.bmp', name: 'Hello (BMP)'},
 	{src: 'audio.mp3', name: 'Audio (MP3)'},
 	{src: 'pdf1.pdf', name: 'PDF (Cooking)'},
 	{src: 'pdf2.pdf', name: 'PDF (Sample)'},

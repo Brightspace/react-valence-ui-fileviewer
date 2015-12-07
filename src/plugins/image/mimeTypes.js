@@ -4,5 +4,6 @@ module.exports = [
 	'image/jpeg',
 	'image/gif',
 	'image/png',
-	'image/svg+xml'
+	'image/svg+xml',
+	'image/bmp'
 ];
