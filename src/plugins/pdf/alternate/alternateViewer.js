@@ -1,12 +1,10 @@
-/* global PDFJS */
 'use strict';
 
 var React = require('react'),
+	pdfjs = require('./pdfjs-lib'),
 	AlternateViewerPage = require('./AlternateViewerPage'),
 	isInView = require('./isInView'),
 	getPixelRatio = require('./pixelRatio/getPixelRatio');
-
-require('./pdfjs-lib');
 
 var MAX_SCALE = 1.5;
 
@@ -89,7 +87,7 @@ var AlternativeViewer = React.createClass({
 		document.addEventListener('scroll', this.onScroll);
 
 		var url = this.props.src;
-		PDFJS.getDocument(url).then(this.onDocumentLoaded);
+		pdfjs.getDocument(url).then(this.onDocumentLoaded);
 	},
 	updateProgress: function(progress) {
 		if (this.props.progressCallback) {

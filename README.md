@@ -11,6 +11,14 @@ Install NPM dependencies:
 npm install
 ```
 
+Additionally, to get the fallback (non-native) PDF renderer working, you will need to add a reference to pdf.js from the CDN.
+It should be referenced _before_ referencing the javascript file containing the code for this component.
+
+```html
+<script src="https://s.brightspace.com/lib/pdf.js/1.1.469/pdf.js"></script>
+<script src="dist/app.js"></script>
+```
+
 ## Testing
 
 This project uses the [Jest](https://facebook.github.io/jest/) unit testing framework. To run the unit tests:
@@ -48,7 +56,7 @@ npm run serve
 Then open `http://localhost:8080/` in your browser.
 
 ## Parameters
-FlieViewer has the following parameters:
+FileViewer has the following parameters:
 
 `progressCallback` Takes a callback function, which should accept a decimal, indicating the percentage loaded out of 100. May or may not be accurate.
 

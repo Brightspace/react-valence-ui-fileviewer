@@ -31,7 +31,6 @@
   "dependencies": {
     "bower": "^1.6.5",
     "d2l-intl": "^0.2.1",
-    "pdfjs-dist": "^1.2.135",
     "reactify": "^1.1.1"
   },
   "devDependencies": {
@@ -56,7 +55,7 @@
     ]
   },
   "browserify-shim": {
-    "pdfJs": "global:PDFJS"
+    "pdfjs": "global:PDFJS"
   },
   "jest": {
     "scriptPreprocessor": "<rootDir>/node_modules/babel-jest",

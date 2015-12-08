@@ -1,6 +1,6 @@
 'use strict';
 
-window.PDFJS = {
+var PDFJS = {
 	getDocument: jest.genMockFunction().mockImpl(
 		function() {
 			return Promise.resolve(
@@ -26,3 +26,5 @@ window.PDFJS = {
 	),
 	workerSrc: ''
 };
+
+module.exports = PDFJS;

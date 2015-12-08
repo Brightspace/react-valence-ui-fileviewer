@@ -4,11 +4,10 @@ jest.dontMock('../alternateViewer.js');
 
 var React = require('react/addons'),
 	TestUtils = React.addons.TestUtils,
+	pdfjs = require('../pdfjs-lib'),
 	isInView = require('../isInView.js'),
 	AlternateViewer = require('../alternateViewer.js'),
 	getPixelRatio = require('../pixelRatio/getPixelRatio.js');
-
-require('../pdfjs-lib');
 
 describe('PDF Alternate Viewer', function() {
 	isInView.mockImpl(function() {
@@ -16,7 +15,7 @@ describe('PDF Alternate Viewer', function() {
 	});
 
 	beforeEach(function() {
-		window.PDFJS.getDocument.mockClear();
+		pdfjs.getDocument.mockClear();
 		isInView.mockClear();
 	});
 
@@ -61,7 +60,7 @@ describe('PDF Alternate Viewer', function() {
 				src='test.pdf' />
 		);
 
-		expect(window.PDFJS.getDocument).toBeCalledWith('test.pdf');
+		expect(pdfjs.getDocument).toBeCalledWith('test.pdf');
 	});
 
 	it('Calls the progressCallback and passes 10 in as the initial value', function() {
