@@ -4,17 +4,23 @@ jest.dontMock('../alternateViewer.js');
 
 var React = require('react/addons'),
 	TestUtils = React.addons.TestUtils,
+	isInView = require('../isInView.js'),
 	AlternateViewer = require('../alternateViewer.js'),
 	getPixelRatio = require('../pixelRatio/getPixelRatio.js');
 
 require('../pdfjs-lib');
 
 describe('PDF Alternate Viewer', function() {
-	beforeEach(function() {
-		window.PDFJS.getDocument.mockClear();
+	isInView.mockImpl(function() {
+		return true;
 	});
 
-	it('should test things eventually', function() {
+	beforeEach(function() {
+		window.PDFJS.getDocument.mockClear();
+		isInView.mockClear();
+	});
+
+	it('should render with expected class name', function() {
 		var viewer = TestUtils.renderIntoDocument(
 			<AlternateViewer src='some/path' />
 		);
@@ -25,7 +31,7 @@ describe('PDF Alternate Viewer', function() {
 		expect(div.length).toBe(1);
 	});
 
-	it('gets the pixel ratio', function() {
+	it('should get the pixel ratio', function() {
 		TestUtils.renderIntoDocument(
 			<AlternateViewer src='some/path' />
 		);
