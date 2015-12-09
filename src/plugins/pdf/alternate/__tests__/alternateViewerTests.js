@@ -60,7 +60,10 @@ describe('PDF Alternate Viewer', function() {
 				src='test.pdf' />
 		);
 
-		expect(pdfjs.getDocument).toBeCalledWith('test.pdf');
+		expect(pdfjs.getDocument).toBeCalledWith({
+			url: 'test.pdf',
+			withCredentials: true
+		});
 	});
 
 	it('Calls the progressCallback and passes 10 in as the initial value', function() {

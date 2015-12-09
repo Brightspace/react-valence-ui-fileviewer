@@ -72,8 +72,9 @@ var AlternativeViewer = React.createClass({
 		var scrollPosition = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop,
 			visibleAreaHeight = window.innerHeight;
 
-		for (var page of this.state.pages) {
-			var pageDOMNode = this.refs[page.ref].getDOMNode();
+		for (var i = 0; i < this.state.pages.length; i++) {
+			var page = this.state.pages[i],
+				pageDOMNode = this.refs[page.ref].getDOMNode();
 
 			if (!page.requested && isInView(pageDOMNode, scrollPosition, visibleAreaHeight))
 			{
