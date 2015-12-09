@@ -87,7 +87,10 @@ var AlternativeViewer = React.createClass({
 		document.addEventListener('scroll', this.onScroll);
 
 		var url = this.props.src;
-		pdfjs.getDocument(url).then(this.onDocumentLoaded);
+		pdfjs.getDocument({
+			url: url,
+			withCredentials: true
+		}).then(this.onDocumentLoaded);
 	},
 	updateProgress: function(progress) {
 		if (this.props.progressCallback) {
