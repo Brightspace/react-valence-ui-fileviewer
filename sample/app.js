@@ -28,7 +28,11 @@ var Main = React.createClass({
 		this.setState({file: files[event.target.selectedIndex - 1]});
 	},
 	localeSelected: function(event) {
-		this.setState({locale: event.target.value});
+		var dir = event.target.value === 'ar-SA' ? 'rtl' : 'ltr';
+		this.setState({
+			locale: event.target.value,
+			direction: dir
+		});
 	},
 	logProgress: function(progress) {
 		console.log(this.state.file.src + ' - ' + progress + '/100');
@@ -40,7 +44,7 @@ var Main = React.createClass({
 				src={'files/' + this.state.file.src}
 				srcdownload={'files/' + this.state.file.src}
 				locale={this.state.locale} /> : null;
-		return <div>
+		return <div dir={this.state.direction}>
 			<div className="file-selector">
 				<h1>File Viewer Sample Application</h1>
 				<label>
