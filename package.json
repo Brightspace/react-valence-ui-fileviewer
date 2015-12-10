@@ -5,7 +5,7 @@
   "main": "src/fileViewer.js",
   "scripts": {
     "prebuild-sample": "rimraf ./sample/dist && mkdirp ./sample/dist",
-    "build-sample": "browserify -s app ./sample/app.js > ./sample/dist/app.js && node-sass ./sample/app.scss ./sample/dist/app.css",
+    "build-sample": "browserify -t babelify -s app ./sample/app.js > ./sample/dist/app.js && node-sass ./sample/app.scss ./sample/dist/app.css",
     "lint": "eslint src",
     "postinstall": "bower install",
     "report-coverage": "cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js",
@@ -31,10 +31,12 @@
   "dependencies": {
     "bower": "^1.6.5",
     "d2l-intl": "^0.2.1",
+    "react-frau-intl": "^0.1.2",
     "reactify": "^1.1.1"
   },
   "devDependencies": {
     "babel-jest": "^5.3.0",
+    "babelify": "^6.1.2",
     "browserify": "^11.1.0",
     "coveralls": "^2.11.4",
     "eslint": "^1.5.1",
