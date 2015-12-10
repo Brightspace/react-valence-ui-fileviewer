@@ -12,11 +12,26 @@ npm install
 ```
 
 Additionally, to get the fallback (non-native) PDF renderer working, you will need to add a reference to pdf.js from the CDN.
-It should be referenced _before_ referencing the javascript file containing the code for this component.
+It must be referenced _before_ referencing the javascript file containing the code for this component.
 
 ```html
-<script src="https://s.brightspace.com/lib/pdf.js/1.1.469/pdf.js"></script>
+<script src="https://s.brightspace.com/lib/pdf.js/1.2.109/pdf.js"></script>
 <script src="dist/app.js"></script>
+```
+
+If you want to incorporate this component and build it from source you will also need to use browserify-shim to configure the PDFJS global variable.
+
+```json
+(in package.json)
+
+"browserify": {
+  "transform": [
+    "browserify-shim"
+  ]
+},
+"browserify-shim": {
+  "pdfjs": "global:PDFJS"
+}
 ```
 
 ## Testing
