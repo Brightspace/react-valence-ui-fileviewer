@@ -2,7 +2,7 @@
 
 var React = require('react'),
 	pdfjs = require('./pdfjs-lib'),
-	AlternateViewerPage = require('./AlternateViewerPage'),
+	AlternateViewerPage = require('./alternateViewerPage'),
 	isInView = require('./isInView'),
 	getPixelRatio = require('./pixelRatio/getPixelRatio');
 
