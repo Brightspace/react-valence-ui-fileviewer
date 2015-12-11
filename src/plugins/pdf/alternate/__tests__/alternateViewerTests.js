@@ -7,9 +7,14 @@ var React = require('react/addons'),
 	pdfjs = require('../pdfjs-lib'),
 	isInView = require('../isInView.js'),
 	AlternateViewer = require('../alternateViewer.js'),
+	AlternateViewerPage = require('../alternateViewerPage.js'),
 	getPixelRatio = require('../pixelRatio/getPixelRatio.js');
 
 describe('PDF Alternate Viewer', function() {
+	AlternateViewerPage.prototype.shouldComponentUpdate.mockImpl(function() {
+		// This is only really necessary to get rid of warnings in the test output
+		return false;
+	});
 	isInView.mockImpl(function() {
 		return true;
 	});

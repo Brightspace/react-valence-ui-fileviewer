@@ -58,30 +58,29 @@ var AlternativeViewer = React.createClass({
 	loadPage: function(pageNumber) {
 		var self = this;
 		this.state.pdf.getPage(pageNumber).then(function(newPage) {
-			var pageFromState = self.state.pages[pageNumber - 1];
-			pageFromState.pdfPage = newPage;
-			self.setState({
-				pages: self.state.pages
-			});
+			var page = self.state.pages[pageNumber - 1];
+			page.pdfPage = newPage;
+
+			self.forceUpdate();
 		});
 	},
 	onScroll: function() {
 		this.loadVisiblePages();
 	},
 	loadVisiblePages: function() {
-		var scrollPosition = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop,
+		var self = this,
+			scrollPosition = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop,
 			visibleAreaHeight = window.innerHeight;
 
-		for (var i = 0; i < this.state.pages.length; i++) {
-			var page = this.state.pages[i],
-				pageDOMNode = this.refs[page.ref].getDOMNode();
+		this.state.pages.forEach(function(page) {
+			var pageDOMNode = self.refs[page.ref].getDOMNode();
 
 			if (!page.requested && isInView(pageDOMNode, scrollPosition, visibleAreaHeight))
 			{
 				page.requested = true;
-				this.loadPage(page.pageNumber);
+				self.loadPage(page.pageNumber);
 			}
-		}
+		});
 	},
 	componentDidMount: function() {
 		this.updateProgress(10);
@@ -92,6 +91,9 @@ var AlternativeViewer = React.createClass({
 			url: url,
 			withCredentials: true
 		}).then(this.onDocumentLoaded);
+	},
+	componentWillUnmount: function() {
+		document.removeEventListener('scroll', this.onScroll);
 	},
 	updateProgress: function(progress) {
 		if (this.props.progressCallback) {
