@@ -61,10 +61,20 @@ var Main = React.createClass({
 				<label>
 					Locale:
 					<select onChange={this.localeSelected}>
-						<option value="en-CA">en-CA</option>
-						<option value="fr-CA">fr-CA</option>
-						<option value="ko-KR">ko-KR</option>
-						<option value="ar-SA">ar-SA</option>
+						<option value="">-- Select a Locale --</option>
+						<option value="ar-SA">AR Arabic (ar-SA)</option>
+						<option value="en-CA">CDN English(en-CA)</option>
+						<option value="en-CA">UK English(en-GB)</option>
+						<option value="en-US">US English(en-US)</option>
+						<option value="es-MX">ES Spanish(es-MX)</option>
+						<option value="fr-CA">Français Canada(fr-CA)</option>
+						<option value="en-US">JA Japanese(ja)</option>
+						<option value="ko-KR">KR Korean (ko-KR)</option>
+						<option value="en-US">Português Brasil(pr-BR))</option>
+						<option value="en-US">SE Swedish(sv-SE)</option>
+						<option value="en-US">TR Turkish(tr-TR)</option>
+						<option value="en-US">CN Chinese(zh-CN)</option>
+						<option value="en-US">TW Chinese(zh-TW)</option>
 					</select>
 				</label>
 			</div>
