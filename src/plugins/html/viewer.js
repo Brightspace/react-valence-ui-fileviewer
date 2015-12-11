@@ -11,7 +11,7 @@ var NativeViewer = React.createClass({
 	},
 	updateProgress: function(progress) {
 		if (this.props.progressCallback) {
-			this.props.progressCallback(progress);
+			this.props.progressCallback(progress, 'none');
 		}
 	},
 	handleOnLoad: function() {

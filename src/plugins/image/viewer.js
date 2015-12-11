@@ -6,12 +6,15 @@ var ImageViewer = React.createClass({
 	propTypes: {
 		src: React.PropTypes.string.isRequired
 	},
+	componentWillMount: function() {
+		this.updateProgress(0);
+	},
 	componentDidMount: function() {
 		this.updateProgress(100);
 	},
 	updateProgress: function(progress) {
 		if (this.props.progressCallback) {
-			this.props.progressCallback(progress);
+			this.props.progressCallback(progress, 'none');
 		}
 	},
 	render: function() {

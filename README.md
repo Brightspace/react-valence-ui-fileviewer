@@ -73,7 +73,13 @@ Then open `http://localhost:8080/` in your browser.
 ## Parameters
 FileViewer has the following parameters:
 
-`progressCallback` Takes a callback function, which should accept a decimal, indicating the percentage loaded out of 100. May or may not be accurate.
+`progressCallback` Takes a callback function, which should accept 2 parameters, the first reflecting the progress, and the second reflecting the accuracy of the progress value.
+
+* progress: A number between 0 and 100 indicating the percentage loaded.
+* accuracy: The accuracy of the returned progress value, currently we choose between two options:
+	* `certain`: indicates that progress will be a number between 0 and 100
+	* `guessing`: indicates that progress will be a number between 0 and 100, and that the progress may not be accurate
+	* `none`: indicates that it will only pass in progress values of 0 or 100
 
 ## Contributing
 Contributions are welcome, please submit a pull request!
