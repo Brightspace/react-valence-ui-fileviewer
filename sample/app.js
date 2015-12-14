@@ -12,6 +12,7 @@ var files = [
 	{src: 'audio.mp3', name: 'Audio (MP3)'},
 	{src: 'pdf1.pdf', name: 'PDF (Cooking)'},
 	{src: 'pdf2.pdf', name: 'PDF (Sample)'},
+	{src: 'pdf3.pdf', name: 'PDF (Large)'},
 	{src: 'generic1.abc', name: 'Generic (ABC)'},
 	{src: 'largeGeneric.txt', name: 'Generic (TXT)'},
 	{src: 'html1.html', name: 'HTML1 (HTML)'},

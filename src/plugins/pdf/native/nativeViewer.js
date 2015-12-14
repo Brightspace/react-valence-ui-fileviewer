@@ -1,7 +1,7 @@
 'use strict';
 
 var React = require('react'),
-	GenericViewer = require('../generic/viewer.js');
+	GenericViewer = require('../../generic/viewer.js');
 
 var NativeViewer = React.createClass({
 	componentDidMount: function() {
