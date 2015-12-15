@@ -14,12 +14,21 @@
 			display: block;
 			clear: both;
 		}
+		[dir="rtl"] & {
+			text-align: right;
+		}
 	}
 
 	.vui-fileviewer-icon {
 		float: left;
 		margin: 15px 40px 0 20px;
 		vertical-align: middle;
+
+		[dir="rtl"] & {
+			float: right;
+			margin-right: 20px;
+			margin-left: 40px;
+		}
 	}
 
 	.vui-fileviewer-icon-audio {
@@ -36,6 +45,9 @@
 
 	.vui-fileviewer-generic-main {
 		float: left;
+		[dir="rtl"] & {
+			float: right;
+		}
 	}
 
 	.vui-fileviewer-generic-filename {

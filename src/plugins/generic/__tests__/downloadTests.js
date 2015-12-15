@@ -1,16 +1,27 @@
 'use strict';
 
 jest.dontMock('../download.js');
+jest.dontMock('./utils/stubIntlMessage');
 
 var React = require('react/addons'),
 	TestUtils = React.addons.TestUtils,
-	Download = require('../download.js');
+	Download = require('../download.js'),
+	stubIntlMessage = require('./utils/stubIntlMessage');
 
 describe('Generic Download View', function() {
+	var DownloadTester;
 
+	beforeEach(function() {
+		DownloadTester = stubIntlMessage(
+			Download,
+			{},
+			function() {return 'Download';},
+			function() {return 'Download';}
+		);
+	});
 	it('should render nothing if "src" is not provided', function() {
 		var elem = TestUtils.renderIntoDocument(
-			<Download />
+			<DownloadTester />
 		);
 		var wrapper = TestUtils.scryRenderedDOMComponentsWithClass(
 			elem,
@@ -21,18 +32,20 @@ describe('Generic Download View', function() {
 
 	it('should render outer DIV with expected class name', function() {
 		var elem = TestUtils.renderIntoDocument(
-			<Download src='some/path' />
+			<DownloadTester src='some/path' />
 		);
-		var wrapper = TestUtils.scryRenderedDOMComponentsWithClass(
+
+		var wrapper = TestUtils.findRenderedDOMComponentWithClass(
 			elem,
 			'vui-fileviewer-generic-download'
 		);
-		expect(wrapper.length).toBe(1);
+
+		expect(TestUtils.isDOMComponent(wrapper)).toBe(true);
 	});
 
 	it('should render a "download" button', function() {
 		var elem = TestUtils.renderIntoDocument(
-			<Download src='some/path' />
+			<DownloadTester src='some/path' />
 		);
 		var button = TestUtils.findRenderedDOMComponentWithTag(
 			elem,
@@ -44,7 +57,7 @@ describe('Generic Download View', function() {
 
 	it('should navigate when clicked', function() {
 		var elem = TestUtils.renderIntoDocument(
-			<Download src='http://www.google.ca/' />
+			<DownloadTester src='http://www.google.ca/' />
 		);
 		var button = TestUtils.findRenderedDOMComponentWithTag(
 			elem,

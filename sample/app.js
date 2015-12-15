@@ -30,7 +30,11 @@ var Main = React.createClass({
 		this.setState({file: files[event.target.selectedIndex - 1]});
 	},
 	localeSelected: function(event) {
-		this.setState({locale: event.target.value});
+		var dir = event.target.value === 'ar-SA' ? 'rtl' : 'ltr';
+		this.setState({
+			locale: event.target.value,
+			direction: dir
+		});
 	},
 	logProgress: function(progress) {
 		console.log(this.state.file.src + ' - ' + progress + '/100');
@@ -42,7 +46,7 @@ var Main = React.createClass({
 				src={'files/' + this.state.file.src}
 				srcdownload={'files/' + this.state.file.src}
 				locale={this.state.locale} /> : null;
-		return <div>
+		return <div dir={this.state.direction}>
 			<div className="file-selector">
 				<h1>File Viewer Sample Application</h1>
 				<label>
@@ -57,10 +61,20 @@ var Main = React.createClass({
 				<label>
 					Locale:
 					<select onChange={this.localeSelected}>
-						<option value="en-CA">en-CA</option>
-						<option value="fr-CA">fr-CA</option>
-						<option value="ko-KR">ko-KR</option>
-						<option value="ar-SA">ar-SA</option>
+						<option value="">-- Select a Locale --</option>
+						<option value="ar-SA">AR Arabic (ar-SA)</option>
+						<option value="en-CA">CDN English(en-CA)</option>
+						<option value="en-CA">UK English(en-GB)</option>
+						<option value="en-US">US English(en-US)</option>
+						<option value="es-MX">ES Spanish(es-MX)</option>
+						<option value="fr-CA">Français Canada(fr-CA)</option>
+						<option value="en-US">JA Japanese(ja)</option>
+						<option value="ko-KR">KR Korean (ko-KR)</option>
+						<option value="pt-BR">Português Brasil(pt-BR))</option>
+						<option value="sv-SE">SE Swedish(sv-SE)</option>
+						<option value="tr-TR">TR Turkish(tr-TR)</option>
+						<option value="zh-CN">CN Chinese(zh-CN)</option>
+						<option value="zh-TW">TW Chinese(zh-TW)</option>
 					</select>
 				</label>
 			</div>
