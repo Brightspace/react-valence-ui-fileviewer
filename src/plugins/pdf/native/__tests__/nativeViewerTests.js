@@ -18,19 +18,6 @@ describe('PDF Native Viewer', function() {
 		expect(div.length).toBe(1);
 	});
 
-	it('Calls the progressCallback twice', function() {
-
-		var progressFunc = jest.genMockFunction();
-
-		TestUtils.renderIntoDocument(
-			<NativeViewer
-				src='test.pdf'
-				progressCallback={progressFunc} />
-		);
-
-		expect(progressFunc.mock.calls.length).toBe(2);
-	});
-
 	it('Calls the progressCallback and passes 0', function() {
 
 		var progressFunc = jest.genMockFunction();
