@@ -5,13 +5,14 @@
   "main": "src/fileViewer.js",
   "scripts": {
     "prebuild-sample": "rimraf ./sample/dist && mkdirp ./sample/dist",
-    "build-sample": "browserify -s app ./sample/app.js > ./sample/dist/app.js && node-sass ./sample/app.scss ./sample/dist/app.css",
+    "build-sample": "browserify -s app ./sample/app.js > ./sample/dist/app.js && node-sass ./sample/app.scss ./sample/dist/app.css && npm run language-builder",
     "lint": "eslint src",
     "postinstall": "bower install",
     "report-coverage": "cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js",
     "serve": "http-server -p 8080 ./sample/",
     "test:unit": "jest --coverage",
-    "test": "npm run lint && npm run test:unit"
+    "test": "npm run lint && npm run test:unit",
+    "language-builder": "l10n-language-builder ./src/lang/base ./src/lang/compiled"
   },
   "repository": {
     "type": "git",
@@ -43,6 +44,7 @@
     "eslint-config-brightspace": "^0.0.2",
     "http-server": "^0.8.5",
     "jest-cli": "^0.8.1",
+    "l10n-language-builder": "0.0.6",
     "mkdirp": "^0.5.1",
     "node-sass": "^3.3.3",
     "rimraf": "^2.4.3",
