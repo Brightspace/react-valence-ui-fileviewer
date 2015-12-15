@@ -23,6 +23,18 @@ describe('getMessages', function() {
 		expect(messages.Plugins.Generic.Download).toBe('تنزيل');
 	});
 
+	it('should support ar', function() {
+		var messages = getMessages('ar');
+
+		expect(messages.Plugins.Generic.Download).toBe('تنزيل');
+	});
+
+	it('should support en', function() {
+		var messages = getMessages('en');
+
+		expect(messages.Plugins.Generic.Download).toBe('Download');
+	});
+
 	it('should support en-ca', function() {
 		var messages = getMessages('en-ca');
 
@@ -41,8 +53,20 @@ describe('getMessages', function() {
 		expect(messages.Plugins.Generic.Download).toBe('Descargar');
 	});
 
+	it('should support es', function() {
+		var messages = getMessages('es');
+
+		expect(messages.Plugins.Generic.Download).toBe('Descargar');
+	});
+
 	it('should support fr-ca', function() {
 		var messages = getMessages('fr-ca');
+
+		expect(messages.Plugins.Generic.Download).toBe('Téléverser');
+	});
+
+	it('should support fr', function() {
+		var messages = getMessages('fr');
 
 		expect(messages.Plugins.Generic.Download).toBe('Téléverser');
 	});
@@ -59,8 +83,20 @@ describe('getMessages', function() {
 		expect(messages.Plugins.Generic.Download).toBe('다운로드');
 	});
 
+	it('should support ko', function() {
+		var messages = getMessages('ko');
+
+		expect(messages.Plugins.Generic.Download).toBe('다운로드');
+	});
+
 	it('should support pt-br', function() {
 		var messages = getMessages('pt-br');
+
+		expect(messages.Plugins.Generic.Download).toBe('Baixar');
+	});
+
+	it('should support pt', function() {
+		var messages = getMessages('pt');
 
 		expect(messages.Plugins.Generic.Download).toBe('Baixar');
 	});
@@ -71,14 +107,32 @@ describe('getMessages', function() {
 		expect(messages.Plugins.Generic.Download).toBe('Ladda ned');
 	});
 
+	it('should support sv', function() {
+		var messages = getMessages('sv');
+
+		expect(messages.Plugins.Generic.Download).toBe('Ladda ned');
+	});
+
 	it('should support tr-tr', function() {
 		var messages = getMessages('tr-tr');
 
 		expect(messages.Plugins.Generic.Download).toBe('İndir');
 	});
 
+	it('should support tr', function() {
+		var messages = getMessages('tr');
+
+		expect(messages.Plugins.Generic.Download).toBe('İndir');
+	});
+
 	it('should support zh-cn', function() {
 		var messages = getMessages('zh-cn');
+
+		expect(messages.Plugins.Generic.Download).toBe('下载');
+	});
+
+	it('should support zh', function() {
+		var messages = getMessages('zh');
 
 		expect(messages.Plugins.Generic.Download).toBe('下载');
 	});
