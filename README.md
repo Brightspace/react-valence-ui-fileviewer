@@ -78,7 +78,7 @@ FileViewer has the following parameters:
 * progress: A number between 0 and 100 indicating the percentage loaded.
 * accuracy: The accuracy of the returned progress value, currently we choose between two options:
 	* `certain`: indicates that progress will be a number between 0 and 100
-	* `guessing`: indicates that progress will be a number between 0 and 100, and that the progress may not be accurate
+	* `guess`: indicates that progress will be a number between 0 and 100, and that the progress may not be accurate
 	* `none`: indicates that it will only pass in progress values of 0 or 100
 
 ## Contributing

@@ -83,7 +83,7 @@ describe('PDF Alternate Viewer', function() {
 
 		expect(progressFunc.mock.calls.length).toBe(1);
 		expect(progressFunc.mock.calls[0][0]).toBe(10);
-		expect(progressFunc.mock.calls[0][1]).toBe('guessing');
+		expect(progressFunc.mock.calls[0][1]).toBe('guess');
 	});
 
 	it('Calls the progressCallback when updateProgress is called', function() {
@@ -100,6 +100,6 @@ describe('PDF Alternate Viewer', function() {
 
 		viewer.updateProgress(55);
 
-		expect(progressFunc).toBeCalledWith(55, 'guessing');
+		expect(progressFunc).toBeCalledWith(55, 'guess');
 	});
 });
