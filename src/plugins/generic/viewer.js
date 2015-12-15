@@ -15,7 +15,7 @@ var Viewer = React.createClass({
 		locale: React.PropTypes.string,
 		progressCallback: React.PropTypes.func
 	},
-	componentWillMount: function() {
+	componentDidMount: function() {
 		if (this.props.progressCallback) {
 			this.props.progressCallback(100, 'certain');
 		}
