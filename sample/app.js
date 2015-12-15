@@ -70,11 +70,11 @@ var Main = React.createClass({
 						<option value="fr-CA">Français Canada(fr-CA)</option>
 						<option value="en-US">JA Japanese(ja)</option>
 						<option value="ko-KR">KR Korean (ko-KR)</option>
-						<option value="en-US">Português Brasil(pr-BR))</option>
-						<option value="en-US">SE Swedish(sv-SE)</option>
-						<option value="en-US">TR Turkish(tr-TR)</option>
-						<option value="en-US">CN Chinese(zh-CN)</option>
-						<option value="en-US">TW Chinese(zh-TW)</option>
+						<option value="pt-BR">Português Brasil(pt-BR))</option>
+						<option value="sv-SE">SE Swedish(sv-SE)</option>
+						<option value="tr-TR">TR Turkish(tr-TR)</option>
+						<option value="zh-CN">CN Chinese(zh-CN)</option>
+						<option value="zh-TW">TW Chinese(zh-TW)</option>
 					</select>
 				</label>
 			</div>

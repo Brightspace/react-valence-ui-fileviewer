@@ -4,8 +4,7 @@ var React = require('react');
 
 var Download = React.createClass({
 	contextTypes : {
-		getIntlMessage: React.PropTypes.func,
-		formatMessage: React.PropTypes.func
+		getIntlMessage: React.PropTypes.func
 	},
 	propTypes: {
 		src: React.PropTypes.string
