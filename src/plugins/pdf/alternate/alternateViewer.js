@@ -97,7 +97,7 @@ var AlternativeViewer = React.createClass({
 	},
 	updateProgress: function(progress) {
 		if (this.props.progressCallback) {
-			this.props.progressCallback(progress);
+			this.props.progressCallback(progress, 'guessing');
 		}
 	},
 	getInitialState: function() {
