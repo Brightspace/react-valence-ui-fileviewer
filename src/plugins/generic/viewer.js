@@ -12,7 +12,13 @@ var Viewer = React.createClass({
 		filename: React.PropTypes.string.isRequired,
 		size: React.PropTypes.number.isRequired,
 		srcdownload: React.PropTypes.string,
-		locale: React.PropTypes.string
+		locale: React.PropTypes.string,
+		progressCallback: React.PropTypes.func
+	},
+	componentDidMount: function() {
+		if (this.props.progressCallback) {
+			this.props.progressCallback(100, 'certain');
+		}
 	},
 	render: function() {
 		return (<div className="vui-fileviewer-generic">

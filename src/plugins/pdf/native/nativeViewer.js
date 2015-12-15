@@ -4,12 +4,15 @@ var React = require('react'),
 	GenericViewer = require('../../generic/viewer.js');
 
 var NativeViewer = React.createClass({
+	componentWillMount: function() {
+		this.updateProgress(0);
+	},
 	componentDidMount: function() {
 		this.updateProgress(100);
 	},
 	updateProgress: function(progress) {
 		if (this.props.progressCallback) {
-			this.props.progressCallback(progress);
+			this.props.progressCallback(progress, 'none');
 		}
 	},
 	render: function() {
