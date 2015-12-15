@@ -10,7 +10,7 @@
     "postinstall": "bower install",
     "report-coverage": "cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js",
     "serve": "http-server -p 8080 ./sample/",
-    "test:unit": "jest",
+    "test:unit": "jest", 
     "test": "npm run lint && npm run test:unit"
   },
   "repository": {
