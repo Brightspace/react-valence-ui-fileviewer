@@ -14,8 +14,12 @@ var ImageViewer = React.createClass({
 			this.props.progressCallback(progress);
 		}
 	},
+	componentWillUnmount: function() {
+		// without this, the file continues to download after being removed from the DOM
+		React.findDOMNode(this.refs.image).src = '';
+	},
 	render: function() {
-		return <img src={this.props.src} alt="" className="vui-fileviewer-image" />;
+		return <img ref="image" src={this.props.src} alt="" className="vui-fileviewer-image" />;
 	}
 });
 
