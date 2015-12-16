@@ -24,7 +24,16 @@ var PDFJS = {
 				});
 		}
 	),
-	workerSrc: ''
+	PDFLinkService: jest.genMockFunction().mockImpl(function() {
+		/* eslint no-invalid-this: 0 */
+		this.setDocument = jest.genMockFunction();
+		this.setViewer = jest.genMockFunction();
+	}),
+	PDFViewer: jest.genMockFunction().mockImpl(function() {
+		/* eslint no-invalid-this: 0 */
+		this.setDocument = jest.genMockFunction();
+		this.currentScale = '';
+	})
 };
 
 module.exports = PDFJS;

@@ -5,23 +5,11 @@ jest.dontMock('../alternateViewer.js');
 var React = require('react/addons'),
 	TestUtils = React.addons.TestUtils,
 	pdfjs = require('../pdfjs-lib'),
-	isInView = require('../isInView.js'),
-	AlternateViewer = require('../alternateViewer.js'),
-	AlternateViewerPage = require('../alternateViewerPage.js'),
-	getPixelRatio = require('../pixelRatio/getPixelRatio.js');
+	AlternateViewer = require('../alternateViewer.js');
 
 describe('PDF Alternate Viewer', function() {
-	AlternateViewerPage.prototype.shouldComponentUpdate.mockImpl(function() {
-		// This is only really necessary to get rid of warnings in the test output
-		return false;
-	});
-	isInView.mockImpl(function() {
-		return true;
-	});
-
 	beforeEach(function() {
 		pdfjs.getDocument.mockClear();
-		isInView.mockClear();
 	});
 
 	it('should render with expected class name', function() {
@@ -35,28 +23,17 @@ describe('PDF Alternate Viewer', function() {
 		expect(div.length).toBe(1);
 	});
 
-	it('should get the pixel ratio', function() {
-		TestUtils.renderIntoDocument(
-			<AlternateViewer src='some/path' />
-		);
-
-		expect(getPixelRatio).toBeCalled();
-	});
-
-	it('getMaxScale returns the default if no maxScale prop is provided', function() {
-		var defaultMaxScale = 1.5;
+	it('should remove event listeners on unmount', function() {
 		var viewer = TestUtils.renderIntoDocument(
 			<AlternateViewer src='some/path' />
 		);
-		expect(viewer.getMaxScale()).toEqual(defaultMaxScale);
-	});
+		var removeEventListenerMock = jest.genMockFunction();
+		viewer.container.removeEventListener = removeEventListenerMock;
 
-	it('getMaxScale returns the provided maxScale', function() {
-		var myCustomMaxScale = 3.25;
-		var viewer = TestUtils.renderIntoDocument(
-			<AlternateViewer src='some/path' maxScale={myCustomMaxScale} />
-		);
-		expect(viewer.getMaxScale()).toEqual(myCustomMaxScale);
+		viewer.componentWillUnmount();
+
+		expect(removeEventListenerMock.mock.calls.length).toBe(1);
+		expect(removeEventListenerMock.mock.calls[0][0]).toEqual('pagesinit');
 	});
 
 	it('gets the document requested in src', function() {
