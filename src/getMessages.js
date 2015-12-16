@@ -1,24 +1,35 @@
 'use strict';
 
 var languages = {
-	'ar-sa': require('./lang/ar-sa.json'),
-	'en-ca': require('./lang/en-ca.json'),
-	'en-gb': require('./lang/en-gb.json'),
-	'en-us': require('./lang/en-us.json'),
-	'es-mx': require('./lang/es-mx.json'),
-	'fr-ca': require('./lang/fr-ca.json'),
+	'ar': require('./lang/ar.json'),
+	'en': require('./lang/en.json'),
+	'es': require('./lang/es.json'),
+	'fr': require('./lang/fr.json'),
 	'ja': require('./lang/ja.json'),
-	'ko-kr': require('./lang/ko-kr.json'),
-	'pt-br': require('./lang/pt-br.json'),
-	'sv-se': require('./lang/sv-se.json'),
-	'tr-tr': require('./lang/tr-tr.json'),
-	'zh-cn': require('./lang/zh-cn.json'),
-	'zh-tw': require('./lang/zh-tw.json')
+	'ko': require('./lang/ko.json'),
+	'pt': require('./lang/pt.json'),
+	'sv': require('./lang/sv.json'),
+	'tr': require('./lang/tr.json'),
+	'zh-cn': require('./lang/zh-CH.json'),
+	'zh': require('./lang/zh.json'),
+	'zh-tw': require('./lang/zh-TW.json')
 };
 
 function getMessages(locale) {
-	var localeLower = typeof locale === 'string' ? locale.toLowerCase() : locale;
-	return (languages[localeLower]) ? languages[localeLower] : languages['en-us'];
+	var defaultLang = languages['en'];
+
+	if (typeof locale !== 'string') {
+		return defaultLang;
+	}
+
+	var localeLower = locale.toLowerCase();
+
+	if (languages[localeLower]) {
+		return languages[localeLower];
+	}
+
+	var baseLang = languages[localeLower.substring(0, 2)];
+	return baseLang || defaultLang;
 }
 
 module.exports = getMessages;
