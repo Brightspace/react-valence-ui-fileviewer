@@ -11,6 +11,18 @@ describe('getMessages', function() {
 		expect(messages.Plugins.Generic.Download).toBe('Download');
 	});
 
+	it('should default to english on empty string', function() {
+		var messages = getMessages('');
+
+		expect(messages.Plugins.Generic.Download).toBe('Download');
+	});
+
+	it('should default to english on invalid short string', function() {
+		var messages = getMessages('q');
+
+		expect(messages.Plugins.Generic.Download).toBe('Download');
+	});
+
 	it('should be case insensitive', function() {
 		var messages = getMessages('Fr-cA');
 

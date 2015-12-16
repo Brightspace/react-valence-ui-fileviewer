@@ -17,17 +17,19 @@ var languages = {
 
 function getMessages(locale) {
 	var defaultLang = languages['en'];
-	var localeLower = typeof locale === 'string' ? locale.toLowerCase() : locale;
+
+	if (typeof locale !== 'string') {
+		return defaultLang;
+	}
+
+	var localeLower = locale.toLowerCase();
 
 	if (languages[localeLower]) {
 		return languages[localeLower];
-	} else {
-		if (!localeLower || localeLower === '' || localeLower.length < 2) {
-			return defaultLang;
-		}
-		var baseLang = languages[localeLower.substring(0, 2)];
-		return baseLang || defaultLang;
 	}
+
+	var baseLang = languages[localeLower.substring(0, 2)];
+	return baseLang || defaultLang;
 }
 
 module.exports = getMessages;
