@@ -4,7 +4,8 @@ var React = require('react'),
 	FileViewerResolved = require('./fileViewerResolved'),
 	fileInfoProvider = require('./fileInfoProvider'),
 	i18n = require('react-frau-intl').i18n,
-	getMessages = require('./getMessages');
+	getMessages = require('./getMessages'),
+	IntlFileViewer = i18n(FileViewerResolved);
 
 var FileViewer = React.createClass({
 	componentDidMount: function() {
@@ -48,7 +49,6 @@ var FileViewer = React.createClass({
 			return null;
 		}
 		var messages = getMessages(this.props.locale);
-		var IntlFileViewer = i18n(FileViewerResolved);
 
 		return <IntlFileViewer
 			{...this.props}
