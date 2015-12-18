@@ -5,11 +5,17 @@ jest.dontMock('../alternateViewer.js');
 var React = require('react/addons'),
 	TestUtils = React.addons.TestUtils,
 	pdfjs = require('../pdfjs-lib'),
+	pdfjsWorkerSrcInit = require('../pdfjsWorkerSrcInit'),
 	AlternateViewer = require('../alternateViewer.js');
 
 describe('PDF Alternate Viewer', function() {
+	pdfjsWorkerSrcInit.init.mockImpl(function() {
+		return Promise.resolve();
+	});
+
 	beforeEach(function() {
 		pdfjs.getDocument.mockClear();
+		pdfjsWorkerSrcInit.init.mockClear();
 	});
 
 	it('should render with expected class name', function() {
@@ -36,20 +42,21 @@ describe('PDF Alternate Viewer', function() {
 		expect(removeEventListenerMock.mock.calls[0][0]).toEqual('pagesinit');
 	});
 
-	it('gets the document requested in src', function() {
+	pit('gets the document requested in src', function() {
 		TestUtils.renderIntoDocument(
 			<AlternateViewer
 				src='test.pdf' />
 		);
 
-		expect(pdfjs.getDocument).toBeCalledWith({
-			url: 'test.pdf',
-			withCredentials: true
+		return Promise.resolve().then(function() {
+			expect(pdfjs.getDocument).toBeCalledWith({
+				url: 'test.pdf',
+				withCredentials: true
+			});
 		});
 	});
 
 	it('Calls the progressCallback and passes 10 in as the initial value', function() {
-
 		var progressFunc = jest.genMockFunction();
 
 		TestUtils.renderIntoDocument(
@@ -64,7 +71,6 @@ describe('PDF Alternate Viewer', function() {
 	});
 
 	it('Calls the progressCallback when updateProgress is called', function() {
-
 		var progressFunc = jest.genMockFunction();
 
 		var viewer = TestUtils.renderIntoDocument(
