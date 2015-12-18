@@ -1,13 +1,13 @@
 $pdf-background-color: #404040;
 
 .vui-fileviewer-pdf-native {
-	width: 100%;
-	height: 100%;
+	display: flex;
+	flex: 1;
 }
 
 .vui-fileviewer-pdf-alternate {
-	width: 100%;
-	height: 100%;
+	display: flex;
+	flex: 1;
 	background: $pdf-background-color;
 	padding: 5px 10px;
 	box-sizing: border-box;
