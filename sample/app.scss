@@ -24,3 +24,13 @@ hr {
 	border-bottom: none;
 	margin: 0;
 }
+
+.vui-fileviewer {
+	flex: 1;
+	display: flex;
+	min-width: 0;
+}
+
+#placeholder {
+	width: 100%;
+}

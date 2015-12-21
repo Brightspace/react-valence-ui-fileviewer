@@ -23,7 +23,7 @@ var ImageViewer = React.createClass({
 	},
 	render: function() {
 		// Wrapped in a Div in order to prevent it from resizing to fit the dimensions of the flex-box
-		return <div><img ref="image" src={this.props.src} alt="" className="vui-fileviewer-image" /></div>;
+		return <div className="vui-fileviewer-image-container"><img ref="image" src={this.props.src} alt="" className="vui-fileviewer-image" /></div>;
 	}
 });
 
