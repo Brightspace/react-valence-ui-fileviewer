@@ -34,7 +34,7 @@ describe('PDF Alternate Viewer', function() {
 			<AlternateViewer src='some/path' />
 		);
 		var removeEventListenerMock = jest.genMockFunction();
-		viewer.container.removeEventListener = removeEventListenerMock;
+		viewer.state.container.removeEventListener = removeEventListenerMock;
 
 		viewer.componentWillUnmount();
 

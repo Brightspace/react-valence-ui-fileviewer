@@ -9,11 +9,8 @@ var AlternativeViewer = React.createClass({
 		src: React.PropTypes.string.isRequired,
 		progressCallback: React.PropTypes.func
 	},
-	container: null,
-	pdfLinkService: null,
-	pdfViewer: null,
 	onPagesInit: function() {
-		this.pdfViewer.currentScaleValue = 'page-width';
+		this.state.pdfViewer.currentScaleValue = 'page-width';
 	},
 	loadDocument: function() {
 		var self = this;
@@ -21,32 +18,38 @@ var AlternativeViewer = React.createClass({
 			url: self.props.src,
 			withCredentials: true
 		}).then(function(pdfDocument) {
-			self.pdfViewer.setDocument(pdfDocument);
-			self.pdfLinkService.setDocument(pdfDocument, null);
+			self.state.pdfViewer.setDocument(pdfDocument);
+			self.state.pdfLinkService.setDocument(pdfDocument, null);
 			self.updateProgress(100);
 		});
 	},
+	shouldComponentUpdate: function() {
+		return false;
+	},
 	componentDidMount: function() {
-		this.container = React.findDOMNode(this);
-		this.pdfLinkService = new pdfjs.PDFLinkService();
+		var container = React.findDOMNode(this),
+			pdfLinkService = new pdfjs.PDFLinkService();
 
 		this.updateProgress(10);
 
-		this.pdfViewer = new pdfjs.PDFViewer({
-			container: this.container,
-			linkService: this.pdfLinkService
+		var pdfViewer = new pdfjs.PDFViewer({
+			container: container,
+			linkService: pdfLinkService
 		});
-		this.pdfLinkService.setViewer(this.pdfViewer);
+		pdfLinkService.setViewer(this.pdfViewer);
 
-		this.container.addEventListener('pagesinit', this.onPagesInit);
+		container.addEventListener('pagesinit', this.onPagesInit);
+
+		this.setState({
+			container: container,
+			pdfLinkService: pdfLinkService,
+			pdfViewer: pdfViewer
+		});
 
 		pdfjsWorkerSrcInit.init().then(this.loadDocument);
 	},
 	componentWillUnmount: function() {
-		this.container.removeEventListener('pagesinit', this.onPagesInit);
-		this.container = null;
-		this.pdfLinkService = null;
-		this.pdfViewer = null;
+		this.state.container.removeEventListener('pagesinit', this.onPagesInit);
 	},
 	updateProgress: function(progress) {
 		if (this.props.progressCallback) {
