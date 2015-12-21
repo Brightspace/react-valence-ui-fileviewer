@@ -45,8 +45,7 @@ var Main = React.createClass({
 				progressCallback={this.logProgress}
 				src={'files/' + this.state.file.src}
 				srcdownload={'files/' + this.state.file.src}
-				locale={this.state.locale}
-				className='file-viewer-sample' /> : null;
+				locale={this.state.locale} /> : null;
 		return <div dir={this.state.direction}>
 			<div className="file-selector">
 				<h1>File Viewer Sample Application</h1>
