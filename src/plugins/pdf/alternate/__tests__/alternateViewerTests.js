@@ -1,21 +1,21 @@
 'use strict';
 
-jest.dontMock('../alternateViewer.js');
+jest.dontMock('../alternateViewer');
 
 var React = require('react/addons'),
 	TestUtils = React.addons.TestUtils,
 	pdfjs = require('../pdfjs-lib'),
 	pdfjsWorkerSrcInit = require('../pdfjsWorkerSrcInit'),
-	AlternateViewer = require('../alternateViewer.js');
+	AlternateViewer = require('../alternateViewer');
 
 describe('PDF Alternate Viewer', function() {
-	pdfjsWorkerSrcInit.init.mockImpl(function() {
+	pdfjsWorkerSrcInit.mockImpl(function() {
 		return Promise.resolve();
 	});
 
 	beforeEach(function() {
 		pdfjs.getDocument.mockClear();
-		pdfjsWorkerSrcInit.init.mockClear();
+		pdfjsWorkerSrcInit.mockClear();
 	});
 
 	it('should render with expected class name', function() {

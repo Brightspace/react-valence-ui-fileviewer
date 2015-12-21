@@ -3,9 +3,8 @@
 // inspired by http://colonelpanic.net/2014/08/using-pdf-js-web-worker-cross-domain-cors/
 
 var pdfjs = require('./pdfjs-lib'),
-	isCrossDomain = require('./isCrossDomain');
-
-var initPromise;
+	isCrossDomain = require('./isCrossDomain'),
+	cache = require('./pdfjsWorkerSrcInitCache');
 
 function loadWorkerSrcFromUrl(url) {
 	return new Promise(function(resolve, reject) {
@@ -49,17 +48,12 @@ function initialize() {
 }
 
 function ensureInitialized() {
-	if (!initPromise) {
-		initPromise = initialize();
+	var cachedResult = cache.get();
+	if (!cachedResult) {
+		cachedResult = initialize();
+		cache.set(cachedResult);
 	}
-	return initPromise;
+	return cachedResult;
 }
 
-function clearCache() {
-	initPromise = null;
-}
-
-module.exports = {
-	init: ensureInitialized,
-	clearCache: clearCache
-};
+module.exports = ensureInitialized;

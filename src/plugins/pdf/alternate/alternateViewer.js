@@ -23,6 +23,13 @@ var AlternativeViewer = React.createClass({
 			self.updateProgress(100);
 		});
 	},
+	getInitialState: function() {
+		return {
+			container: null,
+			pdfLinkService: null,
+			pdfViewer: null
+		};
+	},
 	shouldComponentUpdate: function() {
 		return false;
 	},
@@ -46,7 +53,7 @@ var AlternativeViewer = React.createClass({
 			pdfViewer: pdfViewer
 		});
 
-		pdfjsWorkerSrcInit.init().then(this.loadDocument);
+		pdfjsWorkerSrcInit().then(this.loadDocument);
 	},
 	componentWillUnmount: function() {
 		this.state.container.removeEventListener('pagesinit', this.onPagesInit);
@@ -59,7 +66,7 @@ var AlternativeViewer = React.createClass({
 	render: function() {
 		return (
 			<div className="vui-fileviewer-pdf-alternate">
-				<div ref="viewer" className="pdfViewer"></div>
+				<div className="pdfViewer"></div>
 			</div>
 		);
 	}
