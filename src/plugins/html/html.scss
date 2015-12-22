@@ -1,4 +1,5 @@
 .vui-fileviewer-html-native {
 	display: flex;
 	flex: 1;
+	min-height: 100%; /* fix for ie11 */
 }
