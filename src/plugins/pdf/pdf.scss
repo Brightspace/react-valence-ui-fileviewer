@@ -3,11 +3,13 @@ $pdf-background-color: #404040;
 .vui-fileviewer-pdf-native {
 	display: flex;
 	flex: 1;
+	min-height: 100%; /* fix for ie11 */
 }
 
 .vui-fileviewer-pdf-alternate {
 	display: flex;
 	flex: 1;
+	min-height: 100%; /* fix for ie11 */
 	background: $pdf-background-color;
 	padding: 5px 10px;
 	box-sizing: border-box;
