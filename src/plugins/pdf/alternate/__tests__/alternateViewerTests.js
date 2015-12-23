@@ -1,27 +1,21 @@
 'use strict';
 
-jest.dontMock('../alternateViewer.js');
+jest.dontMock('../alternateViewer');
 
 var React = require('react/addons'),
 	TestUtils = React.addons.TestUtils,
 	pdfjs = require('../pdfjs-lib'),
-	isInView = require('../isInView.js'),
-	AlternateViewer = require('../alternateViewer.js'),
-	AlternateViewerPage = require('../alternateViewerPage.js'),
-	getPixelRatio = require('../pixelRatio/getPixelRatio.js');
+	pdfjsWorkerSrcInit = require('../pdfjsWorkerSrcInit'),
+	AlternateViewer = require('../alternateViewer');
 
 describe('PDF Alternate Viewer', function() {
-	AlternateViewerPage.prototype.shouldComponentUpdate.mockImpl(function() {
-		// This is only really necessary to get rid of warnings in the test output
-		return false;
-	});
-	isInView.mockImpl(function() {
-		return true;
+	pdfjsWorkerSrcInit.mockImpl(function() {
+		return Promise.resolve();
 	});
 
 	beforeEach(function() {
 		pdfjs.getDocument.mockClear();
-		isInView.mockClear();
+		pdfjsWorkerSrcInit.mockClear();
 	});
 
 	it('should render with expected class name', function() {
@@ -35,44 +29,34 @@ describe('PDF Alternate Viewer', function() {
 		expect(div.length).toBe(1);
 	});
 
-	it('should get the pixel ratio', function() {
-		TestUtils.renderIntoDocument(
-			<AlternateViewer src='some/path' />
-		);
-
-		expect(getPixelRatio).toBeCalled();
-	});
-
-	it('getMaxScale returns the default if no maxScale prop is provided', function() {
-		var defaultMaxScale = 1.5;
+	it('should remove event listeners on unmount', function() {
 		var viewer = TestUtils.renderIntoDocument(
 			<AlternateViewer src='some/path' />
 		);
-		expect(viewer.getMaxScale()).toEqual(defaultMaxScale);
+		var removeEventListenerMock = jest.genMockFunction();
+		viewer.state.container.removeEventListener = removeEventListenerMock;
+
+		viewer.componentWillUnmount();
+
+		expect(removeEventListenerMock.mock.calls.length).toBe(1);
+		expect(removeEventListenerMock.mock.calls[0][0]).toEqual('pagesinit');
 	});
 
-	it('getMaxScale returns the provided maxScale', function() {
-		var myCustomMaxScale = 3.25;
-		var viewer = TestUtils.renderIntoDocument(
-			<AlternateViewer src='some/path' maxScale={myCustomMaxScale} />
-		);
-		expect(viewer.getMaxScale()).toEqual(myCustomMaxScale);
-	});
-
-	it('gets the document requested in src', function() {
+	pit('gets the document requested in src', function() {
 		TestUtils.renderIntoDocument(
 			<AlternateViewer
 				src='test.pdf' />
 		);
 
-		expect(pdfjs.getDocument).toBeCalledWith({
-			url: 'test.pdf',
-			withCredentials: true
+		return Promise.resolve().then(function() {
+			expect(pdfjs.getDocument).toBeCalledWith({
+				url: 'test.pdf',
+				withCredentials: true
+			});
 		});
 	});
 
 	it('Calls the progressCallback and passes 10 in as the initial value', function() {
-
 		var progressFunc = jest.genMockFunction();
 
 		TestUtils.renderIntoDocument(
@@ -87,7 +71,6 @@ describe('PDF Alternate Viewer', function() {
 	});
 
 	it('Calls the progressCallback when updateProgress is called', function() {
-
 		var progressFunc = jest.genMockFunction();
 
 		var viewer = TestUtils.renderIntoDocument(

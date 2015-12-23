@@ -2,123 +2,71 @@
 
 var React = require('react'),
 	pdfjs = require('./pdfjs-lib'),
-	AlternateViewerPage = require('./alternateViewerPage'),
-	isInView = require('./isInView'),
-	getPixelRatio = require('./pixelRatio/getPixelRatio');
-
-var MAX_SCALE = 1.5;
+	pdfjsWorkerSrcInit = require('./pdfjsWorkerSrcInit');
 
 var AlternativeViewer = React.createClass({
 	propTypes: {
 		src: React.PropTypes.string.isRequired,
-		progressCallback: React.PropTypes.func,
-		maxScale: React.PropTypes.number
+		progressCallback: React.PropTypes.func
 	},
-	getMaxScale: function() {
-		return this.props.maxScale || MAX_SCALE;
+	onPagesInit: function() {
+		this.state.pdfViewer.currentScaleValue = 'page-width';
 	},
-	onDocumentLoaded: function(pdf) {
-		if (!pdf || !this.isMounted()) {
-			return;
-		}
-
+	loadDocument: function() {
 		var self = this;
-
-		self.updateProgress(70);
-
-		pdf.getPage(1).then(function(page) {
-			var unscaledViewport = page.getViewport(1),
-				containerNode = React.findDOMNode(self),
-				scale = Math.min(self.getMaxScale(), (containerNode.clientWidth - 20) / unscaledViewport.width),
-				pageViewport = page.getViewport(scale),
-				pages = [];
-
-			for (var i = 1; i <= pdf.numPages; i++) {
-				pages.push({
-					pageNumber: i,
-					pdfPage: i === 1 ? page : null,
-					ref: 'page_' + i,
-					requested: i === 1
-				});
-			}
-
-			self.setState({
-				pdf: pdf,
-				pageHeight: pageViewport.height,
-				pageWidth: pageViewport.width,
-				pages: pages,
-				scale: scale
-			});
-
-			self.loadVisiblePages();
-
+		pdfjs.getDocument({
+			url: self.props.src,
+			withCredentials: true
+		}).then(function(pdfDocument) {
+			self.state.pdfViewer.setDocument(pdfDocument);
+			self.state.pdfLinkService.setDocument(pdfDocument, null);
 			self.updateProgress(100);
 		});
 	},
-	loadPage: function(pageNumber) {
-		var self = this;
-		this.state.pdf.getPage(pageNumber).then(function(newPage) {
-			var page = self.state.pages[pageNumber - 1];
-			page.pdfPage = newPage;
-
-			self.forceUpdate();
-		});
+	getInitialState: function() {
+		return {
+			container: null,
+			pdfLinkService: null,
+			pdfViewer: null
+		};
 	},
-	onScroll: function() {
-		this.loadVisiblePages();
-	},
-	loadVisiblePages: function() {
-		var self = this,
-			scrollPosition = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop,
-			visibleAreaHeight = window.innerHeight;
-
-		this.state.pages.forEach(function(page) {
-			var pageDOMNode = self.refs[page.ref].getDOMNode();
-
-			if (!page.requested && isInView(pageDOMNode, scrollPosition, visibleAreaHeight))
-			{
-				page.requested = true;
-				self.loadPage(page.pageNumber);
-			}
-		});
+	shouldComponentUpdate: function() {
+		return false;
 	},
 	componentDidMount: function() {
-		this.updateProgress(10);
-		document.addEventListener('scroll', this.onScroll);
+		var container = React.findDOMNode(this),
+			pdfLinkService = new pdfjs.PDFLinkService();
 
-		var url = this.props.src;
-		pdfjs.getDocument({
-			url: url,
-			withCredentials: true
-		}).then(this.onDocumentLoaded);
+		this.updateProgress(10);
+
+		var pdfViewer = new pdfjs.PDFViewer({
+			container: container,
+			linkService: pdfLinkService
+		});
+		pdfLinkService.setViewer(this.pdfViewer);
+
+		container.addEventListener('pagesinit', this.onPagesInit);
+
+		this.setState({
+			container: container,
+			pdfLinkService: pdfLinkService,
+			pdfViewer: pdfViewer
+		});
+
+		pdfjsWorkerSrcInit().then(this.loadDocument);
 	},
 	componentWillUnmount: function() {
-		document.removeEventListener('scroll', this.onScroll);
+		this.state.container.removeEventListener('pagesinit', this.onPagesInit);
 	},
 	updateProgress: function(progress) {
 		if (this.props.progressCallback) {
 			this.props.progressCallback(progress, 'guess');
 		}
 	},
-	getInitialState: function() {
-		return {
-			pages: [],
-			pixelRatio: getPixelRatio(),
-			scale: 1
-		};
-	},
 	render: function() {
-		var self = this;
 		return (
 			<div className="vui-fileviewer-pdf-alternate">
-				{self.state.pages.map(function(page) {
-					return <AlternateViewerPage key={page.ref} ref={page.ref}
-						page={page}
-						pixelRatio={self.state.pixelRatio}
-						scale={self.state.scale}
-						pageHeight={self.state.pageHeight}
-						pageWidth={self.state.pageWidth} />;
-				})}
+				<div className="pdfViewer"></div>
 			</div>
 		);
 	}

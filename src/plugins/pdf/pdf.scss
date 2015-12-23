@@ -14,9 +14,6 @@ $pdf-background-color: #404040;
 	padding: 5px 10px;
 	box-sizing: border-box;
 	text-align: center;
-}
-
-.vui-fileviewer-pdf-alternate-page {
-	margin: 5px 0;
-	background: $pdf-background-color;
+	position: absolute;
+    overflow: auto;
 }

@@ -11,11 +11,18 @@ Install NPM dependencies:
 npm install
 ```
 
-Additionally, to get the fallback (non-native) PDF renderer working, you will need to add a reference to pdf.js from the CDN.
-It must be referenced _before_ referencing the javascript file containing the code for this component.
+Additionally, to get the fallback (non-native) PDF renderer working, you will need to reference some dependencies from the CDN.
+These must be referenced _before_ referencing the css and js files containing the code for this component.
+
+```css
+<link rel="stylesheet" href="https://s.brightspace.com/lib/pdf.js/1.2.109/pdf_viewer.css">
+<link rel="stylesheet" type="text/css" href="dist/app.css">
+```
 
 ```html
+<script src="https://s.brightspace.com/lib/pdf.js/1.2.109/compatibility.js"></script>
 <script src="https://s.brightspace.com/lib/pdf.js/1.2.109/pdf.js"></script>
+<script src="https://s.brightspace.com/lib/pdf.js/1.2.109/pdf_viewer.js"></script>
 <script src="dist/app.js"></script>
 ```
 
