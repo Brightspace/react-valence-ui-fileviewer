@@ -14,12 +14,15 @@ npm install
 Additionally, to get the fallback (non-native) PDF renderer working, you will need to reference some dependencies from the CDN.
 These must be referenced _before_ referencing the css and js files containing the code for this component.
 
+If switching to a newer version of pdf.js, [pdf.settings.js](https://github.com/Brightspace/valence-ui-pdfjs-settings) may need to be updated.
+
 ```css
 <link rel="stylesheet" href="https://s.brightspace.com/lib/pdf.js/1.2.109/pdf_viewer.css">
 <link rel="stylesheet" type="text/css" href="dist/app.css">
 ```
 
 ```html
+<script src="https://s.brightspace.com/lib/pdf.js/1.2.109/pdf.settings.js"></script>
 <script src="https://s.brightspace.com/lib/pdf.js/1.2.109/compatibility.js"></script>
 <script src="https://s.brightspace.com/lib/pdf.js/1.2.109/pdf.js"></script>
 <script src="https://s.brightspace.com/lib/pdf.js/1.2.109/pdf_viewer.js"></script>
