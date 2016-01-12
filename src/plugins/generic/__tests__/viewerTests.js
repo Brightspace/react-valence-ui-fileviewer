@@ -9,7 +9,7 @@ var React = require('react/addons'),
 
 describe('Generic Viewer', function() {
 	var SizeStub,
-	ViewerTester;
+		ViewerTester;
 
 	beforeEach(function() {
 		Viewer.__Rewire__('Filename',  'div');

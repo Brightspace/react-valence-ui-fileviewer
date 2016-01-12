@@ -2,8 +2,6 @@
 
 var React = require('react/addons'),
 	TestUtils = React.addons.TestUtils,
-	pdfjs = require('../pdfjs-lib'),
-	pdfjsWorkerSrcInit = require('../pdfjsWorkerSrcInit'),
 	AlternateViewer = require('../alternateViewer'),
 	sinon = require('sinon'),
 	Promise = require('es6-promise').Promise,

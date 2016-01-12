@@ -1,7 +1,6 @@
 'use strict';
 
-var isCrossDomain = require('../isCrossDomain'),
-	sinon = require('sinon');
+var isCrossDomain = require('../isCrossDomain');
 
 describe('isCrossDomain', function() {
 	beforeEach(function() {

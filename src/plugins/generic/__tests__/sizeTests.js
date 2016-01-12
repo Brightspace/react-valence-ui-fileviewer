@@ -3,7 +3,6 @@
 var React = require('react/addons'),
 	TestUtils = React.addons.TestUtils,
 	Size = require('../size.js'),
-	d2lIntl = require('d2l-intl'),
 	sinon = require('sinon');
 
 var formatMock,

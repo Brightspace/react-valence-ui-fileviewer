@@ -13,7 +13,7 @@ describe('FileInfoProvider', function() {
 		xhr.onCreate = function(request) {
 			requests.push(request);
 		};
-		provider.__Rewire__('getFilename', function() { return 'file.name'; })
+		provider.__Rewire__('getFilename', function() { return 'file.name'; });
 	});
 
 	afterEach(function() {

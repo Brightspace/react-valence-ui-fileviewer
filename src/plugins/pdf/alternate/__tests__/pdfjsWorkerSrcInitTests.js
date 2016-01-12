@@ -1,8 +1,6 @@
 'use strict';
 
 var sinon = require('sinon'),
-	isCrossDomain = require('../isCrossDomain'),
-	pdfjs = require('../pdfjs-lib'),
 	pdfjsWorkerSrcInit = require('../pdfjsWorkerSrcInit'),
 	cache = require('../pdfjsWorkerSrcInitCache'),
 	getPdfjsMock = require('./utils/getPdfjsMock');
@@ -40,7 +38,7 @@ describe('pdfjsWorkerSrcInit', function() {
 	});
 
 	describe('should get worker js file and set workerSrc to an object URL', function() {
-		beforeEach(function(done){
+		beforeEach(function(done) {
 			var promise = pdfjsWorkerSrcInit();
 			requests[0].respond(200, { 'Content-Type': 'application/javascript'	}, 'var x = 10000;');
 			promise.then(done);
@@ -54,7 +52,7 @@ describe('pdfjsWorkerSrcInit', function() {
 	});
 
 	describe('should not get worker js file if it has already been retrieved', function() {
-		beforeEach(function(done){
+		beforeEach(function(done) {
 			var promise1 = pdfjsWorkerSrcInit();
 			var promise2 = pdfjsWorkerSrcInit();
 			requests[0].respond(200, { 'Content-Type': 'application/javascript'	}, 'var x = 10000;');
@@ -69,7 +67,7 @@ describe('pdfjsWorkerSrcInit', function() {
 	});
 
 	describe('should not get worker js file if it has already been retrieved', function() {
-		beforeEach(function(done){
+		beforeEach(function(done) {
 			var promise = pdfjsWorkerSrcInit();
 			requests[0].respond(404);
 			return promise.then(done);
@@ -83,7 +81,7 @@ describe('pdfjsWorkerSrcInit', function() {
 	});
 
 	describe('should not get worker js file if it has already been retrieved', function() {
-		beforeEach(function(done){
+		beforeEach(function(done) {
 			workerSrcIsCrossDomain = false;
 			return pdfjsWorkerSrcInit().then(done);
 		});

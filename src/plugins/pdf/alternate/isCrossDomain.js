@@ -16,7 +16,7 @@ function isCrossDomain(url) {
 }
 
 function getHref() {
-	return window.location.href
+	return window.location.href;
 }
 
 module.exports = isCrossDomain;
