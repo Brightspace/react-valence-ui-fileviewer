@@ -1,15 +1,14 @@
 'use strict';
 
-jest.dontMock('../fileViewerResolved.js');
-jest.dontMock('../fileViewer.js');
-
 var React = require('react/addons'),
 	TestUtils = React.addons.TestUtils,
 	FileViewer = require('../fileViewer'),
-	provider = require('../fileInfoProvider'),
-	FileViewerResolved = require('../fileViewerResolved');
+	sinon = require('sinon'),
+	i18n = require('react-frau-intl').i18n,
+	FileViewerResolved = require('../fileViewerResolved'),
+	IntlFileViewer = i18n(FileViewerResolved);
 
-provider.mockImpl(function(src, callback) {
+var providerFunc = function(src, callback) {
 	switch (src) {
 		case 'file1.gif':
 			callback(null, {size: 1, mimeType: 'image/gif', filename: 'file1.gif'});
@@ -22,20 +21,26 @@ provider.mockImpl(function(src, callback) {
 		default:
 			callback('error1');
 	}
-});
+};
+
+var providerStub;
 
 describe('FileViewer', function() {
-
-	afterEach(function() {
-		provider.mockClear();
+	beforeEach(function() {
+		providerStub = sinon.stub();
+		FileViewer.__Rewire__('IntlFileViewer', 'div');
+		FileViewer.__Rewire__('fileInfoProvider', providerFunc);
 	});
 
 	it('should get file info from provider', function() {
+		FileViewer.__Rewire__('fileInfoProvider', providerStub);
+
 		TestUtils.renderIntoDocument(
 			<FileViewer src="foo.bar" />
 		);
-		expect(provider.mock.calls.length).toBe(1);
-		expect(provider.mock.calls[0][0]).toBe('foo.bar');
+
+		expect(providerStub.calledOnce).toBe(true);
+		expect(providerStub.calledWith('foo.bar')).toBe(true);
 	});
 
 	it('should render an error if provider fails', function() {
@@ -68,11 +73,13 @@ describe('FileViewer', function() {
 	});
 
 	it('should re-fetch file info if src does not change', function() {
+		FileViewer.__Rewire__('fileInfoProvider', providerStub);
+
 		var elem = TestUtils.renderIntoDocument(
 			<FileViewer src="file1.gif" />
 		);
 		elem.setProps({src: 'file1.gif'});
-		expect(provider.mock.calls.length).toBe(1);
+		expect(providerStub.calledOnce).toBe(true);
 	});
 
 	it('should not set state when unmounted', function() {
@@ -87,9 +94,11 @@ describe('FileViewer', function() {
 	});
 
 	it('should pass locale to FileViewerResolved', function() {
+		FileViewer.__Rewire__('IntlFileViewer', IntlFileViewer);
 		var wrapper = TestUtils.renderIntoDocument(
 			<FileViewer src='file1.gif' locale='en-ca' />
 		);
+
 		var fileViewerResolvedComponent = TestUtils.findRenderedComponentWithType(
 			wrapper,
 			FileViewerResolved

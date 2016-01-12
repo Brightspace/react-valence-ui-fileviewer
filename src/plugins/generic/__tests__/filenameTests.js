@@ -1,7 +1,5 @@
 'use strict';
 
-jest.dontMock('../filename.js');
-
 var React = require('react/addons'),
 	TestUtils = React.addons.TestUtils,
 	Filename = require('../filename.js');

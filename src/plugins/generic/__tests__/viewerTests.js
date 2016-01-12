@@ -1,17 +1,33 @@
 'use strict';
 
-jest.dontMock('../viewer.js');
-
 var React = require('react/addons'),
 	TestUtils = React.addons.TestUtils,
 	Viewer = require('../viewer.js'),
-	Size = require('../size.js');
+	sinon = require('sinon'),
+	Size = require('../size.js'),
+	stubIntlMessage = require('./utils/stubIntlMessage.js');
 
 describe('Generic Viewer', function() {
+	var SizeStub,
+	ViewerTester;
+
+	beforeEach(function() {
+		Viewer.__Rewire__('Filename',  'div');
+		Viewer.__Rewire__('Icon', 'div');
+		Viewer.__Rewire__('Download', 'div');
+		SizeStub = sinon.stub().returns(new Size());
+		Viewer.__Rewire__('Size', SizeStub);
+		ViewerTester = stubIntlMessage(
+			Viewer,
+			{},
+			function() {return 'test';},
+			function() {return 'test';}
+		);
+	});
 
 	it('should render wrapper with expected class name', function() {
 		var elem = TestUtils.renderIntoDocument(
-			<Viewer mimeType='audio/mp3' size={1234} filename='foo.mp3' />
+			<ViewerTester mimeType='audio/mp3' size={1234} filename='foo.mp3' />
 		);
 		var wrapper = TestUtils.findRenderedDOMComponentWithClass(
 			elem,
@@ -22,15 +38,15 @@ describe('Generic Viewer', function() {
 
 	it('should render size component', function() {
 		TestUtils.renderIntoDocument(
-			<Viewer mimeType='audio/mp3' size={1234} filename='foo.mp3' />
+			<ViewerTester mimeType='audio/mp3' size={1234} filename='foo.mp3' />
 		);
 
-		expect(Size).toBeCalled();
+		expect(SizeStub.called).toBe(true);
 	});
 
 	it('should pass locale to size component', function() {
 		var wrapper = TestUtils.renderIntoDocument(
-			<Viewer mimeType='audio/mp3' locale='en-ca' size={1234} filename='foo.mp3' />
+			<ViewerTester mimeType='audio/mp3' locale='en-ca' size={1234} filename='foo.mp3' />
 		);
 		var sizeComponent = TestUtils.findRenderedComponentWithType(
 			wrapper,
@@ -42,7 +58,7 @@ describe('Generic Viewer', function() {
 
 	it('should pass size to size component', function() {
 		var wrapper = TestUtils.renderIntoDocument(
-			<Viewer mimeType='audio/mp3' locale='en-ca' size={1234} filename='foo.mp3' />
+			<ViewerTester mimeType='audio/mp3' locale='en-ca' size={1234} filename='foo.mp3' />
 		);
 		var sizeComponent = TestUtils.findRenderedComponentWithType(
 			wrapper,

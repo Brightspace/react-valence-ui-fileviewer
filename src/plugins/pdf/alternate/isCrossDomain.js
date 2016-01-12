@@ -7,12 +7,16 @@ function isCrossDomain(url) {
 		return false;
 	}
 
-	var currentUrl = urlParse(window.location.href),
+	var currentUrl = urlParse(getHref()),
 		otherUrl = urlParse(url);
 
 	return currentUrl.protocol !== otherUrl.protocol
 		|| currentUrl.hostname !== otherUrl.hostname
 		|| currentUrl.port !== otherUrl.port;
+}
+
+function getHref() {
+	return window.location.href
 }
 
 module.exports = isCrossDomain;

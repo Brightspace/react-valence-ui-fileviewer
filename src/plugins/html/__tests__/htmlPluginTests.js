@@ -1,7 +1,5 @@
 'use strict';
 
-jest.dontMock('../html.js');
-
 var HtmlPlugin = require('../html.js');
 
 describe('Html Plugin', function() {

@@ -1,10 +1,9 @@
 'use strict';
 
-jest.dontMock('../viewer.js');
-
 var React = require('react/addons'),
 	TestUtils = React.addons.TestUtils,
-	Viewer = require('../viewer.js');
+	Viewer = require('../viewer.js'),
+	sinon = require('sinon');
 
 describe('Image Viewer', function() {
 
@@ -38,12 +37,12 @@ describe('Image Viewer', function() {
 			elem,
 			'img'
 		);
-		expect(React.findDOMNode(img).src).toBe('foo.bar');
+		expect(React.findDOMNode(img).src).toContain('foo.bar');
 	});
 
 	it('Calls the progressCallback and passes 0', function() {
 
-		var progressFunc = jest.genMockFunction();
+		var progressFunc = sinon.stub();
 
 		TestUtils.renderIntoDocument(
 			<Viewer
@@ -51,12 +50,12 @@ describe('Image Viewer', function() {
 				progressCallback={progressFunc} />
 		);
 
-		expect(progressFunc.mock.calls[0][0]).toBe(0);
+		expect(progressFunc.firstCall.args[0]).toBe(0);
 	});
 
 	it('Calls the progressCallback a second time and passes 100', function() {
 
-		var progressFunc = jest.genMockFunction();
+		var progressFunc = sinon.stub();
 
 		TestUtils.renderIntoDocument(
 			<Viewer
@@ -64,12 +63,12 @@ describe('Image Viewer', function() {
 				progressCallback={progressFunc} />
 		);
 
-		expect(progressFunc.mock.calls[1][0]).toBe(100);
+		expect(progressFunc.secondCall.args[0]).toBe(100);
 	});
 
 	it('Calls the progressCallback both times with certainty none', function() {
 
-		var progressFunc = jest.genMockFunction();
+		var progressFunc = sinon.stub();
 
 		TestUtils.renderIntoDocument(
 			<Viewer
@@ -77,7 +76,7 @@ describe('Image Viewer', function() {
 				progressCallback={progressFunc} />
 		);
 
-		expect(progressFunc.mock.calls[0][1]).toBe('none');
-		expect(progressFunc.mock.calls[1][1]).toBe('none');
+		expect(progressFunc.firstCall.args[1]).toBe('none');
+		expect(progressFunc.secondCall.args[1]).toBe('none');
 	});
 });

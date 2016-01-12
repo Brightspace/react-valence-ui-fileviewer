@@ -1,12 +1,16 @@
 'use strict';
 
-jest.dontMock('../nativeViewer.js');
-
 var React = require('react/addons'),
 	TestUtils = React.addons.TestUtils,
+	sinon = require('sinon'),
 	NativeViewer = require('../nativeViewer.js');
 
 describe('PDF Native Viewer', function() {
+
+	beforeEach(function() {
+		NativeViewer.__Rewire__('GenericViewer', 'div');
+	});
+
 	it('should test things eventually', function() {
 		var elem = TestUtils.renderIntoDocument(
 			<NativeViewer src='some/path' />
@@ -20,7 +24,7 @@ describe('PDF Native Viewer', function() {
 
 	it('Calls the progressCallback and passes 0', function() {
 
-		var progressFunc = jest.genMockFunction();
+		var progressFunc = sinon.stub();
 
 		TestUtils.renderIntoDocument(
 			<NativeViewer
@@ -28,12 +32,12 @@ describe('PDF Native Viewer', function() {
 				progressCallback={progressFunc} />
 		);
 
-		expect(progressFunc.mock.calls[0][0]).toBe(0);
+		expect(progressFunc.firstCall.args[0]).toBe(0);
 	});
 
 	it('Calls the progressCallback a second time and passes 100', function() {
 
-		var progressFunc = jest.genMockFunction();
+		var progressFunc = sinon.stub();
 
 		TestUtils.renderIntoDocument(
 			<NativeViewer
@@ -41,12 +45,12 @@ describe('PDF Native Viewer', function() {
 				progressCallback={progressFunc} />
 		);
 
-		expect(progressFunc.mock.calls[1][0]).toBe(100);
+		expect(progressFunc.secondCall.args[0]).toBe(100);
 	});
 
 	it('Calls the progressCallback both times with certainty none', function() {
 
-		var progressFunc = jest.genMockFunction();
+		var progressFunc = sinon.stub();
 
 		TestUtils.renderIntoDocument(
 			<NativeViewer
@@ -54,7 +58,7 @@ describe('PDF Native Viewer', function() {
 				progressCallback={progressFunc} />
 		);
 
-		expect(progressFunc.mock.calls[0][1]).toBe('none');
-		expect(progressFunc.mock.calls[1][1]).toBe('none');
+		expect(progressFunc.firstCall.args[1]).toBe('none');
+		expect(progressFunc.secondCall.args[1]).toBe('none');
 	});
 });

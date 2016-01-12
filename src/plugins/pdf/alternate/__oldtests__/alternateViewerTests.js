@@ -1,20 +1,21 @@
 'use strict';
 
+jest.dontMock('../alternateViewer');
+
 var React = require('react/addons'),
 	TestUtils = React.addons.TestUtils,
 	pdfjs = require('../pdfjs-lib'),
 	pdfjsWorkerSrcInit = require('../pdfjsWorkerSrcInit'),
-	AlternateViewer = require('../alternateViewer'),
-	sinon = require('sinon'),
-	Promise = require('es6-promise').Promise,
-	getPdfjsMock = require('./utils/getPdfjsMock');
+	AlternateViewer = require('../alternateViewer');
 
-var pdfjs;
 describe('PDF Alternate Viewer', function() {
+	pdfjsWorkerSrcInit.mockImpl(function() {
+		return Promise.resolve();
+	});
+
 	beforeEach(function() {
-		AlternateViewer.__Rewire__('pdfjsWorkerSrcInit', function() { return Promise.resolve(); });
-		pdfjs = getPdfjsMock();
-		AlternateViewer.__Rewire__('pdfjs', pdfjs);
+		pdfjs.getDocument.mockClear();
+		pdfjsWorkerSrcInit.mockClear();
 	});
 
 	it('should render with expected class name', function() {
@@ -41,23 +42,17 @@ describe('PDF Alternate Viewer', function() {
 		expect(removeEventListenerMock.firstCall.args[0]).toEqual('pagesinit');
 	});
 
-	describe('gets the document requested in src', function() {
-		beforeEach(function(done) {
-			TestUtils.renderIntoDocument(
-				<AlternateViewer
-					src='test.pdf' />
-			);
+	pit('gets the document requested in src', function() {
+		TestUtils.renderIntoDocument(
+			<AlternateViewer
+				src='test.pdf' />
+		);
 
-			Promise.resolve().then(function() {
-				done();
-			});
-		});
-
-		it('test', function() {
-			expect(pdfjs.getDocument.calledWithExactly({
+		return Promise.resolve().then(function() {
+			expect(pdfjs.getDocument).toBeCalledWith({
 				url: 'test.pdf',
 				withCredentials: true
-			})).toBeTruthy();
+			});
 		});
 	});
 
@@ -70,7 +65,9 @@ describe('PDF Alternate Viewer', function() {
 				progressCallback={progressFunc} />
 		);
 
-		expect(progressFunc.calledWith(10, 'guess')).toBe(true);
+		expect(progressFunc.calledOnce).toBe(true);
+		expect(progressFunc.firstCall.args[0]).toBe(10);
+		expect(progressFunc.firstCall.args[1]).toBe('guess');
 	});
 
 	it('Calls the progressCallback when updateProgress is called', function() {
@@ -82,9 +79,10 @@ describe('PDF Alternate Viewer', function() {
 				progressCallback={progressFunc} />
 		);
 
-		progressFunc.reset();
+		progressFunc = sinon.stub();
+
 		viewer.updateProgress(55);
 
-		expect(progressFunc.calledWithExactly(55, 'guess')).toBe(true);
+		expect(progressFunc).toBeCalledWith(55, 'guess');
 	});
 });

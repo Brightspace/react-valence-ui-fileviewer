@@ -1,7 +1,5 @@
 'use strict';
 
-jest.dontMock('../supportsNativePdf.js');
-
 var supportsNativePdf = require('../supportsNativePdf.js');
 
 describe('PDF Native Support', function() {
