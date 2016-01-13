@@ -8,33 +8,20 @@ var React = require('react/addons'),
 	FileViewerResolved = require('../fileViewerResolved'),
 	IntlFileViewer = i18n(FileViewerResolved);
 
-var providerFunc = function(src, callback) {
-	switch (src) {
-		case 'file1.gif':
-			callback(null, {size: 1, mimeType: 'image/gif', filename: 'file1.gif'});
-			break;
-		case 'file2.mp3':
-			callback(null, {size: 100, mimeType: 'audio/mp3', filename: 'file2.mp3'});
-			break;
-		case 'file3.null':
-			break;
-		default:
-			callback('error1');
-	}
-};
-
 var providerStub;
 
 describe('FileViewer', function() {
 	beforeEach(function() {
 		providerStub = sinon.stub();
+		providerStub.withArgs('file1.gif').callsArgWith(1, null, {size: 1, mimeType: 'image/gif', filename: 'file1.gif'});
+		providerStub.withArgs('file2.mp3').callsArgWith(1, null, {size: 100, mimeType: 'audio/mp3', filename: 'file2.mp3'});
+		providerStub.withArgs('foo.bar').callsArgWith(1, 'error1');
+
 		FileViewer.__Rewire__('IntlFileViewer', 'div');
-		FileViewer.__Rewire__('fileInfoProvider', providerFunc);
+		FileViewer.__Rewire__('fileInfoProvider', providerStub);
 	});
 
 	it('should get file info from provider', function() {
-		FileViewer.__Rewire__('fileInfoProvider', providerStub);
-
 		TestUtils.renderIntoDocument(
 			<FileViewer src="foo.bar" />
 		);
@@ -73,8 +60,6 @@ describe('FileViewer', function() {
 	});
 
 	it('should re-fetch file info if src does not change', function() {
-		FileViewer.__Rewire__('fileInfoProvider', providerStub);
-
 		var elem = TestUtils.renderIntoDocument(
 			<FileViewer src="file1.gif" />
 		);
