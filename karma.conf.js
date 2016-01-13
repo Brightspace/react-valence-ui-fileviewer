@@ -26,7 +26,7 @@ module.exports = function(config) {
 		//  fail with the default timeout of 10s.  I'm not sure what's causing
 		//  the stall, but this mitigates it for now.
 		browserNoActivityTimeout: 30000,
-		browsers: ['PhantomJS2'],
+		browsers: ['PhantomJS'],
 		files: [
 			'node_modules/phantomjs-polyfill/bind-polyfill.js',
 			'./src/**/__tests__/**/*.js'
