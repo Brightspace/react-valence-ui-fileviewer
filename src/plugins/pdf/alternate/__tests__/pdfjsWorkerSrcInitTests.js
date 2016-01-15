@@ -30,6 +30,7 @@ describe('pdfjsWorkerSrcInit', function() {
 
 		createObjectURL = sinon.stub().returns(workerSrcObjectUrl);
 		window.URL = { createObjectURL : createObjectURL };
+		pdfjsWorkerSrcInit.__Rewire__('getBlob', function() { return null; });
 	});
 
 	afterEach(function() {

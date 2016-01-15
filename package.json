@@ -30,7 +30,6 @@
     "react": "^0.13.3"
   },
   "dependencies": {
-    "blob": "0.0.4",
     "bower": "^1.6.5",
     "d2l-intl": "^0.2.1",
     "react-frau-intl": "^0.1.3",
