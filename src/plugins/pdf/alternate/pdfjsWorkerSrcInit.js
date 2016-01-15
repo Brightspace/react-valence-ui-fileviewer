@@ -1,6 +1,5 @@
 'use strict';
 
-var Blob = require('blob');
 // inspired by http://colonelpanic.net/2014/08/using-pdf-js-web-worker-cross-domain-cors/
 
 var pdfjs = require('./pdfjs-lib'),
@@ -14,9 +13,7 @@ function loadWorkerSrcFromUrl(url) {
 		request.onreadystatechange = function() {
 			if (request.readyState === 4) {
 				if (request.status === 200) {
-					var workerSrcBlob = new Blob([request.responseText], {
-						type: 'text/javascript'
-					});
+					var workerSrcBlob = getBlob(request);
 					resolve(window.URL.createObjectURL(workerSrcBlob));
 				} else {
 					reject();
@@ -25,6 +22,12 @@ function loadWorkerSrcFromUrl(url) {
 		};
 		request.open('GET', url, true);
 		request.send();
+	});
+}
+
+function getBlob(request) {
+	return new Blob([request.responseText], {
+		type: 'text/javascript'
 	});
 }
 
