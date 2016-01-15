@@ -1,18 +1,16 @@
 'use strict';
 
-jest.dontMock('../icon.js');
-
 var React = require('react/addons'),
 	TestUtils = React.addons.TestUtils,
 	Icon = require('../icon.js'),
-	getIconClassName = require('../../../getIconClassName');
+	sinon = require('sinon');
 
-getIconClassName.mockImpl(function() { return 'test'; });
+var getIconClassName;
 
 describe('Generic Icon View', function() {
-
-	afterEach(function() {
-		getIconClassName.mockClear();
+	beforeEach(function() {
+		getIconClassName = sinon.stub().returns('test');
+		Icon.__Rewire__('getIconClassName', getIconClassName);
 	});
 
 	it('should render wrapper with expected class name', function() {
@@ -30,8 +28,8 @@ describe('Generic Icon View', function() {
 		TestUtils.renderIntoDocument(
 			<Icon mimeType='image/jpeg' />
 		);
-		expect(getIconClassName.mock.calls.length).toBe(1);
-		expect(getIconClassName.mock.calls[0][0]).toBe('image/jpeg');
+		expect(getIconClassName.calledOnce).toBe(true);
+		expect(getIconClassName.firstCall.args[0]).toBe('image/jpeg');
 	});
 
 	it('should append mimeType-specific class name', function() {

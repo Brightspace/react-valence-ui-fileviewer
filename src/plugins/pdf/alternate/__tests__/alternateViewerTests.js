@@ -1,21 +1,18 @@
 'use strict';
 
-jest.dontMock('../alternateViewer');
-
 var React = require('react/addons'),
 	TestUtils = React.addons.TestUtils,
-	pdfjs = require('../pdfjs-lib'),
-	pdfjsWorkerSrcInit = require('../pdfjsWorkerSrcInit'),
-	AlternateViewer = require('../alternateViewer');
+	AlternateViewer = require('../alternateViewer'),
+	sinon = require('sinon'),
+	Promise = require('es6-promise').Promise,
+	getPdfjsMock = require('./utils/getPdfjsMock');
 
+var pdfjs;
 describe('PDF Alternate Viewer', function() {
-	pdfjsWorkerSrcInit.mockImpl(function() {
-		return Promise.resolve();
-	});
-
 	beforeEach(function() {
-		pdfjs.getDocument.mockClear();
-		pdfjsWorkerSrcInit.mockClear();
+		AlternateViewer.__Rewire__('pdfjsWorkerSrcInit', function() { return Promise.resolve(); });
+		pdfjs = getPdfjsMock();
+		AlternateViewer.__Rewire__('pdfjs', pdfjs);
 	});
 
 	it('should render with expected class name', function() {
@@ -33,31 +30,37 @@ describe('PDF Alternate Viewer', function() {
 		var viewer = TestUtils.renderIntoDocument(
 			<AlternateViewer src='some/path' />
 		);
-		var removeEventListenerMock = jest.genMockFunction();
+		var removeEventListenerMock = sinon.stub();
 		viewer.state.container.removeEventListener = removeEventListenerMock;
 
 		viewer.componentWillUnmount();
 
-		expect(removeEventListenerMock.mock.calls.length).toBe(1);
-		expect(removeEventListenerMock.mock.calls[0][0]).toEqual('pagesinit');
+		expect(removeEventListenerMock.calledOnce).toBe(true);
+		expect(removeEventListenerMock.firstCall.args[0]).toEqual('pagesinit');
 	});
 
-	pit('gets the document requested in src', function() {
-		TestUtils.renderIntoDocument(
-			<AlternateViewer
-				src='test.pdf' />
-		);
+	describe('gets the document requested in src', function() {
+		beforeEach(function(done) {
+			TestUtils.renderIntoDocument(
+				<AlternateViewer
+					src='test.pdf' />
+			);
 
-		return Promise.resolve().then(function() {
-			expect(pdfjs.getDocument).toBeCalledWith({
+			Promise.resolve().then(function() {
+				done();
+			});
+		});
+
+		it('test', function() {
+			expect(pdfjs.getDocument.calledWithExactly({
 				url: 'test.pdf',
 				withCredentials: true
-			});
+			})).toBeTruthy();
 		});
 	});
 
 	it('Calls the progressCallback and passes 10 in as the initial value', function() {
-		var progressFunc = jest.genMockFunction();
+		var progressFunc = sinon.stub();
 
 		TestUtils.renderIntoDocument(
 			<AlternateViewer
@@ -65,13 +68,11 @@ describe('PDF Alternate Viewer', function() {
 				progressCallback={progressFunc} />
 		);
 
-		expect(progressFunc.mock.calls.length).toBe(1);
-		expect(progressFunc.mock.calls[0][0]).toBe(10);
-		expect(progressFunc.mock.calls[0][1]).toBe('guess');
+		expect(progressFunc.calledWith(10, 'guess')).toBe(true);
 	});
 
 	it('Calls the progressCallback when updateProgress is called', function() {
-		var progressFunc = jest.genMockFunction();
+		var progressFunc = sinon.stub();
 
 		var viewer = TestUtils.renderIntoDocument(
 			<AlternateViewer
@@ -79,10 +80,9 @@ describe('PDF Alternate Viewer', function() {
 				progressCallback={progressFunc} />
 		);
 
-		progressFunc.mockClear();
-
+		progressFunc.reset();
 		viewer.updateProgress(55);
 
-		expect(progressFunc).toBeCalledWith(55, 'guess');
+		expect(progressFunc.calledWithExactly(55, 'guess')).toBe(true);
 	});
 });

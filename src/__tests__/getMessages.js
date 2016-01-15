@@ -1,7 +1,5 @@
 'use strict';
 
-jest.dontMock('../getMessages.js');
-
 var getMessages = require('../getMessages.js');
 
 describe('getMessages', function() {

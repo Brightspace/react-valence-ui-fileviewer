@@ -1,7 +1,5 @@
 'use strict';
 
-jest.autoMockOff();
-
 var React = require('react/addons'),
 	sinon = require('sinon'),
 	TestUtils = React.addons.TestUtils,
@@ -29,7 +27,7 @@ describe('HTML Viewer', function() {
 			elem,
 			'vui-fileviewer-html-native'
 		);
-		expect(wrapper).toBeDefined();
+		expect(wrapper).toBeDefined(true);
 	});
 
 	it('should render an IFRAME pointing at "src"', function() {
@@ -40,13 +38,12 @@ describe('HTML Viewer', function() {
 			elem,
 			'iframe'
 		);
-		expect(iframe).toBeDefined();
-		expect(React.findDOMNode(iframe).src).toBe('foo.bar');
+
+		expect(React.findDOMNode(iframe).src).toContain('foo.bar');
 	});
 
 	it('should calls the progressCallback and pass 100 in as the value', function() {
-
-		var progressFunc = jest.genMockFunction();
+		var progressFunc = sinon.stub();
 
 		var elem = TestUtils.renderIntoDocument(
 			<Viewer
@@ -56,8 +53,8 @@ describe('HTML Viewer', function() {
 
 		TestUtils.Simulate.load(TestUtils.findRenderedDOMComponentWithClass(elem, 'vui-fileviewer-html-native'));
 
-		expect(progressFunc.mock.calls.length).toBe(2);
-		expect(progressFunc.mock.calls[0][0]).toBe(0);
-		expect(progressFunc.mock.calls[1][0]).toBe(100);
+		expect(progressFunc.calledTwice).toBe(true);
+		expect(progressFunc.firstCall.args[0]).toBe(0);
+		expect(progressFunc.secondCall.args[0]).toBe(100);
 	});
 });

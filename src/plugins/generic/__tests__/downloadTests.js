@@ -1,17 +1,19 @@
 'use strict';
 
-jest.dontMock('../download.js');
-jest.dontMock('./utils/stubIntlMessage');
-
 var React = require('react/addons'),
 	TestUtils = React.addons.TestUtils,
 	Download = require('../download.js'),
+	sinon = require('sinon'),
 	stubIntlMessage = require('./utils/stubIntlMessage');
 
 describe('Generic Download View', function() {
-	var DownloadTester;
+	var DownloadTester,
+		downloadStub;
 
 	beforeEach(function() {
+		downloadStub = sinon.stub();
+		Download.prototype.__reactAutoBindMap.download = downloadStub;
+
 		DownloadTester = stubIntlMessage(
 			Download,
 			{},
@@ -19,6 +21,7 @@ describe('Generic Download View', function() {
 			function() {return 'Download';}
 		);
 	});
+
 	it('should render nothing if "src" is not provided', function() {
 		var elem = TestUtils.renderIntoDocument(
 			<DownloadTester />
@@ -59,13 +62,14 @@ describe('Generic Download View', function() {
 		var elem = TestUtils.renderIntoDocument(
 			<DownloadTester src='http://www.google.ca/' />
 		);
+
 		var button = TestUtils.findRenderedDOMComponentWithTag(
 			elem,
 			'button'
 		);
 		var buttonNode = React.findDOMNode(button);
 		TestUtils.Simulate.click(buttonNode);
-		expect(document.location.href).toBe('http://www.google.ca/');
+		expect(downloadStub.called).toBe(true);
 	});
 
 });

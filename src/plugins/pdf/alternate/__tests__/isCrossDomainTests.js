@@ -1,12 +1,10 @@
 'use strict';
 
-jest.autoMockOff();
-
 var isCrossDomain = require('../isCrossDomain');
 
 describe('isCrossDomain', function() {
 	beforeEach(function() {
-		window.location.href = 'https://s.brightspace.com/my-app/app.html';
+		isCrossDomain.__Rewire__('getHref', function() { return 'https://s.brightspace.com/lib/pdf.js/pdf.worker.js'; });
 	});
 
 	it('should be false when protocol, host name, and port are the same', function() {

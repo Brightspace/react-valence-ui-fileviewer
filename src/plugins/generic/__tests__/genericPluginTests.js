@@ -1,14 +1,12 @@
 'use strict';
 
-jest.dontMock('../generic.js');
-
 var GenericPlugin = require('../generic.js');
 
 describe('Generic Plugin', function() {
 
 	it('should return true for "test" always', function() {
 		var value = GenericPlugin.test();
-		expect(value).toBeTruthy();
+		expect(value).toBe(true);
 	});
 
 	it('should return a view', function() {

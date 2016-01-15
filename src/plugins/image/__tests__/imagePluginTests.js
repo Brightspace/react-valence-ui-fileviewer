@@ -1,8 +1,5 @@
 'use strict';
 
-jest.dontMock('../image.js');
-jest.dontMock('../mimeTypes.js');
-
 var ImagePlugin = require('../image.js'),
 	mimeTypes = require('../mimeTypes.js');
 

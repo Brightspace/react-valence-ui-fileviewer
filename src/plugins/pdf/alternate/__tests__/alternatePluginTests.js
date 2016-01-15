@@ -1,7 +1,5 @@
 'use strict';
 
-jest.dontMock('../alternate.js');
-
 var alternate = require('../alternate.js');
 
 describe('PDF Alternate Plugin', function() {

@@ -1,23 +1,24 @@
 'use strict';
 
-jest.dontMock('../fileViewerResolved.js');
-
-var genericViewer = require('../plugins/generic/generic.js'),
-	React = require('react/addons'),
+var	React = require('react/addons'),
 	TestUtils = React.addons.TestUtils,
+	sinon = require('sinon'),
 	FileViewerResolved = require('../fileViewerResolved.js');
 
-genericViewer.test.mockImpl(function() { return true; });
-
 describe('FileViewer Resolved', function() {
+	var getComponentStub;
 
-	afterEach(function() {
-		genericViewer.getComponent.mockClear();
+	beforeEach(function() {
+		getComponentStub = sinon.stub();
+		FileViewerResolved.__Rewire__('viewers', [{
+			test: function() { return true; },
+			getComponent: getComponentStub
+		}]);
 	});
 
 	it('should render wrapper with expected class name', function() {
 		var elem = TestUtils.renderIntoDocument(
-			<FileViewerResolved mimeType='text/html' size={1234} />
+			<FileViewerResolved mimeType='text/html' size={1234} src="test.html"/>
 		);
 		var wrapper = TestUtils.findRenderedDOMComponentWithClass(
 			elem,
@@ -28,9 +29,9 @@ describe('FileViewer Resolved', function() {
 
 	it('should render plugin which tests true', function() {
 		TestUtils.renderIntoDocument(
-			<FileViewerResolved mimeType='text/html' size={1234} />
+			<FileViewerResolved mimeType='text/html' size={1234} src="test.html" />
 		);
-		expect(genericViewer.getComponent.mock.calls.length).toBe(1);
+		expect(getComponentStub.calledOnce).toBe(true);
 	});
 
 });
