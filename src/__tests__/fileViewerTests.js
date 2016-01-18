@@ -15,7 +15,7 @@ describe('FileViewer', function() {
 		providerStub = sinon.stub();
 		providerStub.withArgs('file1.gif').callsArgWith(1, null, {size: 1, mimeType: 'image/gif', filename: 'file1.gif'});
 		providerStub.withArgs('file2.mp3').callsArgWith(1, null, {size: 100, mimeType: 'audio/mp3', filename: 'file2.mp3'});
-		providerStub.withArgs('foo.bar').callsArgWith(1, 'error1');
+		providerStub.withArgs('foo.bar').callsArgWith(1, new Error('error1'));
 
 		FileViewer.__Rewire__('IntlFileViewer', 'div');
 		FileViewer.__Rewire__('fileInfoProvider', providerStub);

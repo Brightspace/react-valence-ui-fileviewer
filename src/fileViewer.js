@@ -43,7 +43,7 @@ var FileViewer = React.createClass({
 	},
 	render: function() {
 		if (this.state.error) {
-			return <div>{this.state.error}</div>;
+			return <div>{this.state.error.message}</div>;
 		}
 		if (!this.state.info) {
 			return null;
