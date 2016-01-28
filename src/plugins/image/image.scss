@@ -1,8 +1,11 @@
 .vui-fileviewer-image {
 	max-height: 100%;
 	max-width: 100%;
+	position: absolute;
 }
 
 .vui-fileviewer-image-container {
 	width: 100%;
+	min-height: 100%;
+	position: relative;
 }

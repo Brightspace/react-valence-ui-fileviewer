@@ -29,6 +29,9 @@ hr {
 	flex: 1;
 	display: flex;
 	min-width: 0;
+	position: absolute;
+	height: 100%;
+	width: 100%;
 }
 
 #placeholder {

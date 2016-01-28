@@ -13,9 +13,7 @@ function loadWorkerSrcFromUrl(url) {
 		request.onreadystatechange = function() {
 			if (request.readyState === 4) {
 				if (request.status === 200) {
-					var workerSrcBlob = new Blob([request.responseText], {
-						type: 'text/javascript'
-					});
+					var workerSrcBlob = getBlob(request);
 					resolve(window.URL.createObjectURL(workerSrcBlob));
 				} else {
 					reject();
@@ -24,6 +22,12 @@ function loadWorkerSrcFromUrl(url) {
 		};
 		request.open('GET', url, true);
 		request.send();
+	});
+}
+
+function getBlob(request) {
+	return new Blob([request.responseText], {
+		type: 'text/javascript'
 	});
 }
 
