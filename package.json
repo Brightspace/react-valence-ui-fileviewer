@@ -5,14 +5,19 @@
   "main": "src/fileViewer.js",
   "scripts": {
     "prebuild-sample": "rimraf ./sample/dist && mkdirp ./sample/dist",
-    "build-sample": "browserify -s app ./sample/app.js > ./sample/dist/app.js && node-sass ./sample/app.scss ./sample/dist/app.css",
+    "build-sample": "npm run build-sample:js && npm run build-sample:css",
+    "build-sample:js": "browserify -s app ./sample/app.js > ./sample/dist/app.js",
+    "build-sample:css": "node-sass ./sample/app.scss ./sample/dist/app.css",
     "lint": "eslint src",
     "postinstall": "bower install",
     "report-coverage": "lcov-result-merger 'coverage/**/lcov.info' | ./node_modules/coveralls/bin/coveralls.js",
     "serve": "http-server -p 8080 ./sample/",
     "pretest:unit": "rimraf node_modules/karma-coverage/node_modules/istanbul",
     "test:unit": "karma start karma.conf.js --single-run",
-    "test": "npm run lint && npm run test:unit"
+    "test": "npm run lint && npm run test:unit",
+    "watch:css": "onchange \"**/*.scss\" -- npm run build-sample:css -s",
+    "watch:js": "onchange \"src/**/*.js\" \"src/**/*.jsx\" -- npm run build-sample:js -s",
+    "watch": "parallelshell \"npm run serve\" \"npm run watch:css\" \"npm run watch:js\""
   },
   "repository": {
     "type": "git",

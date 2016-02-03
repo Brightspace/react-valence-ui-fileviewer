@@ -17,18 +17,24 @@ var viewers = [
 
 var FileViewerResolved = React.createClass({
 	propTypes: {
-		mimeType: React.PropTypes.string.isRequired,
-		size: React.PropTypes.number.isRequired
+		mimeType: React.PropTypes.string,
+		forceGeneric: React.PropTypes.bool
 	},
 	render: function() {
 		var viewer = null;
-		for (var i = 0; i < viewers.length; i++) {
-			if (viewers[i].test(this.props.mimeType)) {
-				viewer = viewers[i].getComponent(this.props);
-				break;
+
+		if (this.props.mimeType) {
+			for (var i = 0; i < viewers.length; i++) {
+				if (viewers[i].test(this.props.mimeType)) {
+					viewer = viewers[i].getComponent(this.props);
+					break;
+				}
 			}
+		} else {
+			viewer = genericViewer.getComponent(this.props);
 		}
-		return (<div className="vui-fileviewer">{viewer}</div>);
+
+		return <div className="vui-fileviewer">{viewer}</div>;
 	}
 });
 

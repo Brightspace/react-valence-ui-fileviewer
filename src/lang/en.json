@@ -1,7 +1,53 @@
 {
 	"Plugins": {
 		"Generic": {
-			"Download": "Download"
+			"Download": "Download",
+			"CanNotOpenFile": "We can't open this kind of file here",
+			"PleaseDownload": "Please download and open the file instead.",
+			"NoAccess": "You don't have access to it.",
+			"FileSize": "File size: {fileSize}",
+			"FileType": {
+				"MicrosoftWordDocument": "Microsoft Word document",
+				"MicrosoftExcelDocument": "Microsoft Excel document",
+			    "MicrosoftPowerpointDocument": "Microsoft Powerpoint document",
+			    "PostscriptFile": "Postscript file",
+			    "RichTextFormatFile": "RTF file",
+			    "TeXFile": "TeX file",
+			    "TexinfoFile": "Texinfo file",
+			    "TroffFile": "Troff file",
+			    "MP3AudioFile": "MP3 audio file",
+			    "MP4AudioFile": "MP4 audio file",
+			    "BasicAudioFile": "Basic audio file",
+			    "AIFFAudioFile": "AIFF audio file",
+			    "WavAudioFile": "Wav audio file",
+			    "BMPImage": "BMP image",
+			    "GifImage": "Gif image",
+			    "IEFImage": "IEFI image",
+			    "IconImage": "Icon image",
+			    "JpegImage": "Jpeg image",
+			    "PNGImage": "PNG image",
+			    "SVGImageFile": "SVG image",
+			    "FlashFile": "Flash file",
+			    "TiffImage": "Tiff image",
+			    "ScreenshotFile": "Screenshot file",
+			    "HTMLFile": "HTML file",
+			    "PlainTextFile": "Text file",
+			    "MpegVideoFile": "Mpeg video file",
+			    "OggVideoFile": "Ogg video file",
+			    "WebMVideoFile": "WebM video file",
+			    "FlashVideoFile": "Flash video file",
+			    "MP4VideoFile": "Mp4 video file",
+			    "MatroskaVideoFile": "Matroska video file",
+			    "QuicktimeVideoFile": "Quicktime video file",
+			    "MSVideoFile": "MSvideo file",
+			    "MovieFile": "Movie file",
+			    "PDFFile": "PDF file",
+			    "ZipFile": "Zip file",
+			    "CSSFile": "CSS file",
+			    "XMLFile": "XML file",
+			    "BinaryFile": "Binary file",
+				"Unknown": "Unknown file type"
+			}
 		}
 	}
 }

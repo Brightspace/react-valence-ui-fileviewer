@@ -1,10 +1,15 @@
 @import 'bower_components/vui-button/button';
 @import 'bower_components/vui-icons/icons';
+@import 'bower_components/vui-grid-system/grid-system.scss';
+@import 'bower_components/vui-typography/typography.scss';
+@import 'bower_components/vui-typography/headings.scss';
+@import 'bower_components/vui-offscreen/offscreen.scss';
 
 .vui-fileviewer {
-
 	@import './src/plugins/generic/generic.scss';
 	@import './src/plugins/html/html.scss';
 	@import './src/plugins/image/image.scss';
 	@import './src/plugins/pdf/pdf.scss';
+
+	background-color: white;
 }

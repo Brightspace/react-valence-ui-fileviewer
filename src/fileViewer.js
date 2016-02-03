@@ -19,21 +19,22 @@ var FileViewer = React.createClass({
 	},
 	fetchFileInfo: function(src) {
 		var me = this;
+
 		fileInfoProvider(src, function(err, fileInfo) {
 			if (!me.isMounted()) {
 				return;
 			}
 			if (err) {
-				me.setState({error: err});
+				me.setState({canStream: false});
 				return;
 			}
-			me.setState({info: fileInfo});
+			me.setState({canStream: true, info: fileInfo});
 		});
 	},
 	getInitialState: function() {
 		return {
-			error: null,
-			info: null
+			info: null,
+			canStream: null
 		};
 	},
 	propTypes: {
@@ -42,20 +43,19 @@ var FileViewer = React.createClass({
 		progressCallback: React.PropTypes.func
 	},
 	render: function() {
-		if (this.state.error) {
-			return <div>{this.state.error.message}</div>;
-		}
-		if (!this.state.info) {
+		var forceGeneric = this.state.canStream === false;
+		var info = (forceGeneric) ? {} : this.state.info;
+
+		if (!info) {
 			return null;
 		}
-		var messages = getMessages(this.props.locale);
 
+		var messages = getMessages(this.props.locale);
 		return <IntlFileViewer
 			{...this.props}
 			messages={messages}
-			filename={this.state.info.filename}
-			mimeType={this.state.info.mimeType}
-			size={this.state.info.size} />;
+			mimeType={info.mimeType}
+		/>;
 	}
 });
 
