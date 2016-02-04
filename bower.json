@@ -18,7 +18,6 @@
   "dependencies": {
     "vui-button": "~1.2.0",
     "vui-icons": "~1.1.1",
-    "vui-grid-system": "~0.0.1",
     "vui-offscreen": "~0.3.0",
     "vui-colors": "~0.2.0",
     "vui-typography": "~2.0.1"

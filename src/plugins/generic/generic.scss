@@ -1,10 +1,7 @@
 .vui-fileviewer-generic {
 	width: 100%;
-	background: -moz-linear-gradient(top , #e0e5ea, #ffffff);
-	background: -ms-linear-gradient(top , #e0e5ea, #ffffff);
-	background: -webkit-linear-gradient(top , #e0e5ea, #ffffff);
-	background: -o-linear-gradient(top , #e0e5ea, #ffffff);
-	background-size: 100% 172px; // change this to em
+	background: linear-gradient(to bottom , #e0e5ea, #ffffff);
+	background-size: 100% 10.75rem;
 	background-repeat: no-repeat;
 
 	.vui-fileviewer-icon-audio {
@@ -52,7 +49,7 @@
 	}
 
 	.vui-fileviewer-icon {
-		padding: 0 1rem 1rem 0;
+		padding: 0 0 1rem 0;
 	}
 
 	.generic-header-icon-container {
@@ -95,6 +92,15 @@
 		.vui-fileviewer-generic-container {
 			margin-left: 15%;
 			padding-top: 5rem;
+
+			[dir="rtl"] & {
+				margin-left: auto;
+				margin-right: 15%;
+			}
+		}
+
+		[dir="rtl"] & {
+			text-align: right;
 		}
 	}
 
@@ -103,6 +109,7 @@
 		.vui-fileviewer-generic-container {
 			text-align: center;
 			margin-left: auto;
+			margin-right: auto;
 			padding-top: 10%;
 		}
 
