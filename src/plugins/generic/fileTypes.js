@@ -1,7 +1,6 @@
 'use strict';
 
-var mimeToFileTypes = Object.freeze({
-    'application/msword': 'MicrosoftWordDocument',
+var mimeToFileTypes = {'application/msword': 'MicrosoftWordDocument',
     'application/vnd.openxmlformats-officedocument.wordprocessingml.document': 'MicrosoftWordDocument',
     'application/vnd.ms-excel': 'MicrosoftExcelDocument',
     'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet': 'MicrosoftExcelDocument',
@@ -43,6 +42,6 @@ var mimeToFileTypes = Object.freeze({
     'text/css': 'CSSFile',
     'text/xml': 'XMLFile',
     'application/octet-stream': 'BinaryFile'
-});
+};
 
 module.exports = mimeToFileTypes;

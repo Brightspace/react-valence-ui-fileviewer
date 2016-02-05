@@ -8,6 +8,17 @@ var React = require('react'),
 	IntlFileViewer = i18n(FileViewerResolved);
 
 var FileViewer = React.createClass({
+	propTypes: {
+		src: React.PropTypes.string.isRequired,
+		locale: React.PropTypes.string,
+		progressCallback: React.PropTypes.func
+	},
+	getInitialState: function() {
+		return {
+			info: null,
+			canStream: null
+		};
+	},
 	componentDidMount: function() {
 		this.fetchFileInfo(this.props.src);
 	},
@@ -25,22 +36,11 @@ var FileViewer = React.createClass({
 				return;
 			}
 			if (err) {
-				me.setState({canStream: false});
+				me.setState({canStream: false, info: null});
 				return;
 			}
 			me.setState({canStream: true, info: fileInfo});
 		});
-	},
-	getInitialState: function() {
-		return {
-			info: null,
-			canStream: null
-		};
-	},
-	propTypes: {
-		src: React.PropTypes.string.isRequired,
-		locale: React.PropTypes.string,
-		progressCallback: React.PropTypes.func
 	},
 	render: function() {
 		var forceGeneric = this.state.canStream === false;

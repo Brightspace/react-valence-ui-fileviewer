@@ -6,7 +6,8 @@ var	React = require('react/addons'),
 	FileViewerResolved = require('../fileViewerResolved.js');
 
 describe('FileViewer Resolved', function() {
-	var getComponentStub;
+	var getComponentStub,
+		genericViewerStub;
 
 	beforeEach(function() {
 		getComponentStub = sinon.stub();
@@ -14,11 +15,14 @@ describe('FileViewer Resolved', function() {
 			test: function() { return true; },
 			getComponent: getComponentStub
 		}]);
+
+		genericViewerStub = sinon.stub();
+		FileViewerResolved.__Rewire__('genericViewer', { getComponent: genericViewerStub });
 	});
 
 	it('should render wrapper with expected class name', function() {
 		var elem = TestUtils.renderIntoDocument(
-			<FileViewerResolved mimeType='text/html' size={1234} src="test.html"/>
+			<FileViewerResolved mimeType='text/html' src="test.html"/>
 		);
 		var wrapper = TestUtils.findRenderedDOMComponentWithClass(
 			elem,
@@ -29,9 +33,16 @@ describe('FileViewer Resolved', function() {
 
 	it('should render plugin which tests true', function() {
 		TestUtils.renderIntoDocument(
-			<FileViewerResolved mimeType='text/html' size={1234} src="test.html" />
+			<FileViewerResolved mimeType='text/html' src="test.html" />
 		);
 		expect(getComponentStub.calledOnce).toBe(true);
 	});
 
+	it('should render a generic viewer if mimeType is null', function() {
+		TestUtils.renderIntoDocument(
+			<FileViewerResolved mimeType={null} src="test.html"/>
+		);
+
+		expect(genericViewerStub.called).toBe(true);
+	});
 });

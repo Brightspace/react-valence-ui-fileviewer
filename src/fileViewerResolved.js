@@ -17,8 +17,7 @@ var viewers = [
 
 var FileViewerResolved = React.createClass({
 	propTypes: {
-		mimeType: React.PropTypes.string,
-		forceGeneric: React.PropTypes.bool
+		mimeType: React.PropTypes.string
 	},
 	render: function() {
 		var viewer = null;

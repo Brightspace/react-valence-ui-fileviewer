@@ -3,14 +3,23 @@
 var React = require('react/addons'),
 	TestUtils = React.addons.TestUtils,
 	Size = require('../size.js'),
+	stubIntlMessage = require('./utils/stubIntlMessage.js'),
 	sinon = require('sinon');
 
 var formatMock,
-	FileSizeFormat;
+	FileSizeFormat,
+	SizeTester;
 
 var renderElement = function(size, locale) {
+	SizeTester = stubIntlMessage(
+		Size,
+		{},
+		function() {return '';},
+		function() {return '';}
+	);
+
 	return TestUtils.renderIntoDocument(
-		<Size value={size} locale={locale} />
+		<SizeTester value={size} locale={locale} />
 	);
 };
 

@@ -48,9 +48,6 @@ var Viewer = React.createClass({
 			me.setState({info: fileInfo});
 		});
 	},
-	isDesktop: function() {
-		return screen.width > 992;
-	},
 	render: function() {
 		var headerMessage = this.context.getIntlMessage('Plugins.Generic.CanNotOpenFile'),
 			subHeaderMessage = null,
@@ -61,8 +58,8 @@ var Viewer = React.createClass({
 		} else if (this.state.info) {
 			subHeaderMessage = this.context.getIntlMessage('Plugins.Generic.PleaseDownload');
 			downloadArea = <div className="generic-download-area">
-					<Size value={this.state.info.size} locale={this.props.locale} />
-					<Download src={this.props.srcdownload} />
+					<Size ref="fileSize" value={this.state.info.size} locale={this.props.locale} />
+					<Download ref="download" src={this.props.srcdownload} />
 				</div>;
 		} else {
 			return null;
