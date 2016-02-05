@@ -1,3 +1,11 @@
+.vui-fileviewer-html-native-wrapper {
+	display: flex;
+	flex: 1;
+	min-height: 100%; /* fix for ie11 */
+	overflow: auto;
+	-webkit-overflow-scrolling:touch;
+}
+
 .vui-fileviewer-html-native {
 	display: flex;
 	flex: 1;

@@ -18,11 +18,13 @@ var NativeViewer = React.createClass({
 		this.updateProgress(100);
 	},
 	render: function() {
-		return <iframe
-			onLoad={this.handleOnLoad}
-			src={this.props.src}
-			className="vui-fileviewer-html-native">
-		</iframe>;
+		return <div className="vui-fileviewer-html-native-wrapper">
+			<iframe
+				onLoad={this.handleOnLoad}
+				src={this.props.src}
+				className="vui-fileviewer-html-native">
+			</iframe>
+		</div>;
 	}
 });
 
