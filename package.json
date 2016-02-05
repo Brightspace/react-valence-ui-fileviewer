@@ -7,7 +7,7 @@
     "prebuild-sample": "rimraf ./sample/dist && mkdirp ./sample/dist",
     "build-sample": "npm run build-sample:js && npm run build-sample:css",
     "build-sample:js": "browserify -s app ./sample/app.js > ./sample/dist/app.js",
-    "build-sample:css": "node-sass ./sample/app.scss ./sample/dist/app.css && postcss --use autoprefixer *.css -d ./sample/dist/",
+    "build-sample:css": "node-sass ./sample/app.scss ./sample/dist/app.css",
     "lint": "eslint src",
     "postinstall": "bower install",
     "report-coverage": "lcov-result-merger 'coverage/**/lcov.info' | ./node_modules/coveralls/bin/coveralls.js",
@@ -42,7 +42,6 @@
     "url-parse": "^1.0.5"
   },
   "devDependencies": {
-    "autoprefixer": "^6.1.0",
     "babel-core": "^5.8.33",
     "babel-plugin-rewire": "^0.1.22",
     "babelify": "^6.1.3",
@@ -66,9 +65,10 @@
     "lcov-result-merger": "^1.0.2",
     "mkdirp": "^0.5.1",
     "node-sass": "^3.3.3",
-    "phantomjs-polyfill": "0.0.1",
+    "onchange": "^2.0.0",
+    "parallelshell": "^2.0.0",
     "phantomjs": "^1.9.18",
-    "postcss-cli": "^2.5.0",
+    "phantomjs-polyfill": "0.0.1",
     "rimraf": "^2.4.3",
     "sinon": "^1.17.2",
     "sinon-as-promised": "^4.0.0"
