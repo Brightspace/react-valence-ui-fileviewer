@@ -16,7 +16,7 @@ var FileViewer = React.createClass({
 	getInitialState: function() {
 		return {
 			info: null,
-			canStream: null
+			canAccessFile: null
 		};
 	},
 	componentDidMount: function() {
@@ -36,25 +36,26 @@ var FileViewer = React.createClass({
 				return;
 			}
 			if (err) {
-				me.setState({canStream: false, info: null});
+				me.setState({canAccessFile: false, info: null});
 				return;
 			}
-			me.setState({canStream: true, info: fileInfo});
+			me.setState({canAccessFile: true, info: fileInfo});
 		});
 	},
 	render: function() {
-		var forceGeneric = this.state.canStream === false;
-		var info = (forceGeneric) ? {} : this.state.info;
+		var forceGeneric = this.state.canAccessFile === false;
 
-		if (!info) {
+		if (!forceGeneric && !this.state.info) {
 			return null;
 		}
 
 		var messages = getMessages(this.props.locale);
+		var mimeType = (forceGeneric) ? undefined : this.state.info.mimeType;
+
 		return <IntlFileViewer
 			{...this.props}
 			messages={messages}
-			mimeType={info.mimeType}
+			mimeType={mimeType}
 		/>;
 	}
 });
