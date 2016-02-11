@@ -8,54 +8,55 @@ var React = require('react'),
 	IntlFileViewer = i18n(FileViewerResolved);
 
 var FileViewer = React.createClass({
-	componentDidMount: function() {
-		this.fetchFileInfo(this.props.src);
-	},
-	componentWillReceiveProps: function(nextProps) {
-		if (nextProps.src !== this.props.src) {
-			this.setState({info:null});
-			this.fetchFileInfo(nextProps.src);
-		}
-	},
-	fetchFileInfo: function(src) {
-		var me = this;
-		fileInfoProvider(src, function(err, fileInfo) {
-			if (!me.isMounted()) {
-				return;
-			}
-			if (err) {
-				me.setState({error: err});
-				return;
-			}
-			me.setState({info: fileInfo});
-		});
-	},
-	getInitialState: function() {
-		return {
-			error: null,
-			info: null
-		};
-	},
 	propTypes: {
 		src: React.PropTypes.string.isRequired,
 		locale: React.PropTypes.string,
 		progressCallback: React.PropTypes.func
 	},
-	render: function() {
-		if (this.state.error) {
-			return <div>{this.state.error.message}</div>;
+	getInitialState: function() {
+		return {
+			info: null,
+			canAccessFile: null
+		};
+	},
+	componentDidMount: function() {
+		this.fetchFileInfo(this.props.src);
+	},
+	componentWillReceiveProps: function(nextProps) {
+		if (nextProps.src !== this.props.src) {
+			this.setState({info:null, canAccessFile: null});
+			this.fetchFileInfo(nextProps.src);
 		}
-		if (!this.state.info) {
+	},
+	fetchFileInfo: function(src) {
+		var me = this;
+
+		fileInfoProvider(src, function(err, fileInfo) {
+			if (!me.isMounted()) {
+				return;
+			}
+			if (err) {
+				me.setState({canAccessFile: false, info: null});
+				return;
+			}
+			me.setState({canAccessFile: true, info: fileInfo});
+		});
+	},
+	render: function() {
+		var forceGeneric = this.state.canAccessFile === false;
+
+		if (!forceGeneric && !this.state.info) {
 			return null;
 		}
+
 		var messages = getMessages(this.props.locale);
+		var mimeType = (forceGeneric) ? undefined : this.state.info.mimeType;
 
 		return <IntlFileViewer
 			{...this.props}
 			messages={messages}
-			filename={this.state.info.filename}
-			mimeType={this.state.info.mimeType}
-			size={this.state.info.size} />;
+			mimeType={mimeType}
+		/>;
 	}
 });
 

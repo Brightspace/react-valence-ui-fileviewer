@@ -1,34 +1,8 @@
 .vui-fileviewer-generic {
-
-	padding: 10px;
 	width: 100%;
-	
-	.vui-fileviewer-generic-container {
-		background-color: #ffffff;
-		border: 1px solid #d4d4d4;
-		border-radius: 5px;
-		padding: 20px;
-		&:after {
-			content: '';
-			display: block;
-			clear: both;
-		}
-		[dir="rtl"] & {
-			text-align: right;
-		}
-	}
-
-	.vui-fileviewer-icon {
-		float: left;
-		margin: 15px 40px 0 20px;
-		vertical-align: middle;
-
-		[dir="rtl"] & {
-			float: right;
-			margin-right: 20px;
-			margin-left: 40px;
-		}
-	}
+	background: linear-gradient(to bottom , #e0e5ea, #ffffff);
+	background-size: 100% 10.75rem;
+	background-repeat: no-repeat;
 
 	.vui-fileviewer-icon-audio {
 		@include vui-icon-file-audio-xlarge;
@@ -42,30 +16,126 @@
 		@include vui-icon-file-generic-xlarge;
 	}
 
-	.vui-fileviewer-generic-main {
-		float: left;
-		[dir="rtl"] & {
-			float: right;
-		}
+	.vui-fileviewer-icon-document {
+		@include vui-icon-file-document-xlarge;
 	}
 
-	.vui-fileviewer-generic-filename {
-		font-size: 1.3em;
-		font-weight: bold;
+	.vui-fileviewer-icon-presentation {
+		@include vui-icon-file-presentation-xlarge;
+	}
+
+	.vui-fileviewer-icon-xml {
+		@include vui-icon-file-xml-xlarge;
+	}
+
+	.vui-fileviewer-icon-zip {
+		@include vui-icon-file-zip-xlarge;
+	}
+
+	.vui-fileviewer-icon-text {
+		@include vui-icon-file-text-xlarge;
+	}
+
+	.vui-fileviewer-icon-video {
+		@include vui-icon-file-video-xlarge;
+	}
+
+	.vui-fileviewer-icon-flash {
+		@include vui-icon-file-flash-xlarge;
+	}
+
+	.vui-fileviewer-icon-spreadsheet {
+		@include vui-icon-file-spreadsheet-xlarge;
+	}
+
+	.vui-fileviewer-icon {
+		padding: 0 0 1rem 0;
+	}
+
+	.generic-header-icon-container {
+		display: flex;
+		flex-direction: column;
+	}
+
+	.vui-fileviewer-generic-header {
+		@include vui-typography-heading2;
+		color: $vui-color-celestine;
+		margin: 0;
+	}
+
+	.vui-fileviewer-generic-subheader {
+		@include vui-typography-heading3;
+		margin: 0.5rem 0 0 0;
 	}
 
 	.vui-fileviewer-generic-size {
-		color: #666666;
-		font-style: italic;
-		margin-top: 2px;
-	}
-
-	.vui-fileviewer-generic-download {
-		margin-top: 10px;
+		@include vui-typography;
+		font-weight: normal;
+		margin: 0.4rem 0 0 0;
 	}
 
 	button {
-		@include vui-button;
+		@include vui-button-primary;
+		@include vui-typography-heading3;
+		margin-top: 2.2rem;
+		padding: 0.5rem 4rem;
 	}
 
+	.offscreen {
+		@include vui-offscreen;
+	}
+
+	// tablet/desktop
+	@media (min-width: 768px) {
+		text-align: left;
+
+		.vui-fileviewer-generic-container {
+			margin-left: 15%;
+			padding-top: 5rem;
+
+			[dir="rtl"] & {
+				margin-left: auto;
+				margin-right: 15%;
+			}
+		}
+
+		[dir="rtl"] & {
+			text-align: right;
+		}
+	}
+
+	// mobile
+	@media (max-width: 767px) {
+		.vui-fileviewer-generic-container {
+			text-align: center;
+			margin-left: auto;
+			margin-right: auto;
+			padding-top: 4em;
+		}
+
+		button {
+			margin-top: 0.25rem;
+			width: 90%;
+		}
+
+		.generic-header-icon-container {
+			flex-direction: column-reverse;
+		}
+
+		.vui-fileviewer-icon {
+			padding: 2rem;
+		}
+
+		.vui-fileviewer-generic-size {
+			margin: 0;
+		}
+
+		.vui-fileviewer-generic-header {
+			padding: 0 1rem;
+		}
+
+		.vui-fileviewer-generic-subheader {
+			padding: 0 1rem;
+		}
+	}
 }
