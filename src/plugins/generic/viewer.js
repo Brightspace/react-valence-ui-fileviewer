@@ -30,7 +30,7 @@ var Viewer = React.createClass({
 	},
 	componentWillReceiveProps: function(nextProps) {
 		if (nextProps.srcdownload !== this.props.srcdownload) {
-			this.setState({info:null});
+			this.setState({ info:null, error: null });
 			this.fetchFileInfo(nextProps.srcdownload);
 		}
 	},

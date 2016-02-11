@@ -24,7 +24,7 @@ var FileViewer = React.createClass({
 	},
 	componentWillReceiveProps: function(nextProps) {
 		if (nextProps.src !== this.props.src) {
-			this.setState({info:null});
+			this.setState({info:null, canAccessFile: null});
 			this.fetchFileInfo(nextProps.src);
 		}
 	},
