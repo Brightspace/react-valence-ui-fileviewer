@@ -71,6 +71,18 @@ describe('PDF Alternate Viewer', function() {
 		expect(progressFunc.calledWith(10, 'guess')).toBe(true);
 	});
 
+	it('Calls the resizeCallback and passes 100%, false', function() {
+		var resizeFunc = sinon.stub();
+
+		TestUtils.renderIntoDocument(
+			<AlternateViewer
+				src='test.pdf'
+				resizeCallback={resizeFunc} />
+		);
+
+		expect(resizeFunc.calledWith('100%', false)).toBe(true);
+	});
+
 	it('Calls the progressCallback when updateProgress is called', function() {
 		var progressFunc = sinon.stub();
 

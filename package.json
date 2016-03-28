@@ -72,8 +72,7 @@
     "rimraf": "^2.4.3",
     "sinon": "^1.17.2",
     "sinon-as-promised": "^4.0.0",
-    "react-vui-fileviewer": "../react-valence-ui-fileviewer",
-    "react-vui-iframe": "../react-valence-ui-iframe"
+    "react-vui-iframe": "git@github.com:Brightspace/react-valence-ui-iframe.git#initial"
   },
   "private": true,
   "browserify": {
