@@ -1,7 +1,7 @@
 'use strict';
 
 var React = require('react'), // eslint-disable-line no-unused-vars
-	NativeViewer = require('./viewer');
+	NativeViewer = require('react-valence-ui-iframe');
 
 var plugin = {
 	getComponent: function(props) {

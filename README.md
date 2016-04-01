@@ -91,6 +91,19 @@ FileViewer has the following parameters:
 	* `guess`: indicates that progress will be a number between 0 and 100, and that the progress may not be accurate
 	* `none`: indicates that it will only pass in progress values of 0 or 100
 
+```
+resizeCallback ( size, sizeKnown )
+```
+* A callback reporting on the size of the viewer's contents.
+
+`size`
+* A `string` value for the size of the viewer if we can find it out.
+* `null` if the viewer should just be sized to the container height.
+
+`sizeKnown`
+* True if the size is known.
+* False if the size is not known.
+
 ## Contributing
 Contributions are welcome, please submit a pull request!
 

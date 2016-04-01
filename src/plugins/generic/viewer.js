@@ -11,7 +11,8 @@ var Viewer = React.createClass({
 		srcdownload: React.PropTypes.string,
 		locale: React.PropTypes.string,
 		progressCallback: React.PropTypes.func,
-		mimeType: React.PropTypes.string
+		mimeType: React.PropTypes.string,
+		resizeCallback: React.PropTypes.func
 	},
 	contextTypes : {
 		getIntlMessage: React.PropTypes.func
@@ -26,6 +27,9 @@ var Viewer = React.createClass({
 		this.fetchFileInfo(this.props.srcdownload);
 		if (this.props.progressCallback) {
 			this.props.progressCallback(100, 'certain');
+		}
+		if (this.props.resizeCallback) {
+			this.props.resizeCallback('100%', true);
 		}
 	},
 	componentWillReceiveProps: function(nextProps) {

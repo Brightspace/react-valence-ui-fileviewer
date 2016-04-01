@@ -7,6 +7,7 @@ var React = require('react'),
 var AlternativeViewer = React.createClass({
 	propTypes: {
 		src: React.PropTypes.string.isRequired,
+		resizeCallback: React.PropTypes.func,
 		progressCallback: React.PropTypes.func
 	},
 	onPagesInit: function() {
@@ -34,6 +35,9 @@ var AlternativeViewer = React.createClass({
 		return false;
 	},
 	componentDidMount: function() {
+		if (this.props.resizeCallback) {
+			this.props.resizeCallback('100%', false);
+		}
 		var container = React.findDOMNode(this),
 			pdfLinkService = new pdfjs.PDFLinkService();
 

@@ -40,6 +40,18 @@ describe('Image Viewer', function() {
 		expect(React.findDOMNode(img).src).toContain('foo.bar');
 	});
 
+	it('Calls the resizeCallback and passes 100%, true', function() {
+		var resizeFunc = sinon.stub();
+
+		TestUtils.renderIntoDocument(
+			<Viewer
+				src='test.jpg'
+				resizeCallback={resizeFunc} />
+		);
+
+		expect(resizeFunc.calledWith('100%', true)).toBe(true);
+	});
+
 	it('Calls the progressCallback and passes 0', function() {
 
 		var progressFunc = sinon.stub();

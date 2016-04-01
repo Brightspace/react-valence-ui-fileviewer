@@ -61,6 +61,16 @@ describe('Generic Viewer', function() {
 		expect(wrapper[0]).toBeDefined();
 	});
 
+	it('should call the resizeCallback function', function() {
+		var resizeCallback = sinon.stub();
+
+		TestUtils.renderIntoDocument(
+			<ViewerTester mimeType='audio/mp3' srcdownload='foo.mp3' resizeCallback={resizeCallback}/>
+		);
+
+		expect(resizeCallback.called).toBe(true);
+	});
+
 	it('should not render a download area if fileInfoProvider returns an error', function() {
 		var elem = TestUtils.renderIntoDocument(
 			<ViewerTester mimeType='audio/mp3' srcdownload='foo.bar' />

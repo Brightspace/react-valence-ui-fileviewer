@@ -7,7 +7,7 @@
     "prebuild-sample": "rimraf ./sample/dist && mkdirp ./sample/dist",
     "build-sample": "npm run build-sample:js && npm run build-sample:css",
     "build-sample:js": "browserify -s app ./sample/app.js > ./sample/dist/app.js",
-    "build-sample:css": "node-sass ./sample/app.scss ./sample/dist/app.css",
+    "build-sample:css": "node-sass --importer ./node_modules/frau-sass-importer/ ./sample/app.scss ./sample/dist/app.css",
     "lint": "eslint src",
     "postinstall": "bower install",
     "report-coverage": "lcov-result-merger 'coverage/**/lcov.info' | ./node_modules/coveralls/bin/coveralls.js",
@@ -53,6 +53,7 @@
     "eslint": "^1.5.1",
     "eslint-config-brightspace": "^0.0.2",
     "eslint-plugin-react": "^3.15.0",
+    "frau-sass-importer": "^0.3.0",
     "http-server": "^0.8.5",
     "istanbul": "gotwarlost/istanbul#source-map",
     "jasmine-core": "^2.4.1",
@@ -71,7 +72,8 @@
     "phantomjs-polyfill": "0.0.1",
     "rimraf": "^2.4.3",
     "sinon": "^1.17.2",
-    "sinon-as-promised": "^4.0.0"
+    "sinon-as-promised": "^4.0.0",
+    "react-valence-ui-iframe": "git+https://github.com/Brightspace/react-valence-ui-iframe.git"
   },
   "private": true,
   "browserify": {

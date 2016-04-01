@@ -11,7 +11,7 @@ describe('PDF Native Viewer', function() {
 		NativeViewer.__Rewire__('GenericViewer', 'div');
 	});
 
-	it('should test things eventually', function() {
+	it('should render to the page', function() {
 		var elem = TestUtils.renderIntoDocument(
 			<NativeViewer src='some/path' />
 		);
@@ -33,6 +33,18 @@ describe('PDF Native Viewer', function() {
 		);
 
 		expect(progressFunc.firstCall.args[0]).toBe(0);
+	});
+
+	it('Calls the resizeCallback and passes 100%, false', function() {
+		var resizeFunc = sinon.stub();
+
+		TestUtils.renderIntoDocument(
+			<NativeViewer
+				src='test.pdf'
+				resizeCallback={resizeFunc} />
+		);
+
+		expect(resizeFunc.calledWith('100%', false)).toBe(true);
 	});
 
 	it('Calls the progressCallback a second time and passes 100', function() {
