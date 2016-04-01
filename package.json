@@ -73,7 +73,7 @@
     "rimraf": "^2.4.3",
     "sinon": "^1.17.2",
     "sinon-as-promised": "^4.0.0",
-    "react-valence-ui-iframe": "git+ssh://git@github.com/Brightspace/react-valence-ui-iframe.git"
+    "react-valence-ui-iframe": "git+https://github.com/Brightspace/react-valence-ui-iframe.git"
   },
   "private": true,
   "browserify": {
