@@ -12,8 +12,7 @@ var Viewer = React.createClass({
 		locale: React.PropTypes.string,
 		progressCallback: React.PropTypes.func,
 		mimeType: React.PropTypes.string,
-		resizeCallback: React.PropTypes.func,
-		suppressResizeCallback: React.PropTypes.bool
+		resizeCallback: React.PropTypes.func
 	},
 	contextTypes : {
 		getIntlMessage: React.PropTypes.func
@@ -29,7 +28,7 @@ var Viewer = React.createClass({
 		if (this.props.progressCallback) {
 			this.props.progressCallback(100, 'certain');
 		}
-		if (!this.props.suppressResizeCallback && this.props.resizeCallback) {
+		if (this.props.resizeCallback) {
 			this.props.resizeCallback('100%', true);
 		}
 	},

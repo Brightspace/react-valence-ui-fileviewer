@@ -50,28 +50,6 @@ describe('Generic Viewer', function() {
 		expect(wrapper).toBeDefined();
 	});
 
-	it('should call the resizeCallback function if suppressResizeCallback is true', function() {
-		var resizeCallback = sinon.stub();
-		var suppressResizeCallback = true;
-
-		TestUtils.renderIntoDocument(
-			<ViewerTester mimeType='audio/mp3' srcdownload='foo.mp3' suppressResizeCallback={suppressResizeCallback} resizeCallback={resizeCallback}/>
-		);
-
-		expect(resizeCallback.called).toBe(false);
-	});
-
-	it('should call the resizeCallback function if suppressResizeCallback is falsy', function() {
-		var resizeCallback = sinon.stub();
-		var suppressResizeCallback = false;
-
-		TestUtils.renderIntoDocument(
-			<ViewerTester mimeType='audio/mp3' srcdownload='foo.mp3' suppressResizeCallback={suppressResizeCallback} resizeCallback={resizeCallback}/>
-		);
-
-		expect(resizeCallback.called).toBe(true);
-	});
-
 	it('should render a download area if fileInfoProvider returns data', function() {
 		var elem = TestUtils.renderIntoDocument(
 			<ViewerTester mimeType='audio/mp3' srcdownload='foo.mp3' />
@@ -81,6 +59,16 @@ describe('Generic Viewer', function() {
 			'generic-download-area'
 		);
 		expect(wrapper[0]).toBeDefined();
+	});
+
+	it('should call the resizeCallback function', function() {
+		var resizeCallback = sinon.stub();
+
+		TestUtils.renderIntoDocument(
+			<ViewerTester mimeType='audio/mp3' srcdownload='foo.mp3' resizeCallback={resizeCallback}/>
+		);
+
+		expect(resizeCallback.called).toBe(true);
 	});
 
 	it('should not render a download area if fileInfoProvider returns an error', function() {

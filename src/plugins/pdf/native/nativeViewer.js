@@ -5,7 +5,11 @@ var React = require('react'),
 
 var NativeViewer = React.createClass({
 	propTypes: {
-		resizeCallback: React.PropTypes.func
+		resizeCallback: React.PropTypes.func,
+		progressCallback: React.PropTypes.func,
+		srcdownload: React.PropTypes.string,
+		locale: React.PropTypes.string,
+		src: React.PropTypes.src
 	},
 	componentWillMount: function() {
 		this.updateProgress(0);
@@ -26,7 +30,7 @@ var NativeViewer = React.createClass({
 			data={this.props.src}
 			type="application/pdf"
 			className="vui-fileviewer-pdf-native">
-			<GenericViewer {...this.props} suppressResizeCallback={true} />
+			<GenericViewer srcdownload={this.props.srcdownload} locale={this.props.locale} />
 		</object>;
 	}
 });

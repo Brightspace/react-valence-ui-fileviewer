@@ -11,7 +11,7 @@ describe('PDF Native Viewer', function() {
 		NativeViewer.__Rewire__('GenericViewer', 'div');
 	});
 
-	it('should test things eventually', function() {
+	it('should render to the page', function() {
 		var elem = TestUtils.renderIntoDocument(
 			<NativeViewer src='some/path' />
 		);
