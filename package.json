@@ -70,10 +70,10 @@
     "parallelshell": "^2.0.0",
     "phantomjs": "^1.9.18",
     "phantomjs-polyfill": "0.0.1",
-    "react-vui-iframe": "git@github.com:Brightspace/react-valence-ui-iframe.git#initial",
     "rimraf": "^2.4.3",
     "sinon": "^1.17.2",
-    "sinon-as-promised": "^4.0.0"
+    "sinon-as-promised": "^4.0.0",
+    "react-valence-ui-iframe": "git+ssh://git@github.com/Brightspace/react-valence-ui-iframe.git"
   },
   "private": true,
   "browserify": {
