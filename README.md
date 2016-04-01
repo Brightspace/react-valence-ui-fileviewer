@@ -97,7 +97,7 @@ resizeCallback ( size, sizeKnown )
 * A callback reporting on the size of the viewer's contents.
 
 `size`
-* A `string` value for the size of the viewer if we care about it and can find it out.
+* A `string` value for the size of the viewer if we can find it out.
 * `null` if the viewer should just be sized to the container height.
 
 `sizeKnown`
