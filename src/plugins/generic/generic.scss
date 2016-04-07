@@ -3,6 +3,7 @@
 	background: linear-gradient(to bottom , #e0e5ea, #ffffff);
 	background-size: 100% 10.75rem;
 	background-repeat: no-repeat;
+	overflow: auto;
 
 	.vui-fileviewer-icon-audio {
 		@include vui-icon-file-audio-xlarge;
