@@ -9,7 +9,7 @@ var NativeViewer = React.createClass({
 		progressCallback: React.PropTypes.func,
 		srcdownload: React.PropTypes.string,
 		locale: React.PropTypes.string,
-		src: React.PropTypes.src
+		src: React.PropTypes.string
 	},
 	componentWillMount: function() {
 		this.updateProgress(0);
