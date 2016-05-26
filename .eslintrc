@@ -1,3 +1,12 @@
 {
-  "extends": "brightspace/react-config"
+  "extends": "brightspace/react-config",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
+  "rules": {
+      "react/jsx-uses-react": 1,
+      "react/jsx-uses-vars": 1
+  }
 }
