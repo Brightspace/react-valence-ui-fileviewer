@@ -1,9 +1,10 @@
 .vui-fileviewer-generic {
 	width: 100%;
-	background: linear-gradient(to bottom , #e0e5ea, #ffffff);
-	background-size: 100% 10.75rem;
-	background-repeat: no-repeat;
 	overflow: auto;
+	font-size: 20px;
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
 
 	.vui-fileviewer-icon-audio {
 		@include vui-icon-file-audio-xlarge;
@@ -50,7 +51,7 @@
 	}
 
 	.vui-fileviewer-icon {
-		padding: 0 0 1rem 0;
+		padding: 2rem;
 	}
 
 	.generic-header-icon-container {
@@ -58,21 +59,28 @@
 		flex-direction: column;
 	}
 
+	.generic-download-area {
+		display: flex;
+		flex-direction: column;
+	}
+
 	.vui-fileviewer-generic-header {
-		@include vui-typography-heading2;
+		@include vui-typography-heading3;
 		color: $vui-color-celestine;
 		margin: 0;
+		font-size: 20px;
+		line-height: 1.5;
 	}
 
 	.vui-fileviewer-generic-subheader {
-		@include vui-typography-heading3;
-		margin: 0.5rem 0 0 0;
+		@include vui-typography-heading4;
+		margin: 10px 0 0 0;
+		font-size: 20px;
+		line-height: 1.5;
 	}
 
 	.vui-fileviewer-generic-size {
 		@include vui-typography;
-		font-weight: normal;
-		margin: 0.4rem 0 0 0;
 	}
 
 	button {
@@ -88,55 +96,51 @@
 
 	// tablet/desktop
 	@media (min-width: 768px) {
-		text-align: left;
-
 		.vui-fileviewer-generic-container {
-			margin-left: 15%;
-			padding-top: 5rem;
-
-			[dir="rtl"] & {
-				margin-left: auto;
-				margin-right: 15%;
-			}
+			padding-top: 4rem;
 		}
 
-		[dir="rtl"] & {
-			text-align: right;
+		.vui-fileviewer-generic-size {
+			font-weight: normal;
 		}
 	}
 
 	// mobile
 	@media (max-width: 767px) {
 		.vui-fileviewer-generic-container {
-			text-align: center;
-			margin-left: auto;
-			margin-right: auto;
-			padding-top: 4em;
+			padding-top: 2em;
 		}
 
 		button {
-			margin-top: 0.25rem;
+			margin-top: 10px;
+			margin-bottom: 10px;
 			width: 90%;
 		}
 
-		.generic-header-icon-container {
+		.generic-download-area {
 			flex-direction: column-reverse;
 		}
 
-		.vui-fileviewer-icon {
-			padding: 2rem;
-		}
-
 		.vui-fileviewer-generic-size {
-			margin: 0;
+			font-weight: 600;
 		}
 
 		.vui-fileviewer-generic-header {
-			padding: 0 1rem;
+			padding: 0 1.5rem;
+			text-align: left;
+
+			[dir="rtl"] & {
+				text-align: right;
+			}
 		}
 
 		.vui-fileviewer-generic-subheader {
-			padding: 0 1rem;
+			padding: 0 1.5rem;
+			text-align: left;
+
+			[dir="rtl"] & {
+				text-align: right;
+			}
 		}
 	}
 }

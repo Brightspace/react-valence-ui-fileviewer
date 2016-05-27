@@ -75,11 +75,11 @@ var Viewer = React.createClass({
 			<div className="vui-fileviewer-generic-container">
 				<div className="vui-fileviewer-generic-main">
 					<div className="generic-header-icon-container">
-						<Icon mimeType={mimeType} />
 						<div className="generic-headers">
 							<div className="vui-fileviewer-generic-header">{headerMessage}</div>
 							<div className="vui-fileviewer-generic-subheader">{subHeaderMessage}</div>
 						</div>
+						<Icon mimeType={mimeType} />
 					</div>
 					{downloadArea}
 				</div>

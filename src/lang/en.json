@@ -2,8 +2,8 @@
 	"Plugins": {
 		"Generic": {
 			"Download": "Download",
-			"CanNotOpenFile": "We can't open this kind of file here",
-			"PleaseDownload": "Please download and open the file instead.",
+			"CanNotOpenFile": "This kind of file can't be opened in this viewer",
+			"PleaseDownload": "Download and view the file in another application instead.",
 			"NoAccess": "You don't have access to it.",
 			"FileSize": "File size: {fileSize}",
 			"FileType": {
