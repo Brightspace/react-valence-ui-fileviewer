@@ -104,6 +104,15 @@ resizeCallback ( size, sizeKnown )
 * True if the size is known.
 * False if the size is not known.
 
+### Bump version ###
+
+```BASH
+$ # npm help 1 version
+$ # npm help 7 semver
+$ npm version [major|minor|patch|premajor|preminor|prepatch|prerelease] -m "chore(version) bump %s"
+$ git push upstream master --tags
+```
+
 ## Contributing
 Contributions are welcome, please submit a pull request!
 
