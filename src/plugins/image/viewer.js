@@ -1,6 +1,7 @@
 'use strict';
 
-var React = require('react');
+var React = require('react'),
+	ReactDOM = require( 'react-dom' );
 
 var ImageViewer = React.createClass({
 	propTypes: {
@@ -23,7 +24,7 @@ var ImageViewer = React.createClass({
 	},
 	componentWillUnmount: function() {
 		// without this, the file continues to download after being removed from the DOM
-		React.findDOMNode(this.refs.image).src = '';
+		ReactDOM.findDOMNode(this.refs.image).src = '';
 	},
 	render: function() {
 		// Wrapped in a Div in order to prevent it from resizing to fit the dimensions of the flex-box
