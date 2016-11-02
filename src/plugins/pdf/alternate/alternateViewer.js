@@ -1,6 +1,7 @@
 'use strict';
 
 var React = require('react'),
+	ReactDOM = require( 'react-dom' ),
 	pdfjs = require('./pdfjs-lib'),
 	pdfjsWorkerSrcInit = require('./pdfjsWorkerSrcInit');
 
@@ -38,7 +39,7 @@ var AlternativeViewer = React.createClass({
 		if (this.props.resizeCallback) {
 			this.props.resizeCallback('100%', false);
 		}
-		var container = React.findDOMNode(this),
+		var container = ReactDOM.findDOMNode(this),
 			pdfLinkService = new pdfjs.PDFLinkService();
 
 		this.updateProgress(10);

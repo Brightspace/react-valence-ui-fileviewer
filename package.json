@@ -1,6 +1,6 @@
 {
   "name": "react-vui-fileviewer",
-  "version": "1.0.0",
+  "version": "0.0.8",
   "description": "React component for viewing files",
   "main": "src/fileViewer.js",
   "scripts": {
@@ -32,7 +32,8 @@
   "author": "D2L Corporation",
   "license": "Apache-2.0",
   "peerDependencies": {
-    "react": "^0.13.0 || ^0.14.0 || ^15.0.0"
+    "react": "^0.14.0 || ^15.0.0",
+    "react-dom": "^0.14.0 || ^15.0.0"
   },
   "dependencies": {
     "bower": "^1.6.5",
@@ -71,6 +72,7 @@
     "onchange": "^2.0.0",
     "parallelshell": "^2.0.0",
     "phantomjs-prebuilt": "^2.1.7",
+    "react-addons-test-utils": "^15.3.2",
     "rimraf": "^2.4.3",
     "sinon": "^1.17.2",
     "sinon-as-promised": "^4.0.0"

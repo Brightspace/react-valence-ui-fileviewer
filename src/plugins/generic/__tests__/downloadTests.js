@@ -1,7 +1,8 @@
 'use strict';
 
-var React = require('react/addons'),
-	TestUtils = React.addons.TestUtils,
+var React = require('react'), //eslint-disable-line no-unused-vars
+	ReactDOM = require( 'react-dom' ),
+	TestUtils = require( 'react-addons-test-utils' ),
 	Download = require('../download.js'),
 	sinon = require('sinon'),
 	stubIntlMessage = require('./utils/stubIntlMessage');
@@ -10,10 +11,17 @@ describe('Generic Download View', function() {
 	var DownloadTester,
 		downloadStub;
 
-	beforeEach(function() {
+	beforeAll(function() {
 		downloadStub = sinon.stub();
-		Download.prototype.__reactAutoBindMap.download = downloadStub;
+		for ( let i = 0; i < Download.prototype.__reactAutoBindPairs.length; i++ ) {
+			if ( Download.prototype.__reactAutoBindPairs[i] === 'download' ) {
+				Download.prototype.__reactAutoBindPairs[i + 1] = downloadStub;
+				break;
+			}
+		}
+	});
 
+	beforeEach(function() {
 		DownloadTester = stubIntlMessage(
 			Download,
 			{},
@@ -55,7 +63,7 @@ describe('Generic Download View', function() {
 			'button'
 		);
 		expect(button).toBeDefined();
-		expect(React.findDOMNode(button).textContent).toEqual('Download');
+		expect(ReactDOM.findDOMNode(button).textContent).toEqual('Download');
 	});
 
 	it('should navigate when clicked', function() {
@@ -67,8 +75,8 @@ describe('Generic Download View', function() {
 			elem,
 			'button'
 		);
-		var buttonNode = React.findDOMNode(button);
-		TestUtils.Simulate.click(buttonNode);
+
+		TestUtils.Simulate.click(button);
 		expect(downloadStub.called).toBe(true);
 	});
 

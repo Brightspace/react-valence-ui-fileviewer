@@ -1,7 +1,8 @@
 'use strict';
 
-var React = require('react/addons'),
-	TestUtils = React.addons.TestUtils,
+var React = require('react'), //eslint-disable-line no-unused-vars
+	ReactDOM = require( 'react-dom' ),
+	TestUtils = require( 'react-addons-test-utils' ),
 	Icon = require('../icon.js'),
 	stubIntlMessage = require('./utils/stubIntlMessage'),
 	sinon = require('sinon');
@@ -61,7 +62,7 @@ describe('Generic Icon View', function() {
 			'vui-fileviewer-icon-test'
 		);
 
-		expect(React.findDOMNode(wrapper[0]).textContent).toBe('FILENAME');
+		expect(ReactDOM.findDOMNode(wrapper[0]).textContent).toBe('FILENAME');
 	});
 
 });
