@@ -1,7 +1,8 @@
 'use strict';
 
-var React = require('react/addons'),
-	TestUtils = React.addons.TestUtils,
+var React = require('react'), //eslint-disable-line no-unused-vars
+	ReactDOM = require( 'react-dom' ),
+	TestUtils = require( 'react-addons-test-utils' ),
 	Viewer = require('../viewer.js'),
 	sinon = require('sinon');
 
@@ -37,7 +38,7 @@ describe('Image Viewer', function() {
 			elem,
 			'img'
 		);
-		expect(React.findDOMNode(img).src).toContain('foo.bar');
+		expect(ReactDOM.findDOMNode(img).src).toContain('foo.bar');
 	});
 
 	it('Calls the resizeCallback and passes 100%, true', function() {

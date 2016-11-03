@@ -1,7 +1,7 @@
 'use strict';
 
-var	React = require('react/addons'),
-	TestUtils = React.addons.TestUtils,
+var React = require('react'), //eslint-disable-line no-unused-vars
+	TestUtils = require( 'react-addons-test-utils' ),
 	sinon = require('sinon'),
 	FileViewerResolved = require('../fileViewerResolved.js');
 

@@ -1,7 +1,8 @@
 'use strict';
 
-var React = require('react/addons'),
-	TestUtils = React.addons.TestUtils,
+var React = require('react'), //eslint-disable-line no-unused-vars
+	ReactDOM = require( 'react-dom' ),
+	TestUtils = require( 'react-addons-test-utils' ),
 	FileViewer = require('../fileViewer'),
 	sinon = require('sinon'),
 	i18n = require('react-frau-intl').i18n,
@@ -48,21 +49,22 @@ describe('FileViewer', function() {
 		var elem = TestUtils.renderIntoDocument(
 			<FileViewer src="file3.null" />
 		);
-		expect(React.findDOMNode(elem)).toBeNull();
+		expect(ReactDOM.findDOMNode(elem)).toBeNull();
 	});
 
 	it('should render something if file info is not null', function() {
 		var elem = TestUtils.renderIntoDocument(
 			<FileViewer src="file1.gif" />
 		);
-		expect(React.findDOMNode(elem)).not.toBeNull();
+		expect(ReactDOM.findDOMNode(elem)).not.toBeNull();
 	});
 
 	it('should update file info when src changes', function() {
 		var elem = TestUtils.renderIntoDocument(
 			<FileViewer src="file1.gif" />
 		);
-		elem.setProps({src: 'file2.mp3'});
+
+		ReactDOM.render( <FileViewer src = 'file2.mp3' />, ReactDOM.findDOMNode( elem ).parentNode );
 		expect(elem.state.info.mimeType).toBe('audio/mp3');
 	});
 
@@ -70,7 +72,8 @@ describe('FileViewer', function() {
 		var elem = TestUtils.renderIntoDocument(
 			<FileViewer src="file1.gif" />
 		);
-		elem.setProps({src: 'file1.gif'});
+
+		ReactDOM.render( <FileViewer src = 'file1.gif' />, ReactDOM.findDOMNode( elem ).parentNode );
 		expect(providerStub.calledOnce).toBe(true);
 	});
 
@@ -78,8 +81,8 @@ describe('FileViewer', function() {
 		var elem = TestUtils.renderIntoDocument(
 			<FileViewer src="file1.gif" />
 		);
-		React.unmountComponentAtNode(
-			React.findDOMNode(elem).parentNode
+		ReactDOM.unmountComponentAtNode(
+			ReactDOM.findDOMNode(elem).parentNode
 		);
 		elem.fetchFileInfo('file2.mp3');
 		expect(elem.state.info.mimeType).toBe('image/gif');

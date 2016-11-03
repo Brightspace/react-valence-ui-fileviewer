@@ -1,6 +1,7 @@
 'use strict';
 
 var React = require('react'),
+	ReactDOM = require( 'react-dom' ),
 	FileViewer = require('../src/fileViewer.js');
 
 var files = [
@@ -84,7 +85,7 @@ var Main = React.createClass({
 	}
 });
 
-React.render(
+ReactDOM.render(
 	<Main files={files} />,
 	document.getElementById('placeholder')
 );
