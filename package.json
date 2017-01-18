@@ -1,6 +1,6 @@
 {
   "name": "react-vui-fileviewer",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "description": "React component for viewing files",
   "main": "src/fileViewer.js",
   "scripts": {
