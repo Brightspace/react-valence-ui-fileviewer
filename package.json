@@ -39,7 +39,7 @@
     "d2l-intl": "^0.2.1",
     "react-frau-intl": "^0.1.3",
     "reactify": "^1.1.1",
-    "react-valence-ui-iframe": "git+https://github.com/klhuff/react-valence-ui-iframe.git#DE23815",
+    "react-valence-ui-iframe": "git+https://github.com/Brightspace/react-valence-ui-iframe.git#v1.1.4",
     "url-parse": "^1.0.5"
   },
   "devDependencies": {
