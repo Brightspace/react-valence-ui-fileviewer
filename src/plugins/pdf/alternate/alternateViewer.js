@@ -8,6 +8,7 @@ var React = require('react'),
 var AlternativeViewer = React.createClass({
 	propTypes: {
 		src: React.PropTypes.string.isRequired,
+		pdf: React.PropTypes.string.optional,
 		resizeCallback: React.PropTypes.func,
 		progressCallback: React.PropTypes.func
 	},
@@ -17,7 +18,7 @@ var AlternativeViewer = React.createClass({
 	loadDocument: function() {
 		var self = this;
 		pdfjs.getDocument({
-			url: self.props.src,
+			url: self.props.pdf ? self.props.pdf : self.props.src,
 			withCredentials: true
 		}).then(function(pdfDocument) {
 			self.state.pdfViewer.setDocument(pdfDocument);

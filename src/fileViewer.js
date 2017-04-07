@@ -10,39 +10,54 @@ var React = require('react'),
 var FileViewer = React.createClass({
 	propTypes: {
 		src: React.PropTypes.string.isRequired,
+		pdf: React.PropTypes.string.optional,
 		locale: React.PropTypes.string,
 		progressCallback: React.PropTypes.func,
 		resizeCallback: React.PropTypes.func
 	},
+
 	getInitialState: function() {
 		return {
 			info: null,
 			canAccessFile: null
 		};
 	},
+
 	componentDidMount: function() {
 		this.fetchFileInfo(this.props.src);
 	},
+
 	componentWillReceiveProps: function(nextProps) {
 		if (nextProps.src !== this.props.src) {
 			this.setState({info:null, canAccessFile: null});
 			this.fetchFileInfo(nextProps.src);
 		}
 	},
-	fetchFileInfo: function(src) {
-		var me = this;
 
-		fileInfoProvider(src, function(err, fileInfo) {
-			if (!me.isMounted()) {
-				return;
-			}
-			if (err) {
-				me.setState({canAccessFile: false, info: null});
-				return;
-			}
-			me.setState({canAccessFile: true, info: fileInfo});
-		});
+	fetchFileInfo: function( src ) {
+		if (!this.isMounted()) {
+			return;
+		}
+		if ( this.props.pdf ) {
+			this.setState( {
+				canAccessFile: true,
+				info: {
+					size: 0,
+					mimeType: 'application/pdf',
+					filename: 'pdf file'
+				}
+			});
+		} else {
+			fileInfoProvider(src, function(err, fileInfo) {
+				if (err) {
+					this.setState({canAccessFile: false, info: null});
+					return;
+				}
+				this.setState({canAccessFile: true, info: fileInfo});
+			}.bind(this));
+		}
 	},
+
 	render: function() {
 		var forceGeneric = this.state.canAccessFile === false;
 
