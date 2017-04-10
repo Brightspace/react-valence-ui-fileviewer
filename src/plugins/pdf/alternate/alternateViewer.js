@@ -8,7 +8,7 @@ var React = require('react'),
 var AlternativeViewer = React.createClass({
 	propTypes: {
 		src: React.PropTypes.string.isRequired,
-		pdf: React.PropTypes.string.optional,
+		pdf: React.PropTypes.string,
 		resizeCallback: React.PropTypes.func,
 		progressCallback: React.PropTypes.func
 	},

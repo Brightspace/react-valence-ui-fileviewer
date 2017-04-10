@@ -43,4 +43,8 @@ describe('GetFilename', function() {
 		expect(filename).toBe('foo space/slash+.bar');
 	});
 
+	it('amazon s3 hosted filename', function() {
+		var filename = getFilename('https://s3.amazon.com/file1.pdf');
+		expect(filename).toBe('file1.pdf');
+	});
 });

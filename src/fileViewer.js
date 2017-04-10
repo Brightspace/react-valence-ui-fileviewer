@@ -5,12 +5,13 @@ var React = require('react'),
 	fileInfoProvider = require('./fileInfoProvider'),
 	i18n = require('react-frau-intl').i18n,
 	getMessages = require('./getMessages'),
-	IntlFileViewer = i18n(FileViewerResolved);
+	IntlFileViewer = i18n(FileViewerResolved),
+	getFilename = require('./getFilename');
 
 var FileViewer = React.createClass({
 	propTypes: {
 		src: React.PropTypes.string.isRequired,
-		pdf: React.PropTypes.string.optional,
+		pdf: React.PropTypes.string,
 		locale: React.PropTypes.string,
 		progressCallback: React.PropTypes.func,
 		resizeCallback: React.PropTypes.func
@@ -44,7 +45,7 @@ var FileViewer = React.createClass({
 				info: {
 					size: 0,
 					mimeType: 'application/pdf',
-					filename: 'pdf file'
+					filename: getFilename( this.props.pdf )
 				}
 			});
 		} else {
