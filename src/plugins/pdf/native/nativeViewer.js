@@ -27,7 +27,7 @@ var NativeViewer = React.createClass({
 	},
 	render: function() {
 		return <object
-			data={this.props.pdf ? this.props.pdf : this.props.src}
+			data={this.props.src}
 			type="application/pdf"
 			className="vui-fileviewer-pdf-native">
 			<GenericViewer srcdownload={this.props.srcdownload} locale={this.props.locale} />
