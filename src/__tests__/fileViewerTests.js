@@ -101,10 +101,17 @@ describe('FileViewer', function() {
 		expect(fileViewerResolvedComponent.props.locale).toBe('en-ca');
 	});
 
-	it('should have mimetype of pdf when pdf passed in', function() {
+	it('should use fileinfo when passed in', function() {
+		var fileInfo = {
+			size: 0,
+			mimeType: 'application/pdf',
+			filename: 'file1.docx'
+		};
 		var elem = TestUtils.renderIntoDocument(
-			<FileViewer src="file1.docx" pdf="https://s3.amazon.com/file1.pdf" />
+			<FileViewer src="file1.pdf" fileInfo={fileInfo} />
 		);
 		expect(elem.state.info.mimeType).toBe('application/pdf');
+		expect(elem.state.info.size).toBe(0);
+		expect(elem.state.info.filename).toBe('file1.docx');
 	});
 });

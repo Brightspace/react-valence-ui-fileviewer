@@ -5,13 +5,12 @@ var React = require('react'),
 	fileInfoProvider = require('./fileInfoProvider'),
 	i18n = require('react-frau-intl').i18n,
 	getMessages = require('./getMessages'),
-	IntlFileViewer = i18n(FileViewerResolved),
-	getFilename = require('./getFilename');
+	IntlFileViewer = i18n(FileViewerResolved);
 
 var FileViewer = React.createClass({
 	propTypes: {
 		src: React.PropTypes.string.isRequired,
-		pdf: React.PropTypes.string,
+		fileInfo: React.PropTypes.object,
 		locale: React.PropTypes.string,
 		progressCallback: React.PropTypes.func,
 		resizeCallback: React.PropTypes.func
@@ -25,28 +24,24 @@ var FileViewer = React.createClass({
 	},
 
 	componentDidMount: function() {
-		this.fetchFileInfo(this.props.src);
+		this.fetchFileInfo(this.props.src, this.props.fileInfo);
 	},
 
 	componentWillReceiveProps: function(nextProps) {
-		if (nextProps.src !== this.props.src) {
+		if (nextProps.src !== this.props.src || nextProps.fileInfo !== this.props.fileInfo) {
 			this.setState({info:null, canAccessFile: null});
-			this.fetchFileInfo(nextProps.src);
+			this.fetchFileInfo(nextProps.src, nextProps.fileInfo);
 		}
 	},
 
-	fetchFileInfo: function( src ) {
+	fetchFileInfo: function( src, fileInfo ) {
 		if (!this.isMounted()) {
 			return;
 		}
-		if ( this.props.pdf ) {
+		if ( fileInfo && this._isFileInfoValid( fileInfo )) {
 			this.setState( {
 				canAccessFile: true,
-				info: {
-					size: 0,
-					mimeType: 'application/pdf',
-					filename: getFilename( this.props.pdf )
-				}
+				info: fileInfo
 			});
 		} else {
 			fileInfoProvider(src, function(err, fileInfo) {
@@ -57,6 +52,10 @@ var FileViewer = React.createClass({
 				this.setState({canAccessFile: true, info: fileInfo});
 			}.bind(this));
 		}
+	},
+
+	_isFileInfoValid: function( fileInfo ) {
+		return fileInfo.size !== undefined && fileInfo.mimeType !== undefined && fileInfo.filename !== undefined;
 	},
 
 	render: function() {
