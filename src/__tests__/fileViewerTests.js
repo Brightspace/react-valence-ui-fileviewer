@@ -114,4 +114,52 @@ describe('FileViewer', function() {
 		expect(elem.state.info.size).toBe(0);
 		expect(elem.state.info.filename).toBe('file1.docx');
 	});
+
+	it('check fileinfo valid', function() {
+		var fileInfoValid = {
+			size: 0,
+			mimeType: 'application/pdf',
+			filename: 'file1.docx'
+		};
+		var elem = TestUtils.renderIntoDocument(
+			<FileViewer src="file1.pdf" fileInfo={fileInfoValid} />
+		);
+		expect(elem._isFileInfoValid(fileInfoValid)).toBe(true);
+		var fileInfoUndefined;
+		expect(elem._isFileInfoValid(fileInfoUndefined)).toBe(false);
+		var fileInfoMissingSize = {
+			mimeType: 'application/pdf',
+			filename: 'file1.docx'
+		};
+		expect(elem._isFileInfoValid(fileInfoMissingSize)).toBe(false);
+		var fileInfoMissingMimeType = {
+			size: 0,
+			filename: 'file1.docx'
+		};
+		expect(elem._isFileInfoValid(fileInfoMissingMimeType)).toBe(false);
+		var fileInfoMissingFilename = {
+			size: 0,
+			mimeType: 'application/pdf'
+		};
+		expect(elem._isFileInfoValid(fileInfoMissingFilename)).toBe(false);
+	});
+
+	it('check fileInfoProvider not called when given fileInfo', function() {
+		var fileInfoValid = {
+			size: 0,
+			mimeType: 'application/pdf',
+			filename: 'file1.docx'
+		};
+		TestUtils.renderIntoDocument(
+			<FileViewer src="file1.pdf" fileInfo={fileInfoValid} />
+		);
+		expect(providerStub.notCalled).toBe(true);
+	});
+
+	it('check fileInfoProvider is called when not given fileInfo', function() {
+		TestUtils.renderIntoDocument(
+			<FileViewer src="file1.pdf" />
+		);
+		expect(providerStub.notCalled).toBe(false);
+	});
 });

@@ -38,7 +38,7 @@ var FileViewer = React.createClass({
 		if (!this.isMounted()) {
 			return;
 		}
-		if ( fileInfo && this._isFileInfoValid( fileInfo )) {
+		if ( this._isFileInfoValid( fileInfo )) {
 			this.setState( {
 				canAccessFile: true,
 				info: fileInfo
@@ -55,6 +55,9 @@ var FileViewer = React.createClass({
 	},
 
 	_isFileInfoValid: function( fileInfo ) {
+		if (!fileInfo) {
+			return false;
+		}
 		return fileInfo.size !== undefined && fileInfo.mimeType !== undefined && fileInfo.filename !== undefined;
 	},
 
