@@ -42,5 +42,4 @@ describe('GetFilename', function() {
 		var filename = getFilename(undefined, 'filename*=utf8\'\'foo%20space%2Fslash%2B.bar;');
 		expect(filename).toBe('foo space/slash+.bar');
 	});
-
 });

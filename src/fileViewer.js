@@ -10,39 +10,57 @@ var React = require('react'),
 var FileViewer = React.createClass({
 	propTypes: {
 		src: React.PropTypes.string.isRequired,
+		fileInfo: React.PropTypes.object,
 		locale: React.PropTypes.string,
 		progressCallback: React.PropTypes.func,
 		resizeCallback: React.PropTypes.func
 	},
+
 	getInitialState: function() {
 		return {
 			info: null,
 			canAccessFile: null
 		};
 	},
+
 	componentDidMount: function() {
-		this.fetchFileInfo(this.props.src);
+		this.fetchFileInfo(this.props.src, this.props.fileInfo);
 	},
+
 	componentWillReceiveProps: function(nextProps) {
-		if (nextProps.src !== this.props.src) {
+		if (nextProps.src !== this.props.src || nextProps.fileInfo !== this.props.fileInfo) {
 			this.setState({info:null, canAccessFile: null});
-			this.fetchFileInfo(nextProps.src);
+			this.fetchFileInfo(nextProps.src, nextProps.fileInfo);
 		}
 	},
-	fetchFileInfo: function(src) {
-		var me = this;
 
-		fileInfoProvider(src, function(err, fileInfo) {
-			if (!me.isMounted()) {
-				return;
-			}
-			if (err) {
-				me.setState({canAccessFile: false, info: null});
-				return;
-			}
-			me.setState({canAccessFile: true, info: fileInfo});
-		});
+	fetchFileInfo: function(src, fileInfo) {
+		if (!this.isMounted()) {
+			return;
+		}
+		if ( this._isFileInfoValid(fileInfo)) {
+			this.setState({
+				canAccessFile: true,
+				info: fileInfo
+			});
+		} else {
+			fileInfoProvider(src, function(err, fileInfo) {
+				if (err) {
+					this.setState({canAccessFile: false, info: null});
+					return;
+				}
+				this.setState({canAccessFile: true, info: fileInfo});
+			}.bind(this));
+		}
 	},
+
+	_isFileInfoValid: function(fileInfo) {
+		if (!fileInfo) {
+			return false;
+		}
+		return fileInfo.size !== undefined && fileInfo.mimeType !== undefined && fileInfo.filename !== undefined;
+	},
+
 	render: function() {
 		var forceGeneric = this.state.canAccessFile === false;
 
