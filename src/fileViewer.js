@@ -34,12 +34,12 @@ var FileViewer = React.createClass({
 		}
 	},
 
-	fetchFileInfo: function( src, fileInfo ) {
+	fetchFileInfo: function(src, fileInfo) {
 		if (!this.isMounted()) {
 			return;
 		}
-		if ( this._isFileInfoValid( fileInfo )) {
-			this.setState( {
+		if ( this._isFileInfoValid(fileInfo)) {
+			this.setState({
 				canAccessFile: true,
 				info: fileInfo
 			});
@@ -54,7 +54,7 @@ var FileViewer = React.createClass({
 		}
 	},
 
-	_isFileInfoValid: function( fileInfo ) {
+	_isFileInfoValid: function(fileInfo) {
 		if (!fileInfo) {
 			return false;
 		}

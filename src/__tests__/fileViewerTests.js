@@ -115,36 +115,7 @@ describe('FileViewer', function() {
 		expect(elem.state.info.filename).toBe('file1.docx');
 	});
 
-	it('check fileinfo valid', function() {
-		var fileInfoValid = {
-			size: 0,
-			mimeType: 'application/pdf',
-			filename: 'file1.docx'
-		};
-		var elem = TestUtils.renderIntoDocument(
-			<FileViewer src="file1.pdf" fileInfo={fileInfoValid} />
-		);
-		expect(elem._isFileInfoValid(fileInfoValid)).toBe(true);
-		var fileInfoUndefined;
-		expect(elem._isFileInfoValid(fileInfoUndefined)).toBe(false);
-		var fileInfoMissingSize = {
-			mimeType: 'application/pdf',
-			filename: 'file1.docx'
-		};
-		expect(elem._isFileInfoValid(fileInfoMissingSize)).toBe(false);
-		var fileInfoMissingMimeType = {
-			size: 0,
-			filename: 'file1.docx'
-		};
-		expect(elem._isFileInfoValid(fileInfoMissingMimeType)).toBe(false);
-		var fileInfoMissingFilename = {
-			size: 0,
-			mimeType: 'application/pdf'
-		};
-		expect(elem._isFileInfoValid(fileInfoMissingFilename)).toBe(false);
-	});
-
-	it('check fileInfoProvider not called when given fileInfo', function() {
+	it('should check fileInfoProvider not called when given fileInfo', function() {
 		var fileInfoValid = {
 			size: 0,
 			mimeType: 'application/pdf',
@@ -156,10 +127,73 @@ describe('FileViewer', function() {
 		expect(providerStub.notCalled).toBe(true);
 	});
 
-	it('check fileInfoProvider is called when not given fileInfo', function() {
+	it('should check fileInfoProvider is called when not given fileInfo', function() {
 		TestUtils.renderIntoDocument(
 			<FileViewer src="file1.pdf" />
 		);
 		expect(providerStub.notCalled).toBe(false);
+	});
+
+	it('should check fileInfoProvider is called when given invalid fileInfo', function() {
+		var fileInfoMissingMimeType = {
+			size: 0,
+			filename: 'file1.docx'
+		};
+		TestUtils.renderIntoDocument(
+			<FileViewer src="file1.pdf" fileInfo={fileInfoMissingMimeType}/>
+		);
+		expect(providerStub.notCalled).toBe(false);
+	});
+
+	var fileViewer;
+	describe('_isFileInfoValid', function() {
+		beforeEach(function() {
+			fileViewer = TestUtils.renderIntoDocument(
+				< FileViewer src = "file1.pdf" />
+			);
+		});
+
+		it('should return true for valid fileInfo', function() {
+			var fileInfoValid = {
+				size: 0,
+				mimeType: 'application/pdf',
+				filename: 'file1.docx'
+			};
+			expect(fileViewer._isFileInfoValid(fileInfoValid)).toBe(true);
+		});
+
+		it ('should return false for undefined fileInfo', function() {
+			var fileInfoUndefined;
+			expect(fileViewer._isFileInfoValid(fileInfoUndefined)).toBe(false);
+		});
+
+		it ('should return false for null fileInfo', function() {
+			var fileInfoNull = null;
+			expect(fileViewer._isFileInfoValid(fileInfoNull)).toBe(false);
+		});
+
+		it('should return false for fileInfo missing size', function() {
+			var fileInfoMissingSize = {
+				mimeType: 'application/pdf',
+				filename: 'file1.docx'
+			};
+			expect(fileViewer._isFileInfoValid(fileInfoMissingSize)).toBe(false);
+		});
+
+		it('should return false for fileInfo missing mimeType', function() {
+			var fileInfoMissingMimeType = {
+				size: 0,
+				filename: 'file1.docx'
+			};
+			expect(fileViewer._isFileInfoValid(fileInfoMissingMimeType)).toBe(false);
+		});
+
+		it('should return false for fileInfo missing filename', function() {
+			var fileInfoMissingFilename = {
+				size: 0,
+				mimeType: 'application/pdf'
+			};
+			expect(fileViewer._isFileInfoValid(fileInfoMissingFilename)).toBe(false);
+		});
 	});
 });
