@@ -9,16 +9,18 @@ var AlternativeViewer = React.createClass({
 	propTypes: {
 		src: React.PropTypes.string.isRequired,
 		resizeCallback: React.PropTypes.func,
-		progressCallback: React.PropTypes.func
+		progressCallback: React.PropTypes.func,
+		withCredentials: React.PropTypes.bool
 	},
 	onPagesInit: function() {
 		this.state.pdfViewer.currentScaleValue = 'page-width';
 	},
 	loadDocument: function() {
 		var self = this;
+		var withCredentials = this.props.withCredentials === undefined ||  this.props.withCredentials;
 		pdfjs.getDocument({
 			url: self.props.src,
-			withCredentials: true
+			withCredentials: withCredentials
 		}).then(function(pdfDocument) {
 			self.state.pdfViewer.setDocument(pdfDocument);
 			self.state.pdfLinkService.setDocument(pdfDocument, null);
