@@ -70,10 +70,11 @@ var FileViewer = React.createClass({
 
 		var messages = getMessages(this.props.locale);
 		var mimeType = (forceGeneric) ? undefined : this.state.info.mimeType;
+		var withCredentials = (forceGeneric) ? undefined : this.state.info.withCredentials;
 
 		return <IntlFileViewer
 			{...this.props}
-			withCredentials={this.state.info.withCredentials}
+			withCredentials={withCredentials}
 			messages={messages}
 			mimeType={mimeType}
 		/>;
