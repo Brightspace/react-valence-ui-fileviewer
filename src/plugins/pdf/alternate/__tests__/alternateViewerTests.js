@@ -97,4 +97,76 @@ describe('PDF Alternate Viewer', function() {
 
 		expect(progressFunc.calledWithExactly(55, 'guess')).toBe(true);
 	});
+
+	describe('should not set withCredentials when getting document with withCredentials false in fileInfo', function() {
+		beforeEach( function(done) {
+
+			var fileInfo = {
+				withCredentials: false
+			};
+
+			TestUtils.renderIntoDocument(
+				<AlternateViewer
+					src='test.pdf'
+					fileInfo={fileInfo}/>
+			);
+
+			Promise.resolve().then(function() {
+				done();
+			});
+		});
+
+		it( 'test', function() {
+			expect(pdfjs.getDocument.calledWithExactly({
+				url: 'test.pdf',
+				withCredentials: false
+			})).toBeTruthy();
+		});
+	});
+
+	describe('should set withCredentials when getting document with empty fileInfo', function() {
+		beforeEach( function(done) {
+			var fileInfo = {
+				// empty
+			};
+
+			TestUtils.renderIntoDocument(
+				<AlternateViewer
+					src='test.pdf'
+					fileInfo={fileInfo} />
+			);
+
+			Promise.resolve().then(function() {
+				done();
+			});
+		});
+
+		it('test', function() {
+			expect(pdfjs.getDocument.calledWithExactly({
+				url: 'test.pdf',
+				withCredentials: true
+			})).toBeTruthy();
+		});
+	});
+
+	describe('should set withCredentials when getting document with no fileInfo prop', function() {
+		beforeEach( function(done) {
+			TestUtils.renderIntoDocument(
+				<AlternateViewer
+					src='test.pdf'
+				/>
+			);
+
+			Promise.resolve().then(function() {
+				done();
+			});
+		});
+
+		it('test', function() {
+			expect(pdfjs.getDocument.calledWithExactly({
+				url: 'test.pdf',
+				withCredentials: true
+			})).toBeTruthy();
+		});
+	});
 });

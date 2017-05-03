@@ -10,14 +10,17 @@ var AlternativeViewer = React.createClass({
 		src: React.PropTypes.string.isRequired,
 		resizeCallback: React.PropTypes.func,
 		progressCallback: React.PropTypes.func,
-		withCredentials: React.PropTypes.bool
+		fileInfo: React.PropTypes.object
 	},
 	onPagesInit: function() {
 		this.state.pdfViewer.currentScaleValue = 'page-width';
 	},
 	loadDocument: function() {
 		var self = this;
-		var withCredentials = this.props.withCredentials === undefined ||  this.props.withCredentials;
+		var withCredentials = true;
+		if ( this.props.fileInfo && this.props.fileInfo.withCredentials === false ) {
+			withCredentials = false;
+		}
 		pdfjs.getDocument({
 			url: self.props.src,
 			withCredentials: withCredentials
