@@ -73,6 +73,7 @@ var FileViewer = React.createClass({
 
 		return <IntlFileViewer
 			{...this.props}
+			fileInfo={this.state.info}
 			messages={messages}
 			mimeType={mimeType}
 		/>;
