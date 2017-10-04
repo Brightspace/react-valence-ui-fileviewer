@@ -1,7 +1,53 @@
 {
 	"Plugins": {
 		"Generic": {
-			"Download": "İndir"
+			"Download": "İndir",
+			"CanNotOpenFile": "Bu dosya türü, bu görüntüleyicide açılamıyor",
+			"PleaseDownload": "Bunun yerine dosyayı başka bir uygulamada indirip görüntüleyin.",
+			"NoAccess": "Buna erişiminiz yok.",
+			"FileSize": "Dosya boyutu: {fileSize}",
+			"FileType": {
+				"MicrosoftWordDocument": "Microsoft Word belgesi",
+				"MicrosoftExcelDocument": "Microsoft Excel belgesi",
+				"MicrosoftPowerpointDocument": "Microsoft Powerpoint belgesi",
+				"PostscriptFile": "Postscript dosyası",
+				"RichTextFormatFile": "RTF dosyası",
+				"TeXFile": "TeX dosyası",
+				"TexinfoFile": "Texinfo dosyası",
+				"TroffFile": "Troff dosyası",
+				"MP3AudioFile": "MP3 ses dosyası",
+				"MP4AudioFile": "MP4 ses dosyası",
+				"BasicAudioFile": "Temel ses dosyası",
+				"AIFFAudioFile": "AIFF ses dosyası",
+				"WavAudioFile": "Wav ses dosyası",
+				"BMPImage": "BMP görüntüsü",
+				"GifImage": "Gif görüntüsü",
+				"IEFImage": "IEFI görüntüsü",
+				"IconImage": "Simge görüntüsü",
+				"JpegImage": "Jpeg görüntüsü",
+				"PNGImage": "PNG görüntüsü",
+				"SVGImageFile": "SVG görüntüsü",
+				"FlashFile": "Flash dosyası",
+				"TiffImage": "Tiff görüntüsü",
+				"ScreenshotFile": "Ekran resmi dosyası",
+				"HTMLFile": "HTML dosyası",
+				"PlainTextFile": "Metin dosyası",
+				"MpegVideoFile": "Mpeg video dosyası",
+				"OggVideoFile": "Ogg video dosyası",
+				"WebMVideoFile": "WebM video dosyası",
+				"FlashVideoFile": "Flash video dosyası",
+				"MP4VideoFile": "Mp4 video dosyası",
+				"MatroskaVideoFile": "Matroska video dosyası",
+				"QuicktimeVideoFile": "Quicktime video dosyası",
+				"MSVideoFile": "MSvideo dosyası",
+				"MovieFile": "Film dosyası",
+				"PDFFile": "PDF dosyası",
+				"ZipFile": "Zip dosyası",
+				"CSSFile": "CSS dosyası",
+				"XMLFile": "XML dosyası",
+				"BinaryFile": "İkili dosya",
+				"Unknown": "Bilinmeyen dosya türü"
+			}
 		}
 	}
 }

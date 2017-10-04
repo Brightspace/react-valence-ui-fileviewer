@@ -1,7 +1,53 @@
 {
 	"Plugins": {
 		"Generic": {
-			"Download": "Descargar"
+			"Download": "Descargar",
+			"CanNotOpenFile": "No se puede abrir este tipo de archivo en el visor",
+			"PleaseDownload": "De manera alternativa, descargue y visualice el archivo en otra aplicación.",
+			"NoAccess": "No tiene acceso a este.",
+			"FileSize": "Tamaño del archivo: {fileSize}",
+			"FileType": {
+				"MicrosoftWordDocument": "Documento de Microsoft Word",
+				"MicrosoftExcelDocument": "Documento de Microsoft Excel",
+				"MicrosoftPowerpointDocument": "Documento de Microsoft Powerpoint",
+				"PostscriptFile": "Archivo PostScript",
+				"RichTextFormatFile": "Archivo RTF",
+				"TeXFile": "Archivo TeX",
+				"TexinfoFile": "Archivo Texinfo",
+				"TroffFile": "Archivo Troff",
+				"MP3AudioFile": "Archivo de audio Mp3",
+				"MP4AudioFile": "Archivo de audio Mp4",
+				"BasicAudioFile": "Archivo de audio básico",
+				"AIFFAudioFile": "Archivo de audio AIFF",
+				"WavAudioFile": "Archivo de audio WAV",
+				"BMPImage": "Imagen BMP",
+				"GifImage": "Imagen GIF",
+				"IEFImage": "Imagen IEFI",
+				"IconImage": "Imagen de ícono",
+				"JpegImage": "Imagen JPEG",
+				"PNGImage": "Imagen PNG",
+				"SVGImageFile": "Imagen SVG",
+				"FlashFile": "Archivo Flash",
+				"TiffImage": "Imagen Tiff",
+				"ScreenshotFile": "Captura de pantalla",
+				"HTMLFile": "Archivo HTML",
+				"PlainTextFile": "Archivo de texto",
+				"MpegVideoFile": "Archivo de video MPEG",
+				"OggVideoFile": "Archivo de video Ogg",
+				"WebMVideoFile": "Archivo de video WebM",
+				"FlashVideoFile": "Archivo de video Flash",
+				"MP4VideoFile": "Archivo de video Mp4",
+				"MatroskaVideoFile": "Archivo de video Matroska",
+				"QuicktimeVideoFile": "Archivo de video Quicktime",
+				"MSVideoFile": "Archivo MSvideo",
+				"MovieFile": "Archivo de video",
+				"PDFFile": "Archivo PDF",
+				"ZipFile": "Archivo Zip",
+				"CSSFile": "Archivo CSS",
+				"XMLFile": "Archivo de XML",
+				"BinaryFile": "Archivo binario",
+				"Unknown": "Tipo de archivo desconocido"
+			}
 		}
 	}
 }

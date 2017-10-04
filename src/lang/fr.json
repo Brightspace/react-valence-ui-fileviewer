@@ -1,7 +1,53 @@
 {
 	"Plugins": {
 		"Generic": {
-			"Download": "Téléverser"
+			"Download": "Télécharger",
+			"CanNotOpenFile": "Ce fichier ne peut être ouvert dans cette visionneuse.",
+			"PleaseDownload": "Téléchargez le fichier et ouvrez-le plutôt dans une autre application.",
+			"NoAccess": "Vous n'avez pas accès à ce contenu.",
+			"FileSize": "Taille du fichier : {fileSize}",
+			"FileType": {
+				"MicrosoftWordDocument": "Document Microsoft Word",
+				"MicrosoftExcelDocument": "Classeur Microsoft Excel",
+				"MicrosoftPowerpointDocument": "Présentation Microsoft PowerPoint",
+				"PostscriptFile": "Fichier PostScript",
+				"RichTextFormatFile": "Fichier RTF",
+				"TeXFile": "Fichier TeX",
+				"TexinfoFile": "Fichier Texinfo",
+				"TroffFile": "Fichier troff",
+				"MP3AudioFile": "Fichier audio MP3",
+				"MP4AudioFile": "Fichier audio MP4",
+				"BasicAudioFile": "Fichier audio de base",
+				"AIFFAudioFile": "Fichier audio AIFF",
+				"WavAudioFile": "Fichier audio WAV",
+				"BMPImage": "Image BMP",
+				"GifImage": "Image GIF",
+				"IEFImage": "Image IEFI",
+				"IconImage": "Icône",
+				"JpegImage": "Image JPEG",
+				"PNGImage": "Image PNG",
+				"SVGImageFile": "Image SVG",
+				"FlashFile": "Fichier Flash",
+				"TiffImage": "Image TIFF",
+				"ScreenshotFile": "Fichier de capture d'écran",
+				"HTMLFile": "Fichier HTML",
+				"PlainTextFile": "Fichier texte",
+				"MpegVideoFile": "Fichier vidéo MPEG",
+				"OggVideoFile": "Fichier vidéo Ogg",
+				"WebMVideoFile": "Fichier vidéo WebM",
+				"FlashVideoFile": "Fichier vidéo Flash",
+				"MP4VideoFile": "Fichier vidéo MP4",
+				"MatroskaVideoFile": "Fichier vidéo Matroska",
+				"QuicktimeVideoFile": "Fichier vidéo QuickTime",
+				"MSVideoFile": "Fichier msvideo",
+				"MovieFile": "Fichier vidéo",
+				"PDFFile": "Fichier PDF",
+				"ZipFile": "Fichier ZIP",
+				"CSSFile": "Fichier CSS",
+				"XMLFile": "Fichier XML",
+				"BinaryFile": "Fichier binaire",
+				"Unknown": "Type de fichier inconnu"
+			}
 		}
 	}
 }

@@ -1,7 +1,53 @@
 {
 	"Plugins": {
 		"Generic": {
-			"Download": "下載"
+			"Download": "下載",
+			"CanNotOpenFile": "這類檔案無法在此檢視器中開啟",
+			"PleaseDownload": "請改用其他應用程式下載及檢視檔案。",
+			"NoAccess": "您無法存取該檔案。",
+			"FileSize": "檔案大小：{fileSize}",
+			"FileType": {
+				"MicrosoftWordDocument": "Microsoft Word 文件",
+				"MicrosoftExcelDocument": "Microsoft Excel 文件",
+				"MicrosoftPowerpointDocument": "Microsoft Powerpoint 文件",
+				"PostscriptFile": "Postscript 檔案",
+				"RichTextFormatFile": "RTF 檔案",
+				"TeXFile": "TeX 檔案",
+				"TexinfoFile": "Texinfo 檔案",
+				"TroffFile": "Troff 檔案",
+				"MP3AudioFile": "MP3 音訊檔案",
+				"MP4AudioFile": "MP4 音訊檔案",
+				"BasicAudioFile": "基本音訊檔案",
+				"AIFFAudioFile": "AIFF 音訊檔案",
+				"WavAudioFile": "Wav 音訊檔案",
+				"BMPImage": "BMP 影像",
+				"GifImage": "Gif 影像",
+				"IEFImage": "IEFI 影像",
+				"IconImage": "圖示影像",
+				"JpegImage": "Jpeg 影像",
+				"PNGImage": "PNG 影像",
+				"SVGImageFile": "SVG 影像",
+				"FlashFile": "Flash 檔案",
+				"TiffImage": "Tiff 影像",
+				"ScreenshotFile": "螢幕擷取畫面檔案",
+				"HTMLFile": "HTML 檔案",
+				"PlainTextFile": "文字檔",
+				"MpegVideoFile": "Mpeg 視訊檔案",
+				"OggVideoFile": "Ogg 視訊檔案",
+				"WebMVideoFile": "WebM 視訊檔案",
+				"FlashVideoFile": "Flash 視訊檔案",
+				"MP4VideoFile": "Mp4 視訊檔案",
+				"MatroskaVideoFile": "Matroska 視訊檔案",
+				"QuicktimeVideoFile": "Quicktime 視訊檔案",
+				"MSVideoFile": "MSvideo 檔案",
+				"MovieFile": "影片檔案",
+				"PDFFile": "PDF 檔案",
+				"ZipFile": "Zip 檔案",
+				"CSSFile": "CSS 檔案",
+				"XMLFile": "XML 檔案",
+				"BinaryFile": "二進位檔案",
+				"Unknown": "未知的檔案類型"
+			}
 		}
 	}
 }

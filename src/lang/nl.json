@@ -1,0 +1,53 @@
+{
+	"Plugins": {
+		"Generic": {
+			"Download": "Downloaden",
+			"CanNotOpenFile": "Dit type bestand kan niet in deze viewer worden geopend",
+			"PleaseDownload": "Download het bestand en bekijk het in een andere applicatie.",
+			"NoAccess": "U hebt er geen toegang toe.",
+			"FileSize": "Bestandsgrootte: {fileSize}",
+			"FileType": {
+				"MicrosoftWordDocument": "Microsoft Word-document",
+				"MicrosoftExcelDocument": "Microsoft Excel-document",
+				"MicrosoftPowerpointDocument": "Microsoft PowerPoint-document",
+				"PostscriptFile": "Postscript-bestand",
+				"RichTextFormatFile": "RTF-bestand",
+				"TeXFile": "TeX-bestand",
+				"TexinfoFile": "Texinfo-bestand",
+				"TroffFile": "Troff-bestand",
+				"MP3AudioFile": "MP3-audiobestand",
+				"MP4AudioFile": "MP4-audiobestand",
+				"BasicAudioFile": "Standaard audiobestand",
+				"AIFFAudioFile": "AIFF-audiobestand",
+				"WavAudioFile": "Wav-audiobestand",
+				"BMPImage": "BMP-afbeelding",
+				"GifImage": "Gif-afbeelding",
+				"IEFImage": "IEFI-afbeelding",
+				"IconImage": "Pictogramafbeelding",
+				"JpegImage": "Jpeg-afbeelding",
+				"PNGImage": "PNG-afbeelding",
+				"SVGImageFile": "SVG-afbeelding",
+				"FlashFile": "Flash-bestand",
+				"TiffImage": "Tiff-afbeelding",
+				"ScreenshotFile": "Schermafbeeldingsbestand",
+				"HTMLFile": "HTML-bestand",
+				"PlainTextFile": "Tekstbestand",
+				"MpegVideoFile": "Mpeg-videobestand",
+				"OggVideoFile": "Ogg-videobestand",
+				"WebMVideoFile": "WebM-videobestand",
+				"FlashVideoFile": "Flash-videobestand",
+				"MP4VideoFile": "Mp4-videobestand",
+				"MatroskaVideoFile": "Matroska-videobestand",
+				"QuicktimeVideoFile": "Quicktime-videobestand",
+				"MSVideoFile": "MSvideo-bestand",
+				"MovieFile": "Movie-bestand",
+				"PDFFile": "PDF-bestand",
+				"ZipFile": "Zip-bestand",
+				"CSSFile": "CSS-bestand",
+				"XMLFile": "XML-bestand",
+				"BinaryFile": "Binair bestand",
+				"Unknown": "Onbekend bestandstype"
+			}
+		}
+	}
+}

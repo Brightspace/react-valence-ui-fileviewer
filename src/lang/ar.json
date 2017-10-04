@@ -1,7 +1,53 @@
 {
 	"Plugins": {
 		"Generic": {
-			"Download": "تنزيل"
+			"Download": "تنزيل",
+			"CanNotOpenFile": "لا يمكن فتح هذا النوع من الملفات في هذا العارض",
+			"PleaseDownload": "عوضًا عن ذلك، قم بتنزيل الملف وعرضه في تطبيق آخر.",
+			"NoAccess": "لا تتمتّع بإمكانية الوصول إليه.",
+			"FileSize": "حجم الملف: {fileSize}",
+			"FileType": {
+				"MicrosoftWordDocument": "مستند Microsoft Word",
+				"MicrosoftExcelDocument": "مستند Microsoft Excel",
+				"MicrosoftPowerpointDocument": "مستند Microsoft Powerpoint",
+				"PostscriptFile": "ملف Postscript",
+				"RichTextFormatFile": "ملف RTF",
+				"TeXFile": "ملف TeX",
+				"TexinfoFile": "ملف Texinfo",
+				"TroffFile": "ملف Troff",
+				"MP3AudioFile": "ملف صوت MP3",
+				"MP4AudioFile": "ملف صوت MP4",
+				"BasicAudioFile": "ملف الصوت الأساسي",
+				"AIFFAudioFile": "ملف صوت AIFF",
+				"WavAudioFile": "ملف صوت Wav",
+				"BMPImage": "صورة BMP",
+				"GifImage": "صورة Gif",
+				"IEFImage": "صورة IEFI",
+				"IconImage": "صورة أيقونة",
+				"JpegImage": "صورة Jpeg",
+				"PNGImage": "صورة PNG",
+				"SVGImageFile": "صورة SVG",
+				"FlashFile": "ملف Flash",
+				"TiffImage": "صورة Tiff",
+				"ScreenshotFile": "ملف لقطة شاشة",
+				"HTMLFile": "ملف HTML",
+				"PlainTextFile": "ملف نصي",
+				"MpegVideoFile": "ملف فيديو Mpeg",
+				"OggVideoFile": "ملف فيديو Ogg",
+				"WebMVideoFile": "ملف فيديو WebM",
+				"FlashVideoFile": "ملف فيديو Flash",
+				"MP4VideoFile": "ملف فيديو Mp4",
+				"MatroskaVideoFile": "ملف فيديو Matroska",
+				"QuicktimeVideoFile": "ملف فيديو Quicktime",
+				"MSVideoFile": "ملف MSvideo",
+				"MovieFile": "ملف فيلم",
+				"PDFFile": "ملف PDF",
+				"ZipFile": "ملف Zip",
+				"CSSFile": "ملف CSS",
+				"XMLFile": "ملف XML",
+				"BinaryFile": "ملف ثنائي",
+				"Unknown": "نوع ملف غير معروف."
+			}
 		}
 	}
 }
