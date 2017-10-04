@@ -1,7 +1,53 @@
 {
 	"Plugins": {
 		"Generic": {
-			"Download": "다운로드"
+			"Download": "다운로드",
+			"CanNotOpenFile": "이 유형의 파일은 이 뷰어에서 열 수 없습니다.",
+			"PleaseDownload": "다른 애플리케이션에서 파일을 다운로드하고 확인하십시오.",
+			"NoAccess": "접근 권한이 없습니다.",
+			"FileSize": "파일 크기: {fileSize}",
+			"FileType": {
+				"MicrosoftWordDocument": "Microsoft Word 문서",
+				"MicrosoftExcelDocument": "Microsoft Excel 문서",
+				"MicrosoftPowerpointDocument": "Microsoft Powerpoint 문서",
+				"PostscriptFile": "Postscript 파일",
+				"RichTextFormatFile": "RTF 파일",
+				"TeXFile": "TeX 파일",
+				"TexinfoFile": "Texinfo 파일",
+				"TroffFile": "Troff 파일",
+				"MP3AudioFile": "MP3 오디오 파일",
+				"MP4AudioFile": "MP4 오디오 파일",
+				"BasicAudioFile": "기본 오디오 파일",
+				"AIFFAudioFile": "AIFF 오디오 파일",
+				"WavAudioFile": "Wav 오디오 파일",
+				"BMPImage": "BMP 이미지",
+				"GifImage": "Gif 이미지",
+				"IEFImage": "IEFI 이미지",
+				"IconImage": "Icon 이미지",
+				"JpegImage": "Jpeg 이미지",
+				"PNGImage": "PNG 이미지",
+				"SVGImageFile": "SVG 이미지",
+				"FlashFile": "Flash 파일",
+				"TiffImage": "Tiff 이미지",
+				"ScreenshotFile": "스크린샷 파일",
+				"HTMLFile": "HTML 파일",
+				"PlainTextFile": "텍스트 파일",
+				"MpegVideoFile": "Mpeg 동영상 파일",
+				"OggVideoFile": "Ogg 동영상 파일",
+				"WebMVideoFile": "WebM 동영상 파일",
+				"FlashVideoFile": "Flash 동영상 파일",
+				"MP4VideoFile": "MP4 동영상 파일",
+				"MatroskaVideoFile": "Matroska 동영상 파일",
+				"QuicktimeVideoFile": "Quicktime 동영상 파일",
+				"MSVideoFile": "MSvideo 파일",
+				"MovieFile": "Movie 파일",
+				"PDFFile": "PDF 파일",
+				"ZipFile": "Zip 파일",
+				"CSSFile": "CSS 파일",
+				"XMLFile": "XML 파일",
+				"BinaryFile": "바이너리 파일",
+				"Unknown": "알 수 없는 파일 유형"
+			}
 		}
 	}
 }

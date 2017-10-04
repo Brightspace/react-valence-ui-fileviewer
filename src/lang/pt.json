@@ -1,7 +1,53 @@
 {
 	"Plugins": {
 		"Generic": {
-			"Download": "Baixar"
+			"Download": "Baixar",
+			"CanNotOpenFile": "Este tipo de arquivo não pode ser aberto neste visualizador",
+			"PleaseDownload": "Fazer download do arquivo e exibi-lo em outro aplicativo.",
+			"NoAccess": "Você não tem acesso a ele.",
+			"FileSize": "Tamanho do arquivo: {fileSize}",
+			"FileType": {
+				"MicrosoftWordDocument": "Documento do Microsoft Word",
+				"MicrosoftExcelDocument": "Documento do Microsoft Excel",
+				"MicrosoftPowerpointDocument": "Documento do Microsoft PowerPoint",
+				"PostscriptFile": "Arquivo Postscript",
+				"RichTextFormatFile": "Arquivo RTF",
+				"TeXFile": "Arquivo TeX",
+				"TexinfoFile": "Arquivo Texinfo",
+				"TroffFile": "Arquivo Troff",
+				"MP3AudioFile": "Arquivo de áudio MP3",
+				"MP4AudioFile": "Arquivo de áudio MP4",
+				"BasicAudioFile": "Arquivo de áudio básico",
+				"AIFFAudioFile": "Arquivo de áudio AIFF",
+				"WavAudioFile": "Arquivo de áudio Wav",
+				"BMPImage": "Imagem BMP",
+				"GifImage": "Imagem Gif",
+				"IEFImage": "Imagem IEFI",
+				"IconImage": "Imagem de ícone",
+				"JpegImage": "Imagem Jpeg",
+				"PNGImage": "Imagem PNG",
+				"SVGImageFile": "Imagem SVG",
+				"FlashFile": "Arquivo Flash",
+				"TiffImage": "Imagem Tiff",
+				"ScreenshotFile": "Arquivo de captura de tela",
+				"HTMLFile": "Arquivo HTML",
+				"PlainTextFile": "Arquivo de texto",
+				"MpegVideoFile": "Arquivo de vídeo Mpeg",
+				"OggVideoFile": "Arquivo de vídeo Ogg",
+				"WebMVideoFile": "Arquivo de vídeo WebM",
+				"FlashVideoFile": "Arquivo de vídeo Flash",
+				"MP4VideoFile": "Arquivo de vídeo Mp4",
+				"MatroskaVideoFile": "Arquivo de vídeo Matroska",
+				"QuicktimeVideoFile": "Arquivo de vídeo Quicktime",
+				"MSVideoFile": "Arquivo MSvideo",
+				"MovieFile": "Arquivo de filme",
+				"PDFFile": "Arquivo PDF",
+				"ZipFile": "Arquivo Zip",
+				"CSSFile": "Arquivo CSS",
+				"XMLFile": "Arquivo XML",
+				"BinaryFile": "Arquivo binário",
+				"Unknown": "Tipo de arquivo desconhecido"
+			}
 		}
 	}
 }

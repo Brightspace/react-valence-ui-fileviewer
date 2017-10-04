@@ -1,7 +1,53 @@
 {
 	"Plugins": {
 		"Generic": {
-			"Download": "ダウンロード"
+			"Download": "ダウンロード",
+			"CanNotOpenFile": "この種類のファイルをこのビューアで開くことはできません。",
+			"PleaseDownload": "ファイルをダウンロードして他のアプリケーションで開いてください。",
+			"NoAccess": "アクセスできません。",
+			"FileSize": "ファイルサイズ: {fileSize}",
+			"FileType": {
+				"MicrosoftWordDocument": "Microsoft Word ドキュメント",
+				"MicrosoftExcelDocument": "Microsoft Excel ドキュメント",
+				"MicrosoftPowerpointDocument": "Microsoft Powerpoint ドキュメント",
+				"PostscriptFile": "Postscript ファイル",
+				"RichTextFormatFile": "RTF ファイル",
+				"TeXFile": "TeX ファイル",
+				"TexinfoFile": "Texinfo ファイル",
+				"TroffFile": "Troff ファイル",
+				"MP3AudioFile": "MP3 オーディオファイル",
+				"MP4AudioFile": "MP4 オーディオファイル",
+				"BasicAudioFile": "基本的なオーディオファイル",
+				"AIFFAudioFile": "AIFF オーディオファイル",
+				"WavAudioFile": "Wav オーディオファイル",
+				"BMPImage": "BMP イメージ",
+				"GifImage": "Gif イメージ",
+				"IEFImage": "IEFI イメージ",
+				"IconImage": "Icon イメージ",
+				"JpegImage": "Jpeg イメージ",
+				"PNGImage": "PNG イメージ",
+				"SVGImageFile": "SVG イメージ",
+				"FlashFile": "Flash ファイル",
+				"TiffImage": "Tiff イメージ",
+				"ScreenshotFile": "スクリーンショットファイル",
+				"HTMLFile": "HTML ファイル",
+				"PlainTextFile": "テキストファイル",
+				"MpegVideoFile": "Mpeg ビデオファイル",
+				"OggVideoFile": "Ogg ビデオファイル",
+				"WebMVideoFile": "WebM ビデオファイル",
+				"FlashVideoFile": "Flash ビデオファイル",
+				"MP4VideoFile": "Mp4 ビデオファイル",
+				"MatroskaVideoFile": "Matroska ビデオファイル",
+				"QuicktimeVideoFile": "Quicktime ビデオファイル",
+				"MSVideoFile": "MSvideo ファイル",
+				"MovieFile": "動画ファイル",
+				"PDFFile": "PDF ファイル",
+				"ZipFile": "Zip ファイル",
+				"CSSFile": "CSS ファイル",
+				"XMLFile": "XML ファイル",
+				"BinaryFile": "バイナリファイル",
+				"Unknown": "不明なファイルタイプです。"
+			}
 		}
 	}
 }

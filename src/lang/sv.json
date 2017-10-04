@@ -1,7 +1,53 @@
 {
 	"Plugins": {
 		"Generic": {
-			"Download": "Ladda ned"
+			"Download": "Hämta",
+			"CanNotOpenFile": "Den här filtypen kan inte öppnas här",
+			"PleaseDownload": "Hämta och öppna filen i ett annat program.",
+			"NoAccess": "Du saknar behörighet.",
+			"FileSize": "Filstorlek: {fileSize}",
+			"FileType": {
+				"MicrosoftWordDocument": "Microsoft Word-dokument",
+				"MicrosoftExcelDocument": "Microsoft Excel-dokument",
+				"MicrosoftPowerpointDocument": "Microsoft Powerpoint-dokument",
+				"PostscriptFile": "Postscript-fil",
+				"RichTextFormatFile": "RTF-fil",
+				"TeXFile": "TeX-fil",
+				"TexinfoFile": "Texinfo-fil",
+				"TroffFile": "Troff-fil",
+				"MP3AudioFile": "Mp3-ljudfil",
+				"MP4AudioFile": "Mp4-ljudfil",
+				"BasicAudioFile": "Grundläggande ljudfil",
+				"AIFFAudioFile": "AIFF-ljudfil",
+				"WavAudioFile": "Wav-ljudfil",
+				"BMPImage": "BMP-bild",
+				"GifImage": "Gif-bild",
+				"IEFImage": "IEFI-bild",
+				"IconImage": "Icon-bild",
+				"JpegImage": "Jpeg-bild",
+				"PNGImage": "PNG-bild",
+				"SVGImageFile": "SVG-bild",
+				"FlashFile": "Flash-fil",
+				"TiffImage": "Tiff-bild",
+				"ScreenshotFile": "Skärmdumpsfil",
+				"HTMLFile": "HTML-fil",
+				"PlainTextFile": "Textfil",
+				"MpegVideoFile": "Mpeg-videofil",
+				"OggVideoFile": "Ogg-videofil",
+				"WebMVideoFile": "WebM-videofil",
+				"FlashVideoFile": "Flash-videofil",
+				"MP4VideoFile": "Mp4-videofil",
+				"MatroskaVideoFile": "Matroska-videofil",
+				"QuicktimeVideoFile": "Quicktime-videofil",
+				"MSVideoFile": "MSvideo-fil",
+				"MovieFile": "Filmfil",
+				"PDFFile": "PDF-fil",
+				"ZipFile": "Zip-fil",
+				"CSSFile": "CSS-fil",
+				"XMLFile": "XML-fil",
+				"BinaryFile": "Binär fil",
+				"Unknown": "Ogiltig filtyp"
+			}
 		}
 	}
 }
