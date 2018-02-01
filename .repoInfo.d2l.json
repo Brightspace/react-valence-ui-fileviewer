@@ -1,9 +1,6 @@
 {
  "mirrormereProductId": null,
- "repoOwner": null,
- "platform": null,
  "codeType": null,
  "deployment": "not deployed",
- "devStatus": "end of life",
- "awsAccountNames": null
+ "isEndOfLife": true
 }
