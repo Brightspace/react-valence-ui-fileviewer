@@ -3,7 +3,7 @@
 var React = require('react');
 
 var isIOS = function() {
-	return /iP[ao]d|iPhone/.test( window.navigator.userAgent );
+	return /iP[ao]d|iPhone/.test(window.navigator.userAgent);
 };
 
 var Download = React.createClass({
@@ -14,8 +14,8 @@ var Download = React.createClass({
 		src: React.PropTypes.string
 	},
 	download: function() {
-		if ( isIOS() ) {
-			window.open( this.props.src );
+		if (isIOS()) {
+			window.open(this.props.src);
 		} else {
 			document.location.href = this.props.src;
 		}
