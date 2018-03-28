@@ -2,6 +2,10 @@
 
 var React = require('react');
 
+var isIOS = function() {
+	return /iP[ao]d|iPhone/.test(window.navigator.userAgent);
+};
+
 var Download = React.createClass({
 	contextTypes : {
 		getIntlMessage: React.PropTypes.func
@@ -10,7 +14,11 @@ var Download = React.createClass({
 		src: React.PropTypes.string
 	},
 	download: function() {
-		document.location.href = this.props.src;
+		if (isIOS()) {
+			window.open(this.props.src);
+		} else {
+			document.location.href = this.props.src;
+		}
 	},
 	render: function() {
 		var downloadButtonText = this.context.getIntlMessage('Plugins.Generic.Download');
