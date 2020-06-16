@@ -24,13 +24,16 @@ var FileViewer = React.createClass({
 	},
 
 	componentDidMount: function() {
-		this.fetchFileInfo(this.props.src, this.props.fileInfo);
+		this.fetchFileInfo(this.props.src, this.props.fileInfo, this.props.token);
 	},
 
 	componentWillReceiveProps: function(nextProps) {
-		if (nextProps.src !== this.props.src || nextProps.fileInfo !== this.props.fileInfo) {
+		if (nextProps.src !== this.props.src ||
+			nextProps.fileInfo !== this.props.fileInfo ||
+			nextProps.token !== this.props.token
+		) {
 			this.setState({info:null, canAccessFile: null});
-			this.fetchFileInfo(nextProps.src, nextProps.fileInfo);
+			this.fetchFileInfo(nextProps.src, nextProps.fileInfo, nextProps.token);
 		}
 	},
 
@@ -50,7 +53,7 @@ var FileViewer = React.createClass({
 					return;
 				}
 				this.setState({canAccessFile: true, info: fileInfo});
-			}.bind(this));
+			}.bind(this), token);
 		}
 	},
 
