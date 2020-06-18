@@ -13,7 +13,8 @@ var FileViewer = React.createClass({
 		fileInfo: React.PropTypes.object,
 		locale: React.PropTypes.string,
 		progressCallback: React.PropTypes.func,
-		resizeCallback: React.PropTypes.func
+		resizeCallback: React.PropTypes.func,
+		token: React.PropTypes.string,
 	},
 
 	getInitialState: function() {
@@ -53,7 +54,7 @@ var FileViewer = React.createClass({
 					return;
 				}
 				this.setState({canAccessFile: true, info: fileInfo});
-			}.bind(this), token);
+			}.bind(this), this.props.token);
 		}
 	},
 
