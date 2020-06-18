@@ -41,10 +41,13 @@ var ImageViewer = React.createClass({
 				'Authorization': `Bearer ${token}`
 			}
 		}).then(res => {
-			return res.text();
-		}).then(body => {
-			var data = Buffer.from(body).toString('base64');
-			var uri = `data:${this.props.mimeType};base64,${data}`;
+			return res.arrayBuffer();
+		}).then(buff => {
+			let binary = '';
+			const bytes = [].slice.call(new Uint8Array(buff));
+			bytes.forEach(byte => binary += String.fromCharCode(byte));
+			const base64String = window.btoa(binary);
+			const uri = `data:${this.props.mimeType};base64,${base64String}`;
 			this.setState({ src: uri });
 		});
 	},
