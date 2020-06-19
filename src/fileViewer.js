@@ -38,7 +38,7 @@ var FileViewer = React.createClass({
 		}
 	},
 
-	fetchFileInfo: function(src, fileInfo) {
+	fetchFileInfo: function(src, fileInfo, token) {
 		if (!this.isMounted()) {
 			return;
 		}
@@ -54,7 +54,7 @@ var FileViewer = React.createClass({
 					return;
 				}
 				this.setState({canAccessFile: true, info: fileInfo});
-			}.bind(this), this.props.token);
+			}.bind(this), token);
 		}
 	},
 
