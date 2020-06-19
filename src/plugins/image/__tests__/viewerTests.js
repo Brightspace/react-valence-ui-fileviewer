@@ -92,4 +92,15 @@ describe('Image Viewer', function() {
 		expect(progressFunc.firstCall.args[1]).toBe('none');
 		expect(progressFunc.secondCall.args[1]).toBe('none');
 	});
+
+	it('Sets src to empty when a token is provided', function() {
+		var elem = TestUtils.renderIntoDocument(
+			<Viewer src='foo.bar' token='auth-me-pls'/>
+		);
+		var img = TestUtils.findRenderedDOMComponentWithTag(
+			elem,
+			'img'
+		);
+		expect(ReactDOM.findDOMNode(img).src).toContain('');
+	});
 });
