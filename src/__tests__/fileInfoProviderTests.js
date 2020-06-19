@@ -27,14 +27,6 @@ describe('FileInfoProvider', function() {
 		expect(requests[0].url).toBe('foo.bar');
 	});
 
-	it('should have an Authorization header when a token is provided', function() {
-		provider('foo.bar', sinon.stub(), 'bar.foo');
-		expect(requests.length).toBe(1);
-		expect(requests[0].method).toBe('HEAD');
-		expect(requests[0].url).toBe('foo.bar');
-		expect(requests[0].requestHeaders['Authorization']).toBe('Bearer: bar.foo');
-	});
-
 	it('should return error for non-200 status', function() {
 		var callback = sinon.stub();
 		provider('foo.bar', callback);
