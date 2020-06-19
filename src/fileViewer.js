@@ -13,7 +13,8 @@ var FileViewer = React.createClass({
 		fileInfo: React.PropTypes.object,
 		locale: React.PropTypes.string,
 		progressCallback: React.PropTypes.func,
-		resizeCallback: React.PropTypes.func
+		resizeCallback: React.PropTypes.func,
+		token: React.PropTypes.string
 	},
 
 	getInitialState: function() {
@@ -24,17 +25,20 @@ var FileViewer = React.createClass({
 	},
 
 	componentDidMount: function() {
-		this.fetchFileInfo(this.props.src, this.props.fileInfo);
+		this.fetchFileInfo(this.props.src, this.props.fileInfo, this.props.token);
 	},
 
 	componentWillReceiveProps: function(nextProps) {
-		if (nextProps.src !== this.props.src || nextProps.fileInfo !== this.props.fileInfo) {
+		if (nextProps.src !== this.props.src ||
+			nextProps.fileInfo !== this.props.fileInfo ||
+			nextProps.token !== this.props.token
+		) {
 			this.setState({info:null, canAccessFile: null});
-			this.fetchFileInfo(nextProps.src, nextProps.fileInfo);
+			this.fetchFileInfo(nextProps.src, nextProps.fileInfo, nextProps.token);
 		}
 	},
 
-	fetchFileInfo: function(src, fileInfo) {
+	fetchFileInfo: function(src, fileInfo, token) {
 		if (!this.isMounted()) {
 			return;
 		}
@@ -50,7 +54,7 @@ var FileViewer = React.createClass({
 					return;
 				}
 				this.setState({canAccessFile: true, info: fileInfo});
-			}.bind(this));
+			}.bind(this), token);
 		}
 	},
 

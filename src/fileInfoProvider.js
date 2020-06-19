@@ -19,10 +19,13 @@ function getMimeType(xhr) {
 	return mimeType;
 }
 
-function getFileInfo(path, callback) {
+function getFileInfo(path, callback, token) {
 
 	var xhr = new XMLHttpRequest();
 	xhr.open('HEAD', path);
+	if (token) {
+		xhr.setRequestHeader('Authorization', `Bearer ${token}`);
+	}
 	xhr.withCredentials = true;
 	xhr.onreadystatechange = function() {
 
