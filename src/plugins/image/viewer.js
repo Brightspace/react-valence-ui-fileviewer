@@ -11,11 +11,9 @@ var ImageViewer = React.createClass({
 		resizeCallback: React.PropTypes.func
 	},
 	getInitialState: function() {
-		if (this.props.token) {
-			this.getDataUri(this.props.src, this.props.token);
-			return { src: '' };
-		}
-		return { src: this.props.src };
+		return this.props.token
+			? { src: '' }
+			: { src: this.props.src };
 	},
 	componentWillMount: function() {
 		this.updateProgress(0);
@@ -24,7 +22,25 @@ var ImageViewer = React.createClass({
 		}
 	},
 	componentDidMount: function() {
-		this.updateProgress(100);
+		if (this.props.token) {
+			this.getDataUri(this.props.src, this.props.token)
+				.then(uri => {
+					this.setState({ src: uri });
+					this.updateProgress(100);
+				});
+		} else {
+			this.updateProgress(100);
+		}
+	},
+	componentDidUpdate: function(prevProps) {
+		if (this.props.src !== prevProps.src) {
+			if (!this.props.token) {
+				this.setState({ src: this.props.src });
+				return;
+			}
+			this.getDataUri(this.props.src, this.props.token)
+				.then(uri => this.setState({ src: uri }));
+		}
 	},
 	updateProgress: function(progress) {
 		if (this.props.progressCallback) {
@@ -36,7 +52,7 @@ var ImageViewer = React.createClass({
 		ReactDOM.findDOMNode(this.refs.image).src = '';
 	},
 	getDataUri(href, token) {
-		fetch(href, {
+		return fetch(href, {
 			headers: {
 				'Authorization': `Bearer ${token}`
 			}
@@ -47,8 +63,7 @@ var ImageViewer = React.createClass({
 			const bytes = [].slice.call(new Uint8Array(buff));
 			bytes.forEach(byte => binary += String.fromCharCode(byte));
 			const base64String = window.btoa(binary);
-			const uri = `data:${this.props.mimeType};base64,${base64String}`;
-			this.setState({ src: uri });
+			return `data:${this.props.mimeType};base64,${base64String}`;
 		});
 	},
 	render: function() {
