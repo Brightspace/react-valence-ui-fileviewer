@@ -14,7 +14,7 @@ var FileViewer = React.createClass({
 		locale: React.PropTypes.string,
 		progressCallback: React.PropTypes.func,
 		resizeCallback: React.PropTypes.func,
-		token: React.PropTypes.string,
+		token: React.PropTypes.string
 	},
 
 	getInitialState: function() {
