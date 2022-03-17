@@ -20,7 +20,7 @@ function getMimeType(xhr) {
 }
 
 function getFileInfo(path, callback, token) {
-
+	debugger; //eslint-disable-line
 	var xhr = new XMLHttpRequest();
 	xhr.open('HEAD', path);
 	if (token) {
