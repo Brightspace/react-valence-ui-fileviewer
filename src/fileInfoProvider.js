@@ -20,7 +20,7 @@ function getMimeType(xhr) {
 }
 
 function getFileInfo(path, callback, token) {
-	debugger; //eslint-disable-line
+	console.log(`${Date.now()}\tgetting file info`); //eslint-disable-line
 	var xhr = new XMLHttpRequest();
 	xhr.open('HEAD', path);
 	if (token) {
@@ -28,7 +28,7 @@ function getFileInfo(path, callback, token) {
 	}
 	xhr.withCredentials = true;
 	xhr.onreadystatechange = function() {
-
+		console.log(`${Date.now()}\txhr ready state changed\nready state: ${xhr.readyState}\nxhr status: ${xhr.status}`); //eslint-disable-line
 		if (xhr.readyState !== 4) {
 			return;
 		}

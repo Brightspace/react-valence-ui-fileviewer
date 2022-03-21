@@ -21,10 +21,12 @@ var AlternativeViewer = React.createClass({
 		if ( this.props.fileInfo && this.props.fileInfo.withCredentials === false ) {
 			withCredentials = false;
 		}
+		console.log(`${Date.now()}\tpdfjs time`); //eslint-disable-line
 		pdfjs.getDocument({
 			url: self.props.src,
 			withCredentials: withCredentials
 		}).then(function(pdfDocument) {
+			console.log(`${Date.now()}\tpdf obtained great success`); //eslint-disable-line
 			self.state.pdfViewer.setDocument(pdfDocument);
 			self.state.pdfLinkService.setDocument(pdfDocument, null);
 			self.updateProgress(100);
