@@ -29,7 +29,6 @@ var NativeViewer = React.createClass({
 		console.log(`${Date.now()}\tnative viewer render func`); //eslint-disable-line
 		return <object
 			data={this.props.src}
-			type="application/pdf"
 			className="vui-fileviewer-pdf-native">
 			<GenericViewer srcdownload={this.props.srcdownload} locale={this.props.locale} />
 		</object>;
