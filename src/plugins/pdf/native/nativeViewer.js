@@ -26,6 +26,7 @@ var NativeViewer = React.createClass({
 		}
 	},
 	render: function() {
+		console.log(`${Date.now()}\tnative viewer render func`); //eslint-disable-line
 		return <object
 			data={this.props.src}
 			type="application/pdf"

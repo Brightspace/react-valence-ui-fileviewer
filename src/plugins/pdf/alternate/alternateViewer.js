@@ -76,6 +76,7 @@ var AlternativeViewer = React.createClass({
 		}
 	},
 	render: function() {
+		console.log(`${Date.now()}\talternate viewer render func`); //eslint-disable-line
 		return (
 			<div className="vui-fileviewer-pdf-alternate">
 				<div className="pdfViewer"></div>

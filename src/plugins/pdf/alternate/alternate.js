@@ -8,6 +8,7 @@ var plugin = {
 		return <AlternateViewer {...props} />;
 	},
 	test: function(mimeType) {
+		console.log(`${Date.now()}\tpdf alternate check: ${mimeType === 'application/pdf'}`); //eslint-disable-line
 		return mimeType === 'application/pdf';
 	}
 };
