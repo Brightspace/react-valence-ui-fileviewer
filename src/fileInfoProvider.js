@@ -45,6 +45,7 @@ function getFileInfo(path, callback, token) {
 			mimeType: getMimeType(xhr),
 			filename: filename
 		};
+		console.log(`${Date.now()}\tfile info:\n${JSON.stringify(fileInfo)}`); //eslint-disable-line
 		callback(null, fileInfo);
 
 	};
