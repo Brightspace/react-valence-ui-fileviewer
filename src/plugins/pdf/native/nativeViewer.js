@@ -27,11 +27,14 @@ var NativeViewer = React.createClass({
 	},
 	render: function() {
 		console.log(`${Date.now()}\tnative viewer render func`); //eslint-disable-line
-		return <object
-			data={this.props.src}
-			className="vui-fileviewer-pdf-native">
+		return <div>
+			<iframe
+				src={this.props.src}
+				className="vui-fileviewer-pdf-native">
+
+			</iframe>
 			<GenericViewer srcdownload={this.props.srcdownload} locale={this.props.locale} />
-		</object>;
+		</div>;
 	}
 });
 
