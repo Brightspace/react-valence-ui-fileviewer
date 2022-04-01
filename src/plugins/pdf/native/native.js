@@ -1,7 +1,7 @@
 'use strict';
 
 var React = require('react'), // eslint-disable-line no-unused-vars
-	NativeViewer = require('./nativeViewer'),
+	NativeViewer = require('react-valence-ui-iframe'),
 	supportsNativePdf = require('./supportsNativePdf.js');
 
 var plugin = {
