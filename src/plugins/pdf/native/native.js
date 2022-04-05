@@ -13,7 +13,6 @@ var plugin = {
 			return false;
 		}
 		var result = supportsNativePdf();
-		console.log(`${Date.now()}\tpdf native viewer check: ${result}`); //eslint-disable-line
 		return result;
 	}
 };

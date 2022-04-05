@@ -20,7 +20,6 @@ function getMimeType(xhr) {
 }
 
 function getFileInfo(path, callback, token) {
-	console.log(`${Date.now()}\tgetting file info`); //eslint-disable-line
 	var xhr = new XMLHttpRequest();
 	xhr.open('HEAD', path);
 	if (token) {
@@ -28,7 +27,6 @@ function getFileInfo(path, callback, token) {
 	}
 	xhr.withCredentials = true;
 	xhr.onreadystatechange = function() {
-		console.log(`${Date.now()}\txhr ready state changed\nready state: ${xhr.readyState}\nxhr status: ${xhr.status}`); //eslint-disable-line
 		if (xhr.readyState !== 4) {
 			return;
 		}
@@ -45,7 +43,6 @@ function getFileInfo(path, callback, token) {
 			mimeType: getMimeType(xhr),
 			filename: filename
 		};
-		console.log(`${Date.now()}\tfile info:\n${JSON.stringify(fileInfo)}`); //eslint-disable-line
 		callback(null, fileInfo);
 
 	};

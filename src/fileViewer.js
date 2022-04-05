@@ -67,7 +67,6 @@ var FileViewer = React.createClass({
 
 	render: function() {
 		var forceGeneric = this.state.canAccessFile === false;
-		console.log(`${Date.now()}\tfileViewer forceGeneric: ${forceGeneric}`); //eslint-disable-line
 
 		if (!forceGeneric && !this.state.info) {
 			return null;
@@ -75,8 +74,6 @@ var FileViewer = React.createClass({
 
 		var messages = getMessages(this.props.locale);
 		var mimeType = (forceGeneric) ? undefined : this.state.info.mimeType;
-
-		console.log(`${Date.now()}\tfileViewer mimeType: ${mimeType}`); //eslint-disable-line
 
 		return <IntlFileViewer
 			{...this.props}

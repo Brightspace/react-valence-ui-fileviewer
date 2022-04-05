@@ -33,8 +33,6 @@ var FileViewerResolved = React.createClass({
 			viewer = genericViewer.getComponent(this.props);
 		}
 
-		console.log(`${Date.now()}\tfileViewerResolved mimeType: ${this.props.mimeType}`); //eslint-disable-line
-
 		return <div className="vui-fileviewer">{viewer}</div>;
 	}
 });

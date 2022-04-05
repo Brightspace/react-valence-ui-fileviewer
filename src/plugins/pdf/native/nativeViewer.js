@@ -1,7 +1,8 @@
 'use strict';
 
 var React = require('react'),
-	GenericViewer = require('../../generic/viewer.js');
+	GenericViewer = require('../../generic/viewer.js'),
+	NativeViewer = require('react-valence-ui-iframe');
 
 var NativeViewer = React.createClass({
 	propTypes: {
@@ -26,13 +27,8 @@ var NativeViewer = React.createClass({
 		}
 	},
 	render: function() {
-		console.log(`${Date.now()}\tnative viewer render func`); //eslint-disable-line
 		return <div>
-			<iframe
-				src={this.props.src}
-				className="vui-fileviewer-pdf-native">
-
-			</iframe>
+			<NativeViewer {...props} />
 			<GenericViewer srcdownload={this.props.srcdownload} locale={this.props.locale} />
 		</div>;
 	}
