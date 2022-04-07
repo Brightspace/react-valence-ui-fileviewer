@@ -20,7 +20,6 @@ function getMimeType(xhr) {
 }
 
 function getFileInfo(path, callback, token) {
-
 	var xhr = new XMLHttpRequest();
 	xhr.open('HEAD', path);
 	if (token) {
@@ -28,7 +27,6 @@ function getFileInfo(path, callback, token) {
 	}
 	xhr.withCredentials = true;
 	xhr.onreadystatechange = function() {
-
 		if (xhr.readyState !== 4) {
 			return;
 		}
