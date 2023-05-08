@@ -1,8 +1,9 @@
+/* eslint-disable no-undef */
 'use strict';
 
 var React = require('react'),
 	GenericViewer = require('../../generic/viewer.js'),
-	NativeViewer = require('react-valence-ui-iframe');
+	ReactNativeViewer = require('react-valence-ui-iframe');
 
 var NativeViewer = React.createClass({
 	propTypes: {
@@ -28,7 +29,7 @@ var NativeViewer = React.createClass({
 	},
 	render: function() {
 		return <div className="vui-fileviewer-pdf-native">
-			<NativeViewer {...props} />
+			<ReactNativeViewer {...props} />
 			<GenericViewer srcdownload={this.props.srcdownload} locale={this.props.locale} />
 		</div>;
 	}
