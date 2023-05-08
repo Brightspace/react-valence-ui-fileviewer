@@ -13,7 +13,7 @@
     "report-coverage": "lcov-result-merger 'coverage/**/lcov.info' | ./node_modules/coveralls/bin/coveralls.js",
     "serve": "http-server -p 8080 ./sample/",
     "test": "npm run lint && test:headless",
-    "test:headless": "wtr --node-resolve --files \"./src/__tests__/*.js\"",
+    "test:headless": "wtr --node-resolve --files \"./src/__tests__/*.js\""
   },
   "repository": {
     "type": "git",
