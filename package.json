@@ -33,11 +33,11 @@
     "react-dom": "^0.14.0 || ^15.0.0"
   },
   "dependencies": {
-    "bower": "^1.6.5",
-    "d2l-intl": "^0.2.1",
+    "bower": "^1.8.14",
+    "d2l-intl": "^2.1.0",
     "react-frau-intl": "^0.2.0",
-    "react-valence-ui-iframe": "git+https://github.com/Brightspace/react-valence-ui-iframe.git#semver:^3",
-    "url-parse": "^1.0.5"
+    "react-valence-ui-iframe": "^3.0.3",
+    "url-parse": "^1.5.10"
   },
   "devDependencies": {
     "@esm-bundle/chai": "^4.3.4-fix.0",
