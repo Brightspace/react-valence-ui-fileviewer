@@ -1,8 +1,8 @@
-var React = require('react'), //eslint-disable-line no-unused-vars
-	TestUtils = require( 'react-addons-test-utils' ),
-	AlternateViewer = require('../alternateViewer'),
-	sinon = require('sinon'),
-	getPdfjsMock = require('./utils/getPdfjsMock');
+import React from 'react'; //eslint-disable-line no-unused-vars
+import TestUtils from  'react-addons-test-utils' ;
+import AlternateViewer from '../alternateViewer';
+import sinon from 'sinon';
+import getPdfjsMock from './utils/getPdfjsMock';
 
 var pdfjs;
 describe('PDF Alternate Viewer', function() {

@@ -1,6 +1,6 @@
-var React = require('react'), // eslint-disable-line no-unused-vars
-	NativeViewer = require('react-valence-ui-iframe'),
-	supportsNativePdf = require('./supportsNativePdf.js');
+import React from 'react'; // eslint-disable-line no-unused-vars
+import NativeViewer from 'react-valence-ui-iframe';
+import supportsNativePdf from './supportsNativePdf.js';
 
 var plugin = {
 	getComponent: function(props) {

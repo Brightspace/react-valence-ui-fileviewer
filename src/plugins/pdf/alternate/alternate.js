@@ -1,5 +1,5 @@
-var React = require('react'), // eslint-disable-line no-unused-vars
-	AlternateViewer = require('./alternateViewer');
+import React from 'react'; // eslint-disable-line no-unused-vars
+import AlternateViewer from './alternateViewer';
 
 var plugin = {
 	getComponent: function(props) {

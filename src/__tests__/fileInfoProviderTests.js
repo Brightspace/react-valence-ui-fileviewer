@@ -1,5 +1,5 @@
-var sinon = require('sinon'),
-	provider = require('../fileInfoProvider.js');
+import sinon from 'sinon';
+import provider from '../fileInfoProvider.js';
 
 describe('FileInfoProvider', function() {
 

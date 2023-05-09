@@ -1,11 +1,12 @@
-var React = require('react'), //eslint-disable-line no-unused-vars
-	ReactDOM = require( 'react-dom' ),
-	TestUtils = require( 'react-addons-test-utils' ),
-	FileViewer = require('../fileViewer'),
-	sinon = require('sinon'),
-	i18n = require('react-frau-intl').i18n,
-	FileViewerResolved = require('../fileViewerResolved'),
-	IntlFileViewer = i18n(FileViewerResolved);
+import React from 'react'; //eslint-disable-line no-unused-vars
+import ReactDOM from 'react-dom';
+import TestUtils from 'react-addons-test-utils';
+import FileViewer from '../fileViewer';
+import sinon from 'sinon';
+import i18n from 'react-frau-intl';
+import FileViewerResolved from '../fileViewerResolved';
+
+var IntlFileViewer = i18n(FileViewerResolved);
 
 var providerStub;
 

@@ -1,4 +1,4 @@
-var urlParse = require('url-parse');
+import urlParse from 'url-parse';
 
 function isCrossDomain(url) {
 	if (typeof url !== 'string') {

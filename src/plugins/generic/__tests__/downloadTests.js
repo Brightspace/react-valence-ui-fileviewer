@@ -1,9 +1,9 @@
-var React = require('react'), //eslint-disable-line no-unused-vars
-	ReactDOM = require( 'react-dom' ),
-	TestUtils = require( 'react-addons-test-utils' ),
-	Download = require('../download.js'),
-	sinon = require('sinon'),
-	stubIntlMessage = require('./utils/stubIntlMessage');
+import React from 'react'; //eslint-disable-line no-unused-vars
+import ReactDOM from 'react-dom';
+import TestUtils from 'react-addons-test-utils';
+import Download from '../download.js';
+import sinon from 'sinon';
+import stubIntlMessage from './utils/stubIntlMessage';
 
 describe('Generic Download View', function() {
 	var DownloadTester,

@@ -1,4 +1,4 @@
-var getFilename = require('../getFilename.js');
+import getFilename from '../getFilename.js';
 
 describe('GetFilename', function() {
 

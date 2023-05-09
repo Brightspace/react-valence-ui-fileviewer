@@ -1,6 +1,6 @@
-var React = require('react'),
-	ReactDOM = require( 'react-dom' ),
-	FileViewer = require('../src/fileViewer.js');
+import React from 'react';
+import ReactDOM from 'react-dom';
+import FileViewer from '../src/fileViewer.js';
 
 var files = [
 	{src: 'image1.jpg', name: 'Toronto (JPG large)'},

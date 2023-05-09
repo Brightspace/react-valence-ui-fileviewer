@@ -1,8 +1,8 @@
-var React = require('react'),
-	Download = require('./download.js'),
-	Icon = require('./icon.js'),
-	Size = require('./size.js'),
-	fileInfoProvider = require('../../fileInfoProvider');
+import React from 'react';
+import Download from './download.js';
+import Icon from './icon.js';
+import Size from './size.js';
+import fileInfoProvider from '../../fileInfoProvider';
 
 var Viewer = React.createClass({
 	propTypes: {

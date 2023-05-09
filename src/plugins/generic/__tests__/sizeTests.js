@@ -1,8 +1,8 @@
-var React = require('react'), //eslint-disable-line no-unused-vars
-	TestUtils = require( 'react-addons-test-utils' ),
-	Size = require('../size.js'),
-	stubIntlMessage = require('./utils/stubIntlMessage.js'),
-	sinon = require('sinon');
+import React from 'react'; //eslint-disable-line no-unused-vars
+import TestUtils from  'react-addons-test-utils' ;
+import Size from '../size.js';
+import stubIntlMessage from './utils/stubIntlMessage.js';
+import sinon from 'sinon';
 
 var formatMock,
 	FileSizeFormat,

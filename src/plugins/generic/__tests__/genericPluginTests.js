@@ -1,4 +1,4 @@
-var GenericPlugin = require('../generic.js');
+import GenericPlugin from '../generic.js';
 
 describe('Generic Plugin', function() {
 

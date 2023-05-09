@@ -1,4 +1,4 @@
-var getMessages = require('../getMessages.js');
+import getMessages from '../getMessages.js';
 
 describe('getMessages', function() {
 	[

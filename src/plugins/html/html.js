@@ -1,5 +1,5 @@
-var React = require('react'), // eslint-disable-line no-unused-vars
-	NativeViewer = require('react-valence-ui-iframe');
+import React from 'react'; // eslint-disable-line no-unused-vars
+import NativeViewer from 'react-valence-ui-iframe';
 
 var plugin = {
 	getComponent: function(props) {

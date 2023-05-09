@@ -1,6 +1,6 @@
-var React = require('react'),
-	getIconClassName = require('../../getIconClassName'),
-	fileTypes = require('./fileTypes.js');
+import React from 'react';
+import getIconClassName from '../../getIconClassName';
+import fileTypes from './fileTypes.js';
 
 var Icon = React.createClass({
 	propTypes: {

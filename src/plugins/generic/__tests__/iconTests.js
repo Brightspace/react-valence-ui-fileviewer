@@ -1,9 +1,9 @@
-var React = require('react'), //eslint-disable-line no-unused-vars
-	ReactDOM = require( 'react-dom' ),
-	TestUtils = require( 'react-addons-test-utils' ),
-	Icon = require('../icon.js'),
-	stubIntlMessage = require('./utils/stubIntlMessage'),
-	sinon = require('sinon');
+import React from 'react'; //eslint-disable-line no-unused-vars
+import ReactDOM from 'react-dom';
+import TestUtils from 'react-addons-test-utils';
+import Icon from '../icon.js';
+import stubIntlMessage from './utils/stubIntlMessage';
+import sinon from 'sinon';
 
 var getIconClassName;
 

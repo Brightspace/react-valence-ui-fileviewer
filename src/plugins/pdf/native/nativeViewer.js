@@ -1,7 +1,7 @@
 /* eslint-disable no-undef */
-var React = require('react'),
-	GenericViewer = require('../../generic/viewer.js'),
-	ReactNativeViewer = require('react-valence-ui-iframe');
+import React from 'react';
+import GenericViewer from '../../generic/viewer.js';
+import ReactNativeViewer from 'react-valence-ui-iframe';
 
 var NativeViewer = React.createClass({
 	propTypes: {

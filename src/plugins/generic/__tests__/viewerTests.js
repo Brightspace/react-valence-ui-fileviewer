@@ -1,11 +1,11 @@
-var React = require('react'), //eslint-disable-line no-unused-vars
-	TestUtils = require( 'react-addons-test-utils' ),
-	Viewer = require('../viewer.js'),
-	Icon = require('../icon.js'),
-	Size = require('../size.js'),
-	Download = require('../download.js'),
-	sinon = require('sinon'),
-	stubIntlMessage = require('./utils/stubIntlMessage.js');
+import React from 'react'; //eslint-disable-line no-unused-vars
+import TestUtils from 'react-addons-test-utils';
+import Viewer from '../viewer.js';
+import Icon from '../icon.js';
+import Size from '../size.js';
+import Download from '../download.js';
+import sinon from 'sinon';
+import stubIntlMessage from './utils/stubIntlMessage.js';
 
 describe('Generic Viewer', function() {
 	var ViewerTester,

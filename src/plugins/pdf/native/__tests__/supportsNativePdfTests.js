@@ -1,4 +1,4 @@
-var supportsNativePdf = require('../supportsNativePdf.js');
+import supportsNativePdf from '../supportsNativePdf.js';
 
 describe('PDF Native Support', function() {
 

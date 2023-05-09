@@ -1,5 +1,5 @@
-var ImagePlugin = require('../image.js'),
-	mimeTypes = require('../mimeTypes.js');
+import ImagePlugin from '../image.js';
+import mimeTypes from '../mimeTypes.js';
 
 describe('Image Plugin', function() {
 

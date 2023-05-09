@@ -1,4 +1,4 @@
-var sinon = require('sinon');
+import sinon from 'sinon';
 
 function getPdfjsMock() {
 	return {

@@ -1,9 +1,9 @@
-var React = require('react'),
-	image = require('./plugins/image/image.js'),
-	htmlNative = require('./plugins/html/html.js'),
-	genericViewer = require('./plugins/generic/generic.js'),
-	pdfNative = require('./plugins/pdf/native/native.js'),
-	pdfAlternate = require('./plugins/pdf/alternate/alternate.js');
+import React from 'react';
+import image from './plugins/image/image.js';
+import htmlNative from './plugins/html/html.js';
+import genericViewer from './plugins/generic/generic.js';
+import pdfNative from './plugins/pdf/native/native.js';
+import pdfAlternate from './plugins/pdf/alternate/alternate.js';
 
 var viewers = [
 	image,

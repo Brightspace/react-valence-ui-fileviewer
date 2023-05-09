@@ -3,6 +3,6 @@
 // The real pdf.js is expected to be loaded from a CDN and is made accesible here via browserify-shim, but in
 // tests we should mock this module instead.
 
-var PDFJS = require('pdfjs');
+import PDFJS from 'pdfjs';
 
 export default PDFJS;

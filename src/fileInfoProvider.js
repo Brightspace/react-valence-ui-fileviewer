@@ -1,4 +1,4 @@
-var getFilename = require('./getFilename');
+import getFilename from './getFilename';
 
 function getSize(xhr) {
 	var size = xhr.getResponseHeader('content-length');

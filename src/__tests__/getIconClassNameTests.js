@@ -1,4 +1,4 @@
-var getIconClassName = require('../getIconClassName.js');
+import getIconClassName from '../getIconClassName.js';
 
 describe('GetIconClassName', function() {
 

@@ -1,7 +1,7 @@
-var React = require('react'), //eslint-disable-line no-unused-vars
-	TestUtils = require( 'react-addons-test-utils' ),
-	sinon = require('sinon'),
-	FileViewerResolved = require('../fileViewerResolved.js');
+import React from 'react'; //eslint-disable-line no-unused-vars
+import TestUtils from 'react-addons-test-utils';
+import sinon from 'sinon';
+import FileViewerResolved from '../fileViewerResolved.js';
 
 describe('FileViewer Resolved', function() {
 	var getComponentStub,

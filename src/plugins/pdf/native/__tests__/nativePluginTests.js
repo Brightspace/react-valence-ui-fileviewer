@@ -1,4 +1,4 @@
-var native = require('../native.js');
+import native from '../native.js';
 
 describe('PDF Native Plugin', function() {
 

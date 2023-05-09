@@ -1,7 +1,7 @@
-var sinon = require('sinon'),
-	pdfjsWorkerSrcInit = require('../pdfjsWorkerSrcInit'),
-	cache = require('../pdfjsWorkerSrcInitCache'),
-	getPdfjsMock = require('./utils/getPdfjsMock');
+import sinon from 'sinon';
+import pdfjsWorkerSrcInit from '../pdfjsWorkerSrcInit';
+import cache from '../pdfjsWorkerSrcInitCache';
+import getPdfjsMock from './utils/getPdfjsMock';
 
 var pdfjs;
 describe('pdfjsWorkerSrcInit', function() {

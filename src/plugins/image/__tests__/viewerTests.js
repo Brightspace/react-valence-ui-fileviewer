@@ -1,8 +1,8 @@
-var React = require('react'), //eslint-disable-line no-unused-vars
-	ReactDOM = require( 'react-dom' ),
-	TestUtils = require( 'react-addons-test-utils' ),
-	Viewer = require('../viewer.js'),
-	sinon = require('sinon');
+import React from 'react'; //eslint-disable-line no-unused-vars
+import ReactDOM from 'react-dom';
+import TestUtils from 'react-addons-test-utils';
+import Viewer from '../viewer.js';
+import sinon from 'sinon';
 
 describe('Image Viewer', function() {
 
