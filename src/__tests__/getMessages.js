@@ -1,4 +1,7 @@
 import getMessages from '../getMessages.js';
+import chai from '@esm-bundle/chai';
+
+const expect = chai.expect;
 
 describe('getMessages', function() {
 	[

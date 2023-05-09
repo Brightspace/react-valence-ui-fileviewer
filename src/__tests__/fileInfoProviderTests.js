@@ -1,5 +1,8 @@
 import sinon from 'sinon';
 import provider from '../fileInfoProvider.js';
+import chai from '@esm-bundle/chai';
+
+const expect = chai.expect;
 
 describe('FileInfoProvider', function() {
 

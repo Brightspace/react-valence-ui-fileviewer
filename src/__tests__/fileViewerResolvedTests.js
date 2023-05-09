@@ -2,6 +2,9 @@ import React from 'react'; //eslint-disable-line no-unused-vars
 import TestUtils from 'react-addons-test-utils';
 import sinon from 'sinon';
 import FileViewerResolved from '../fileViewerResolved.js';
+import chai from '@esm-bundle/chai';
+
+const expect = chai.expect;
 
 describe('FileViewer Resolved', function() {
 	var getComponentStub,

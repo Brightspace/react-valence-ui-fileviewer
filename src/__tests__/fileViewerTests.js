@@ -5,6 +5,9 @@ import FileViewer from '../fileViewer';
 import sinon from 'sinon';
 import i18n from 'react-frau-intl';
 import FileViewerResolved from '../fileViewerResolved';
+import chai from '@esm-bundle/chai';
+
+const expect = chai.expect;
 
 var IntlFileViewer = i18n(FileViewerResolved);
 
