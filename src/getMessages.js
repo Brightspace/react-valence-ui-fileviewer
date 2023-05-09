@@ -1,5 +1,3 @@
-'use strict';
-
 var languages = {
 	'ar': require('./lang/ar.json'),
 	'en': require('./lang/en.json'),
@@ -33,4 +31,4 @@ function getMessages(locale) {
 	return baseLang || defaultLang;
 }
 
-module.exports = getMessages;
+export default getMessages;

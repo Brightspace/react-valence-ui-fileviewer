@@ -1,5 +1,3 @@
-'use strict';
-
 var ImageViewer = require('./viewer'),
 	mimeTypes = require('./mimeTypes'),
 	React = require('react'); // eslint-disable-line no-unused-vars
@@ -14,4 +12,4 @@ var plugin = {
 	}
 };
 
-module.exports = plugin;
+export default plugin;

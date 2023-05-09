@@ -1,5 +1,3 @@
-'use strict';
-
 var React = require('react');
 
 var stubIntlMessage = function(Component, props, getMessageFunction, formatMessageFunction) {
@@ -21,4 +19,4 @@ var stubIntlMessage = function(Component, props, getMessageFunction, formatMessa
 	});
 };
 
-module.exports = stubIntlMessage;
+export default stubIntlMessage;

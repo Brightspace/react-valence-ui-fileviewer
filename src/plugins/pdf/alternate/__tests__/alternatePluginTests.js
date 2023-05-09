@@ -1,5 +1,3 @@
-'use strict';
-
 var alternate = require('../alternate.js');
 
 describe('PDF Alternate Plugin', function() {

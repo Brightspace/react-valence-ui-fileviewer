@@ -1,5 +1,3 @@
-'use strict';
-
 var HtmlPlugin = require('../html.js');
 
 describe('Html Plugin', function() {

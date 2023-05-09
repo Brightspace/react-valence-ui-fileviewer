@@ -1,5 +1,3 @@
-'use strict';
-
 var React = require('react'),
 	ReactDOM = require( 'react-dom' ),
 	pdfjs = require('./pdfjs-lib'),
@@ -82,4 +80,4 @@ var AlternativeViewer = React.createClass({
 	}
 });
 
-module.exports = AlternativeViewer;
+export default AlternativeViewer;

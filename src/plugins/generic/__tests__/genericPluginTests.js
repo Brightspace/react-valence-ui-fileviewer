@@ -1,5 +1,3 @@
-'use strict';
-
 var GenericPlugin = require('../generic.js');
 
 describe('Generic Plugin', function() {

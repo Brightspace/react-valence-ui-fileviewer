@@ -1,5 +1,3 @@
-'use strict';
-
 var getFilename = require('./getFilename');
 
 function getSize(xhr) {
@@ -50,4 +48,4 @@ function getFileInfo(path, callback, token) {
 
 }
 
-module.exports = getFileInfo;
+export default getFileInfo;

@@ -1,5 +1,3 @@
-'use strict';
-
 var isCrossDomain = require('../isCrossDomain');
 
 describe('isCrossDomain', function() {

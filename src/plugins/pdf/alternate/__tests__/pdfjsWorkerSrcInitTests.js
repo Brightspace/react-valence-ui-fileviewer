@@ -1,5 +1,3 @@
-'use strict';
-
 var sinon = require('sinon'),
 	pdfjsWorkerSrcInit = require('../pdfjsWorkerSrcInit'),
 	cache = require('../pdfjsWorkerSrcInitCache'),

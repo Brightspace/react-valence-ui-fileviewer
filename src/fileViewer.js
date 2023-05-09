@@ -1,5 +1,3 @@
-'use strict';
-
 var React = require('react'),
 	FileViewerResolved = require('./fileViewerResolved'),
 	fileInfoProvider = require('./fileInfoProvider'),
@@ -84,4 +82,4 @@ var FileViewer = React.createClass({
 	}
 });
 
-module.exports = FileViewer;
+export default FileViewer;

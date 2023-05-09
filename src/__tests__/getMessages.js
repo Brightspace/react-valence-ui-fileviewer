@@ -1,5 +1,3 @@
-'use strict';
-
 var getMessages = require('../getMessages.js');
 
 describe('getMessages', function() {

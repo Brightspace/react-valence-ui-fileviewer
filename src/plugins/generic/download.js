@@ -1,5 +1,3 @@
-'use strict';
-
 var React = require('react');
 
 var isIOS = function() {
@@ -31,4 +29,4 @@ var Download = React.createClass({
 	}
 });
 
-module.exports = Download;
+export default Download;

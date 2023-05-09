@@ -1,5 +1,3 @@
-'use strict';
-
 var native = require('../native.js');
 
 describe('PDF Native Plugin', function() {

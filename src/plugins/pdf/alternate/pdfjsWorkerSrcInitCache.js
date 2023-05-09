@@ -1,5 +1,3 @@
-'use strict';
-
 var cachedResult = null;
 
 function get() {
@@ -14,7 +12,7 @@ function clear() {
 	cachedResult = null;
 }
 
-module.exports = {
+export default {
 	clear: clear,
 	get: get,
 	set: set

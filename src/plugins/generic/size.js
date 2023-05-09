@@ -1,5 +1,3 @@
-'use strict';
-
 var React = require('react'),
 	d2lIntl = require('d2l-intl');
 
@@ -27,4 +25,4 @@ var Size = React.createClass({
 	}
 });
 
-module.exports = Size;
+export default Size;

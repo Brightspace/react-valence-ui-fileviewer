@@ -1,6 +1,4 @@
 /* eslint-disable no-undef */
-'use strict';
-
 var React = require('react'),
 	GenericViewer = require('../../generic/viewer.js'),
 	ReactNativeViewer = require('react-valence-ui-iframe');
@@ -35,4 +33,4 @@ var NativeViewer = React.createClass({
 	}
 });
 
-module.exports = NativeViewer;
+export default NativeViewer;

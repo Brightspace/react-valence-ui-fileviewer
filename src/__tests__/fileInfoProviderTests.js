@@ -1,5 +1,3 @@
-'use strict';
-
 var sinon = require('sinon'),
 	provider = require('../fileInfoProvider.js');
 

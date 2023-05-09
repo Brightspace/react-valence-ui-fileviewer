@@ -1,5 +1,3 @@
-'use strict';
-
 var React = require('react'), // eslint-disable-line no-unused-vars
 	Viewer = require('./viewer');
 
@@ -12,4 +10,4 @@ var plugin = {
 	}
 };
 
-module.exports = plugin;
+export default plugin;

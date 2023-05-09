@@ -1,5 +1,3 @@
-'use strict';
-
 var getFilename = require('../getFilename.js');
 
 describe('GetFilename', function() {

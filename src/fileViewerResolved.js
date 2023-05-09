@@ -1,5 +1,3 @@
-'use strict';
-
 var React = require('react'),
 	image = require('./plugins/image/image.js'),
 	htmlNative = require('./plugins/html/html.js'),
@@ -37,4 +35,4 @@ var FileViewerResolved = React.createClass({
 	}
 });
 
-module.exports = FileViewerResolved;
+export default FileViewerResolved;

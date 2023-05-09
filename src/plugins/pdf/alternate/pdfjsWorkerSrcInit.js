@@ -1,5 +1,3 @@
-'use strict';
-
 // inspired by http://colonelpanic.net/2014/08/using-pdf-js-web-worker-cross-domain-cors/
 
 var pdfjs = require('./pdfjs-lib'),
@@ -60,4 +58,4 @@ function ensureInitialized() {
 	return cachedResult;
 }
 
-module.exports = ensureInitialized;
+export default ensureInitialized;

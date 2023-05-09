@@ -1,5 +1,3 @@
-'use strict';
-
 var React = require('react'), //eslint-disable-line no-unused-vars
 	ReactDOM = require( 'react-dom' ),
 	TestUtils = require( 'react-addons-test-utils' ),

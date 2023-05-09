@@ -1,5 +1,3 @@
-'use strict';
-
 var iconExtensionMap = {
 	'application/pdf': 'pdf',
 	'application/msword': 'document',
@@ -29,5 +27,4 @@ function getIconClassName(mimeType) {
 	}
 	return 'unknown';
 }
-
-module.exports = getIconClassName;
+export default getIconClassName;

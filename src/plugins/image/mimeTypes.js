@@ -1,6 +1,4 @@
-'use strict';
-
-module.exports = [
+export default [
 	'image/jpeg',
 	'image/gif',
 	'image/png',

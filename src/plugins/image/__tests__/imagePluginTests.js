@@ -1,5 +1,3 @@
-'use strict';
-
 var ImagePlugin = require('../image.js'),
 	mimeTypes = require('../mimeTypes.js');
 

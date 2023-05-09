@@ -1,10 +1,7 @@
-'use strict';
-
 var React = require('react'), //eslint-disable-line no-unused-vars
 	TestUtils = require( 'react-addons-test-utils' ),
 	AlternateViewer = require('../alternateViewer'),
 	sinon = require('sinon'),
-	Promise = require('es6-promise').Promise,
 	getPdfjsMock = require('./utils/getPdfjsMock');
 
 var pdfjs;

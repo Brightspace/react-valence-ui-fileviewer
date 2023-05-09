@@ -1,5 +1,3 @@
-'use strict';
-
 var getIconClassName = require('../getIconClassName.js');
 
 describe('GetIconClassName', function() {
