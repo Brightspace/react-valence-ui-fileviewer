@@ -1,31 +1,17 @@
-import ar from './lang/ar.json';
-import en from './lang/en.json';
-import es from './lang/es.json';
-import fr from './lang/fr.json';
-import ja from './lang/ja.json';
-import ko from './lang/ko.json';
-import nl from './lang/nl.json';
-import pt from './lang/pt.json';
-import sv from './lang/sv.json';
-import tr from './lang/tr.json';
-import zh_cn from './lang/zh-CN.json';
-import zh from './lang/zh.json';
-import zh_tw from './lang/zh-TW.json';
-
 var languages = {
-	'ar': ar,
-	'en': en,
-	'es': es,
-	'fr': fr,
-	'ja': ja,
-	'ko': ko,
-	'nl': nl,
-	'pt': pt,
-	'sv': sv,
-	'tr': tr,
-	'zh-cn': zh_cn,
-	'zh': zh,
-	'zh-tw': zh_tw
+	'ar': require('./lang/ar.json'),
+	'en': require('./lang/en.json'),
+	'es': require('./lang/es.json'),
+	'fr': require('./lang/fr.json'),
+	'ja': require('./lang/ja.json'),
+	'ko': require('./lang/ko.json'),
+	'nl': require('./lang/nl.json'),
+	'pt': require('./lang/pt.json'),
+	'sv': require('./lang/sv.json'),
+	'tr': require('./lang/tr.json'),
+	'zh-cn': require('./lang/zh-CN.json'),
+	'zh': require('./lang/zh.json'),
+	'zh-tw': require('./lang/zh-TW.json')
 };
 
 function getMessages(locale) {
