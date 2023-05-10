@@ -26,7 +26,7 @@ describe('FileViewer', function() {
 
 	it('should get file info from provider', function() {
 		TestUtils.renderIntoDocument(
-			<FileViewer src="foo.bar" />
+			<FileViewer src='foo.bar' />
 		);
 
 		expect(providerStub.calledOnce).to.equal(true);
@@ -37,7 +37,7 @@ describe('FileViewer', function() {
 		FileViewer.__Rewire__('IntlFileViewer', IntlFileViewer);
 
 		var elem = TestUtils.renderIntoDocument(
-			<FileViewer src="foo.bar" />
+			<FileViewer src='foo.bar' />
 		);
 
 		var fileViewerResolvedComponent = TestUtils.findRenderedComponentWithType(
@@ -49,21 +49,21 @@ describe('FileViewer', function() {
 
 	it('should render nothing if file info is null', function() {
 		var elem = TestUtils.renderIntoDocument(
-			<FileViewer src="file3.null" />
+			<FileViewer src='file3.null' />
 		);
 		expect(ReactDOM.findDOMNode(elem)).to.equalNull();
 	});
 
 	it('should render something if file info is not null', function() {
 		var elem = TestUtils.renderIntoDocument(
-			<FileViewer src="file1.gif" />
+			<FileViewer src='file1.gif' />
 		);
 		expect(ReactDOM.findDOMNode(elem)).not.to.equalNull();
 	});
 
 	it('should update file info when src changes', function() {
 		var elem = TestUtils.renderIntoDocument(
-			<FileViewer src="file1.gif" />
+			<FileViewer src='file1.gif' />
 		);
 
 		ReactDOM.render( <FileViewer src = 'file2.mp3' />, ReactDOM.findDOMNode( elem ).parentNode );
@@ -72,7 +72,7 @@ describe('FileViewer', function() {
 
 	it('should not re-fetch file info if src does not change', function() {
 		var elem = TestUtils.renderIntoDocument(
-			<FileViewer src="file1.gif" />
+			<FileViewer src='file1.gif' />
 		);
 
 		ReactDOM.render( <FileViewer src = 'file1.gif' />, ReactDOM.findDOMNode( elem ).parentNode );
@@ -81,7 +81,7 @@ describe('FileViewer', function() {
 
 	it('should not set state when unmounted', function() {
 		var elem = TestUtils.renderIntoDocument(
-			<FileViewer src="file1.gif" />
+			<FileViewer src='file1.gif' />
 		);
 		ReactDOM.unmountComponentAtNode(
 			ReactDOM.findDOMNode(elem).parentNode
@@ -110,7 +110,7 @@ describe('FileViewer', function() {
 			filename: 'file1.docx'
 		};
 		var elem = TestUtils.renderIntoDocument(
-			<FileViewer src="file1.pdf" fileInfo={fileInfo} />
+			<FileViewer src='file1.pdf' fileInfo={fileInfo} />
 		);
 		expect(elem.state.info.mimeType).to.equal('application/pdf');
 		expect(elem.state.info.size).to.equal(0);
@@ -124,14 +124,14 @@ describe('FileViewer', function() {
 			filename: 'file1.docx'
 		};
 		TestUtils.renderIntoDocument(
-			<FileViewer src="file1.pdf" fileInfo={fileInfoValid} />
+			<FileViewer src='file1.pdf' fileInfo={fileInfoValid} />
 		);
 		expect(providerStub.notCalled).to.equal(true);
 	});
 
 	it('should check fileInfoProvider is called when not given fileInfo', function() {
 		TestUtils.renderIntoDocument(
-			<FileViewer src="file1.pdf" />
+			<FileViewer src='file1.pdf' />
 		);
 		expect(providerStub.notCalled).to.equal(false);
 	});
@@ -142,7 +142,7 @@ describe('FileViewer', function() {
 			filename: 'file1.docx'
 		};
 		TestUtils.renderIntoDocument(
-			<FileViewer src="file1.pdf" fileInfo={fileInfoMissingMimeType}/>
+			<FileViewer src='file1.pdf' fileInfo={fileInfoMissingMimeType}/>
 		);
 		expect(providerStub.notCalled).to.equal(false);
 	});
@@ -151,7 +151,7 @@ describe('FileViewer', function() {
 	describe('_isFileInfoValid', function() {
 		beforeEach(function() {
 			fileViewer = TestUtils.renderIntoDocument(
-				< FileViewer src = "file1.pdf" />
+				< FileViewer src = 'file1.pdf' />
 			);
 		});
 
