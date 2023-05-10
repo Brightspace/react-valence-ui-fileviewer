@@ -23,7 +23,7 @@ describe('FileViewer Resolved', function() {
 
 	it('should render wrapper with expected class name', function() {
 		var elem = TestUtils.renderIntoDocument(
-			<FileViewerResolved mimeType='text/html' src="test.html"/>
+			<FileViewerResolved mimeType='text/html' src='test.html'/>
 		);
 		var wrapper = TestUtils.findRenderedDOMComponentWithClass(
 			elem,
@@ -34,14 +34,14 @@ describe('FileViewer Resolved', function() {
 
 	it('should render plugin which tests true', function() {
 		TestUtils.renderIntoDocument(
-			<FileViewerResolved mimeType='text/html' src="test.html" />
+			<FileViewerResolved mimeType='text/html' src='test.html' />
 		);
 		expect(getComponentStub.calledOnce).to.equal(true);
 	});
 
 	it('should render a generic viewer if mimeType is null', function() {
 		TestUtils.renderIntoDocument(
-			<FileViewerResolved mimeType={null} src="test.html"/>
+			<FileViewerResolved mimeType={null} src='test.html'/>
 		);
 
 		expect(genericViewerStub.called).to.equal(true);
