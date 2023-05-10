@@ -27,7 +27,7 @@ describe('GetIconClassName', function() {
 	].forEach(function(item) {
 		it('should should return ' + item.result + ' type for "' + item.mimeType + '"', function() {
 			var type = getIconClassName(item.mimeType);
-			expect(type).toBe(item.result);
+			expect(type).to.equal(item.result);
 		});
 	});
 

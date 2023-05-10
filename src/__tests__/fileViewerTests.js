@@ -29,8 +29,8 @@ describe('FileViewer', function() {
 			<FileViewer src="foo.bar" />
 		);
 
-		expect(providerStub.calledOnce).toBe(true);
-		expect(providerStub.calledWith('foo.bar')).toBe(true);
+		expect(providerStub.calledOnce).to.equal(true);
+		expect(providerStub.calledWith('foo.bar')).to.equal(true);
 	});
 
 	it('should pass an undefined mimeType to the viewer if the provider fails', function() {
@@ -44,21 +44,21 @@ describe('FileViewer', function() {
 			elem,
 			FileViewerResolved
 		);
-		expect(fileViewerResolvedComponent.props.mimeType).toBe(undefined);
+		expect(fileViewerResolvedComponent.props.mimeType).to.equal(undefined);
 	});
 
 	it('should render nothing if file info is null', function() {
 		var elem = TestUtils.renderIntoDocument(
 			<FileViewer src="file3.null" />
 		);
-		expect(ReactDOM.findDOMNode(elem)).toBeNull();
+		expect(ReactDOM.findDOMNode(elem)).to.equalNull();
 	});
 
 	it('should render something if file info is not null', function() {
 		var elem = TestUtils.renderIntoDocument(
 			<FileViewer src="file1.gif" />
 		);
-		expect(ReactDOM.findDOMNode(elem)).not.toBeNull();
+		expect(ReactDOM.findDOMNode(elem)).not.to.equalNull();
 	});
 
 	it('should update file info when src changes', function() {
@@ -67,7 +67,7 @@ describe('FileViewer', function() {
 		);
 
 		ReactDOM.render( <FileViewer src = 'file2.mp3' />, ReactDOM.findDOMNode( elem ).parentNode );
-		expect(elem.state.info.mimeType).toBe('audio/mp3');
+		expect(elem.state.info.mimeType).to.equal('audio/mp3');
 	});
 
 	it('should not re-fetch file info if src does not change', function() {
@@ -76,7 +76,7 @@ describe('FileViewer', function() {
 		);
 
 		ReactDOM.render( <FileViewer src = 'file1.gif' />, ReactDOM.findDOMNode( elem ).parentNode );
-		expect(providerStub.calledOnce).toBe(true);
+		expect(providerStub.calledOnce).to.equal(true);
 	});
 
 	it('should not set state when unmounted', function() {
@@ -87,7 +87,7 @@ describe('FileViewer', function() {
 			ReactDOM.findDOMNode(elem).parentNode
 		);
 		elem.fetchFileInfo('file2.mp3');
-		expect(elem.state.info.mimeType).toBe('image/gif');
+		expect(elem.state.info.mimeType).to.equal('image/gif');
 	});
 
 	it('should pass locale to FileViewerResolved', function() {
@@ -100,7 +100,7 @@ describe('FileViewer', function() {
 			wrapper,
 			FileViewerResolved
 		);
-		expect(fileViewerResolvedComponent.props.locale).toBe('en-ca');
+		expect(fileViewerResolvedComponent.props.locale).to.equal('en-ca');
 	});
 
 	it('should use fileinfo when passed in', function() {
@@ -112,9 +112,9 @@ describe('FileViewer', function() {
 		var elem = TestUtils.renderIntoDocument(
 			<FileViewer src="file1.pdf" fileInfo={fileInfo} />
 		);
-		expect(elem.state.info.mimeType).toBe('application/pdf');
-		expect(elem.state.info.size).toBe(0);
-		expect(elem.state.info.filename).toBe('file1.docx');
+		expect(elem.state.info.mimeType).to.equal('application/pdf');
+		expect(elem.state.info.size).to.equal(0);
+		expect(elem.state.info.filename).to.equal('file1.docx');
 	});
 
 	it('should check fileInfoProvider not called when given fileInfo', function() {
@@ -126,14 +126,14 @@ describe('FileViewer', function() {
 		TestUtils.renderIntoDocument(
 			<FileViewer src="file1.pdf" fileInfo={fileInfoValid} />
 		);
-		expect(providerStub.notCalled).toBe(true);
+		expect(providerStub.notCalled).to.equal(true);
 	});
 
 	it('should check fileInfoProvider is called when not given fileInfo', function() {
 		TestUtils.renderIntoDocument(
 			<FileViewer src="file1.pdf" />
 		);
-		expect(providerStub.notCalled).toBe(false);
+		expect(providerStub.notCalled).to.equal(false);
 	});
 
 	it('should check fileInfoProvider is called when given invalid fileInfo', function() {
@@ -144,7 +144,7 @@ describe('FileViewer', function() {
 		TestUtils.renderIntoDocument(
 			<FileViewer src="file1.pdf" fileInfo={fileInfoMissingMimeType}/>
 		);
-		expect(providerStub.notCalled).toBe(false);
+		expect(providerStub.notCalled).to.equal(false);
 	});
 
 	var fileViewer;
@@ -161,17 +161,17 @@ describe('FileViewer', function() {
 				mimeType: 'application/pdf',
 				filename: 'file1.docx'
 			};
-			expect(fileViewer._isFileInfoValid(fileInfoValid)).toBe(true);
+			expect(fileViewer._isFileInfoValid(fileInfoValid)).to.equal(true);
 		});
 
 		it ('should return false for undefined fileInfo', function() {
 			var fileInfoUndefined;
-			expect(fileViewer._isFileInfoValid(fileInfoUndefined)).toBe(false);
+			expect(fileViewer._isFileInfoValid(fileInfoUndefined)).to.equal(false);
 		});
 
 		it ('should return false for null fileInfo', function() {
 			var fileInfoNull = null;
-			expect(fileViewer._isFileInfoValid(fileInfoNull)).toBe(false);
+			expect(fileViewer._isFileInfoValid(fileInfoNull)).to.equal(false);
 		});
 
 		it('should return false for fileInfo missing size', function() {
@@ -179,7 +179,7 @@ describe('FileViewer', function() {
 				mimeType: 'application/pdf',
 				filename: 'file1.docx'
 			};
-			expect(fileViewer._isFileInfoValid(fileInfoMissingSize)).toBe(false);
+			expect(fileViewer._isFileInfoValid(fileInfoMissingSize)).to.equal(false);
 		});
 
 		it('should return false for fileInfo missing mimeType', function() {
@@ -187,7 +187,7 @@ describe('FileViewer', function() {
 				size: 0,
 				filename: 'file1.docx'
 			};
-			expect(fileViewer._isFileInfoValid(fileInfoMissingMimeType)).toBe(false);
+			expect(fileViewer._isFileInfoValid(fileInfoMissingMimeType)).to.equal(false);
 		});
 
 		it('should return false for fileInfo missing filename', function() {
@@ -195,7 +195,7 @@ describe('FileViewer', function() {
 				size: 0,
 				mimeType: 'application/pdf'
 			};
-			expect(fileViewer._isFileInfoValid(fileInfoMissingFilename)).toBe(false);
+			expect(fileViewer._isFileInfoValid(fileInfoMissingFilename)).to.equal(false);
 		});
 	});
 });

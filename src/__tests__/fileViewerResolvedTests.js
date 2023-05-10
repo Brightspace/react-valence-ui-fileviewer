@@ -29,14 +29,14 @@ describe('FileViewer Resolved', function() {
 			elem,
 			'vui-fileviewer'
 		);
-		expect(wrapper).toBeDefined();
+		expect(wrapper).to.equalDefined();
 	});
 
 	it('should render plugin which tests true', function() {
 		TestUtils.renderIntoDocument(
 			<FileViewerResolved mimeType='text/html' src="test.html" />
 		);
-		expect(getComponentStub.calledOnce).toBe(true);
+		expect(getComponentStub.calledOnce).to.equal(true);
 	});
 
 	it('should render a generic viewer if mimeType is null', function() {
@@ -44,6 +44,6 @@ describe('FileViewer Resolved', function() {
 			<FileViewerResolved mimeType={null} src="test.html"/>
 		);
 
-		expect(genericViewerStub.called).toBe(true);
+		expect(genericViewerStub.called).to.equal(true);
 	});
 });

@@ -23,17 +23,17 @@ describe('FileInfoProvider', function() {
 
 	it('should make a HEAD request to path', function() {
 		provider('foo.bar', sinon.stub());
-		expect(requests.length).toBe(1);
-		expect(requests[0].method).toBe('HEAD');
-		expect(requests[0].url).toBe('foo.bar');
+		expect(requests.length).to.equal(1);
+		expect(requests[0].method).to.equal('HEAD');
+		expect(requests[0].url).to.equal('foo.bar');
 	});
 
 	it('should return error for non-200 status', function() {
 		var callback = sinon.stub();
 		provider('foo.bar', callback);
 		requests[0].respond(500);
-		expect(callback.calledOnce).toBe(true);
-		expect(callback.calledWithExactly(new Error('Non-200 status:500'))).toBe(true);
+		expect(callback.calledOnce).to.equal(true);
+		expect(callback.calledWithExactly(new Error('Non-200 status:500'))).to.equal(true);
 	});
 
 	it('should calculate filename using path and content-disposition', function() {
@@ -41,7 +41,7 @@ describe('FileInfoProvider', function() {
 		provider.__Rewire__('getFilename', getFileNameStub);
 		provider('foo.bar', sinon.stub());
 		requests[0].respond(200, {'content-disposition': 'blargh'});
-		expect(getFileNameStub.calledWithExactly('foo.bar', 'blargh')).toBe(true);
+		expect(getFileNameStub.calledWithExactly('foo.bar', 'blargh')).to.equal(true);
 	});
 
 	it('should return size of 0 if content-length header is missing', function() {
@@ -49,42 +49,42 @@ describe('FileInfoProvider', function() {
 		provider('foo.bar', callback);
 		requests[0].respond(200);
 
-		expect(callback.firstCall.args[1].size).toBe(0);
+		expect(callback.firstCall.args[1].size).to.equal(0);
 	});
 
 	it('should convert content-length header to an integer', function() {
 		var callback = sinon.stub();
 		provider('foo.bar', callback);
 		requests[0].respond(200, {'content-length': '92'});
-		expect(callback.firstCall.args[1].size).toBe(92);
+		expect(callback.firstCall.args[1].size).to.equal(92);
 	});
 
 	it('should return octet-stream if content-type header is missing', function() {
 		var callback = sinon.stub();
 		provider('foo.bar', callback);
 		requests[0].respond(200);
-		expect(callback.firstCall.args[1].mimeType).toBe('application/octet-stream');
+		expect(callback.firstCall.args[1].mimeType).to.equal('application/octet-stream');
 	});
 
 	it('should return first segment of content-type header', function() {
 		var callback = sinon.stub();
 		provider('foo.bar', callback);
 		requests[0].respond(200, {'content-type': 'image/jpeg; charset=utf-8'});
-		expect(callback.firstCall.args[1].mimeType).toBe('image/jpeg');
+		expect(callback.firstCall.args[1].mimeType).to.equal('image/jpeg');
 	});
 
 	it('should trim space from content-type header', function() {
 		var callback = sinon.stub();
 		provider('foo.bar', callback);
 		requests[0].respond(200, {'content-type': '  image/jpeg  '});
-		expect(callback.firstCall.args[1].mimeType).toBe('image/jpeg');
+		expect(callback.firstCall.args[1].mimeType).to.equal('image/jpeg');
 	});
 
 	it('should include filename in result', function() {
 		var callback = sinon.stub();
 		provider('foo.bar', callback);
 		requests[0].respond(200);
-		expect(callback.firstCall.args[1].filename).toBe('file.name');
+		expect(callback.firstCall.args[1].filename).to.equal('file.name');
 	});
 
 });

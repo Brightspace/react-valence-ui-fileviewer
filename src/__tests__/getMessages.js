@@ -36,7 +36,7 @@ describe('getMessages', function() {
 		{ locale: 'zh-tw', output: '下載' }
 	].forEach(function(val) {
 		it('Should return: ' + val.output + ' for the locale: ' + val.locale, function() {
-			expect(getMessages(val.locale).Plugins.Generic.Download).toBe(val.output);
+			expect(getMessages(val.locale).Plugins.Generic.Download).to.equal(val.output);
 		});
 	});
 });
