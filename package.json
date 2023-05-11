@@ -33,6 +33,7 @@
     "react-dom": "^0.14.0 || ^15.0.0"
   },
   "dependencies": {
+    "babel-plugin-rewire": "^1.2.0",
     "bower": "^1.8.14",
     "d2l-intl": "^2.1.0",
     "react-frau-intl": "^0.2.0",
