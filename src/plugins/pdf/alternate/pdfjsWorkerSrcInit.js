@@ -1,10 +1,8 @@
-'use strict';
-
 // inspired by http://colonelpanic.net/2014/08/using-pdf-js-web-worker-cross-domain-cors/
 
-var pdfjs = require('./pdfjs-lib'),
-	isCrossDomain = require('./isCrossDomain'),
-	cache = require('./pdfjsWorkerSrcInitCache');
+import pdfjs from './pdfjs-lib';
+import isCrossDomain from './isCrossDomain';
+import cache from './pdfjsWorkerSrcInitCache';
 
 function loadWorkerSrcFromUrl(url) {
 	return new Promise(function(resolve, reject) {
@@ -60,4 +58,4 @@ function ensureInitialized() {
 	return cachedResult;
 }
 
-module.exports = ensureInitialized;
+export default ensureInitialized;

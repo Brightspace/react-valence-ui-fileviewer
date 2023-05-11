@@ -1,10 +1,8 @@
-'use strict';
-
-var React = require('react'),
-	Download = require('./download.js'),
-	Icon = require('./icon.js'),
-	Size = require('./size.js'),
-	fileInfoProvider = require('../../fileInfoProvider');
+import React from 'react';
+import Download from './download.js';
+import Icon from './icon.js';
+import Size from './size.js';
+import fileInfoProvider from '../../fileInfoProvider';
 
 var Viewer = React.createClass({
 	propTypes: {
@@ -62,9 +60,9 @@ var Viewer = React.createClass({
 		} else if (this.state.info) {
 			subHeaderMessage = this.context.getIntlMessage('Plugins.Generic.PleaseDownload');
 			downloadArea = <div className="generic-download-area">
-					<Size ref="fileSize" value={this.state.info.size} locale={this.props.locale} />
-					<Download ref="download" src={this.props.srcdownload} />
-				</div>;
+				<Size ref="fileSize" value={this.state.info.size} locale={this.props.locale} />
+				<Download ref="download" src={this.props.srcdownload} />
+			</div>;
 		} else {
 			return null;
 		}
@@ -88,4 +86,4 @@ var Viewer = React.createClass({
 	}
 });
 
-module.exports = Viewer;
+export default Viewer;

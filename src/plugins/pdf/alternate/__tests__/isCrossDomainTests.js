@@ -1,6 +1,4 @@
-'use strict';
-
-var isCrossDomain = require('../isCrossDomain');
+import isCrossDomain from '../isCrossDomain';
 
 describe('isCrossDomain', function() {
 	beforeEach(function() {

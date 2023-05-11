@@ -1,5 +1,3 @@
-'use strict';
-
 function getFilename(path, contentDisposition) {
 
 	path = path || '';
@@ -20,4 +18,4 @@ function getFilename(path, contentDisposition) {
 
 }
 
-module.exports = getFilename;
+export default getFilename;

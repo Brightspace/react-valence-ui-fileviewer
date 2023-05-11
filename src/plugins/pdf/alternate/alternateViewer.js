@@ -1,9 +1,7 @@
-'use strict';
-
-var React = require('react'),
-	ReactDOM = require( 'react-dom' ),
-	pdfjs = require('./pdfjs-lib'),
-	pdfjsWorkerSrcInit = require('./pdfjsWorkerSrcInit');
+import React from 'react';
+import ReactDOM from  'react-dom';
+import pdfjs from './pdfjs-lib';
+import pdfjsWorkerSrcInit from './pdfjsWorkerSrcInit';
 
 var AlternativeViewer = React.createClass({
 	propTypes: {
@@ -82,4 +80,4 @@ var AlternativeViewer = React.createClass({
 	}
 });
 
-module.exports = AlternativeViewer;
+export default AlternativeViewer;

@@ -1,8 +1,6 @@
-'use strict';
-
-var ImageViewer = require('./viewer'),
-	mimeTypes = require('./mimeTypes'),
-	React = require('react'); // eslint-disable-line no-unused-vars
+import ImageViewer from './viewer';
+import mimeTypes from './mimeTypes';
+import React from 'react'; // eslint-disable-line no-unused-vars
 
 var plugin = {
 	getComponent: function(props) {
@@ -14,4 +12,4 @@ var plugin = {
 	}
 };
 
-module.exports = plugin;
+export default plugin;

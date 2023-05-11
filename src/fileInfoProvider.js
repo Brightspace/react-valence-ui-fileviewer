@@ -1,6 +1,4 @@
-'use strict';
-
-var getFilename = require('./getFilename');
+import getFilename from './getFilename';
 
 function getSize(xhr) {
 	var size = xhr.getResponseHeader('content-length');
@@ -50,4 +48,4 @@ function getFileInfo(path, callback, token) {
 
 }
 
-module.exports = getFileInfo;
+export default getFileInfo;

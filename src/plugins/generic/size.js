@@ -1,7 +1,5 @@
-'use strict';
-
-var React = require('react'),
-	d2lIntl = require('d2l-intl');
+import React from 'react';
+import d2lIntl from 'd2l-intl';
 
 var Size = React.createClass({
 	propTypes: {
@@ -27,4 +25,4 @@ var Size = React.createClass({
 	}
 });
 
-module.exports = Size;
+export default Size;

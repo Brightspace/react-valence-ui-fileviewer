@@ -1,11 +1,10 @@
-'use strict';
+import React from 'react';
+import FileViewerResolved from './fileViewerResolved';
+import fileInfoProvider from './fileInfoProvider';
+import i18n from 'react-frau-intl';
+import getMessages from './getMessages';
 
-var React = require('react'),
-	FileViewerResolved = require('./fileViewerResolved'),
-	fileInfoProvider = require('./fileInfoProvider'),
-	i18n = require('react-frau-intl').i18n,
-	getMessages = require('./getMessages'),
-	IntlFileViewer = i18n(FileViewerResolved);
+var IntlFileViewer = i18n(FileViewerResolved);
 
 var FileViewer = React.createClass({
 	propTypes: {
@@ -84,4 +83,4 @@ var FileViewer = React.createClass({
 	}
 });
 
-module.exports = FileViewer;
+export default FileViewer;

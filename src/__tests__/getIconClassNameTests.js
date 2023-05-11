@@ -1,6 +1,7 @@
-'use strict';
+import getIconClassName from '../getIconClassName.js';
+import chai from '@esm-bundle/chai';
 
-var getIconClassName = require('../getIconClassName.js');
+const expect = chai.expect;
 
 describe('GetIconClassName', function() {
 
@@ -26,7 +27,7 @@ describe('GetIconClassName', function() {
 	].forEach(function(item) {
 		it('should should return ' + item.result + ' type for "' + item.mimeType + '"', function() {
 			var type = getIconClassName(item.mimeType);
-			expect(type).toBe(item.result);
+			expect(type).to.equal(item.result);
 		});
 	});
 

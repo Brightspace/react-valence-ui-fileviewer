@@ -1,5 +1,3 @@
-'use strict';
-
 /*global ActiveXObject*/
 
 function supportsNativePdf(platform, userAgent) {
@@ -38,4 +36,4 @@ function supportsNativePdf(platform, userAgent) {
 
 }
 
-module.exports = supportsNativePdf;
+export default supportsNativePdf;

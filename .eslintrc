@@ -1,6 +1,7 @@
 {
   "extends": "brightspace/react-config",
   "parserOptions": {
+    "sourceType": "module",
     "ecmaFeatures": {
       "jsx": true
     }

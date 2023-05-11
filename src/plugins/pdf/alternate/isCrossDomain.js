@@ -1,6 +1,4 @@
-'use strict';
-
-var urlParse = require('url-parse');
+import urlParse from 'url-parse';
 
 function isCrossDomain(url) {
 	if (typeof url !== 'string') {
@@ -19,4 +17,4 @@ function getHref() {
 	return window.location.href;
 }
 
-module.exports = isCrossDomain;
+export default isCrossDomain;

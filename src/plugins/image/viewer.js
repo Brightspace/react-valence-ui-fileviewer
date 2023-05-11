@@ -1,7 +1,5 @@
-'use strict';
-
-var React = require('react'),
-	ReactDOM = require( 'react-dom' );
+import React from 'react';
+import ReactDOM from 'react-dom';
 
 var ImageViewer = React.createClass({
 	propTypes: {
@@ -72,4 +70,4 @@ var ImageViewer = React.createClass({
 	}
 });
 
-module.exports = ImageViewer;
+export default ImageViewer;

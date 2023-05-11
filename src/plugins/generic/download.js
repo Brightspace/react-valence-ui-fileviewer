@@ -1,6 +1,4 @@
-'use strict';
-
-var React = require('react');
+import React from 'react';
 
 var isIOS = function() {
 	return /iP[ao]d|iPhone/.test(window.navigator.userAgent);
@@ -31,4 +29,4 @@ var Download = React.createClass({
 	}
 });
 
-module.exports = Download;
+export default Download;

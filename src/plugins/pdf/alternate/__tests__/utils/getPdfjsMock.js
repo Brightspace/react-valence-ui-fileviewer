@@ -1,6 +1,4 @@
-'use strict';
-
-var sinon = require('sinon');
+import sinon from 'sinon';
 
 function getPdfjsMock() {
 	return {
@@ -33,4 +31,4 @@ function getPdfjsMock() {
 	};
 }
 
-module.exports = getPdfjsMock;
+export default getPdfjsMock;
