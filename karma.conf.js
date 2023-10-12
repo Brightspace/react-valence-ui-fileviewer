@@ -19,7 +19,8 @@ module.exports = function(config) {
 		browserify: {
 			debug: isDev,
 			extensions: ['.js'],
-			transform: isDev ? [babelify] : [babelify, istanbul]
+			transform: isDev ? [babelify] : [babelify, istanbul],
+			plugin: ['esmify']
 		},
 		// There's a pre-test stall on Travis builds that can cause Karma to
 		//  fail with the default timeout of 10s.  I'm not sure what's causing
