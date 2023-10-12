@@ -1,0 +1,21 @@
+name: CI
+on: pull_request
+jobs:
+  test:
+    timeout-minutes: 5
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: Brightspace/third-party-actions@actions/checkout
+      - name: Setup Node
+        uses: Brightspace/third-party-actions@actions/setup-node
+        with:
+            node-version-file: .nvmrc
+      - name: Install dependencies
+        run: npm install
+      - name: Lint and Test
+        run: npm run test
+      - name: Build Sample
+        run: npm run build-sample
+      - name: Report Coverage
+        run: npm run report-coverage
