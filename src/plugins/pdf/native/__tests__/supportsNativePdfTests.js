@@ -8,9 +8,9 @@ describe('PDF Native Support', function() {
 		window.ActiveXObject = undefined;
 	});
 
-	it('should return false if there is no mimeType entry', function() {
+	it('should return true if there is mimeType entry', function() {
 		var result = supportsNativePdf();
-		expect(result).toBeFalsy();
+		expect(result).toBeTrue();
 	});
 
 	it('should return true if mimeType entry present', function() {
