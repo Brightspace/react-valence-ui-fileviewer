@@ -1,5 +1,9 @@
 var isDev = process.env.NODE_ENV === 'development';
 
+const puppeteer = require('puppeteer');
+process.env.CHROME_BIN = puppeteer.executablePath();
+
+
 var babelify = ['babelify', {
 	plugins: ['babel-plugin-rewire']
 }];
@@ -13,7 +17,7 @@ module.exports = function(config) {
 			dir : 'coverage',
 			reporters: [
 				{ type: 'text' },
-				{ type: 'lcov' }
+				{ type: 'html' }
 			]
 		},
 		browserify: {
@@ -26,9 +30,8 @@ module.exports = function(config) {
 		//  fail with the default timeout of 10s.  I'm not sure what's causing
 		//  the stall, but this mitigates it for now.
 		browserNoActivityTimeout: 30000,
-		browsers: ['PhantomJS'],
+		browsers: ['ChromeHeadless'],
 		files: [
-			'node_modules/phantomjs-polyfill/bind-polyfill.js',
 			'./src/**/__tests__/**/*.js'
 		],
 		frameworks: ['browserify', 'jasmine'],
