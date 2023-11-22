@@ -17,3 +17,5 @@ jobs:
         run: npm run test
       - name: Build Sample
         run: npm run build-sample
+      - name: Report coverage
+        run: npm run report-coverage

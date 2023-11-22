@@ -3,7 +3,6 @@ var isDev = process.env.NODE_ENV === 'development';
 const puppeteer = require('puppeteer');
 process.env.CHROME_BIN = puppeteer.executablePath();
 
-
 var babelify = ['babelify', {
 	plugins: ['babel-plugin-rewire']
 }];
@@ -17,7 +16,7 @@ module.exports = function(config) {
 			dir : 'coverage',
 			reporters: [
 				{ type: 'text' },
-				{ type: 'html' }
+				{ type: 'lcov' }
 			]
 		},
 		browserify: {
