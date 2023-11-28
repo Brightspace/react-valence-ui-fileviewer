@@ -11,7 +11,7 @@ describe('PDF Native Support', function() {
 	it('should return false if no mimeType entry', function() {
 		navigator.mimeTypes['application/pdf'] = undefined;
 		var result = supportsNativePdf();
-		expect(result).toBeFalse();
+		expect(result).toBeFalsy();
 	});
 
 	it('should return true if mimeType entry present', function() {
