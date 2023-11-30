@@ -22,9 +22,7 @@ jobs:
       - name: Report coverage
         uses: coverallsapp/github-action@v2
       - name: Semantic Release
-        uses: BrightspaceUI/actions/semantic-release@master
+        uses: BrightspaceUI/actions/semantic-release@main
         with:
           DEFAULT_BRANCH: master
           GITHUB_TOKEN: ${{ secrets.D2L_GITHUB_TOKEN }}
-          NPM: true
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
