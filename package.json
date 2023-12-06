@@ -69,7 +69,7 @@
     "onchange": "^2.0.0",
     "parallelshell": "^2.0.0",
     "puppeteer": "^21.3.8",
-    "react-addons-test-utils": "^15.3.2",
+    "react-addons-test-utils": "^15.6.2",
     "rimraf": "^2.4.3",
     "sass": "^1.69.0",
     "sinon": "^1.17.2",
