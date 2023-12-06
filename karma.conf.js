@@ -1,5 +1,8 @@
 var isDev = process.env.NODE_ENV === 'development';
 
+const puppeteer = require('puppeteer');
+process.env.CHROME_BIN = puppeteer.executablePath();
+
 var babelify = ['babelify', {
 	plugins: ['babel-plugin-rewire']
 }];
@@ -19,15 +22,15 @@ module.exports = function(config) {
 		browserify: {
 			debug: isDev,
 			extensions: ['.js'],
-			transform: isDev ? [babelify] : [babelify, istanbul]
+			transform: isDev ? [babelify] : [babelify, istanbul],
+			plugin: ['esmify']
 		},
 		// There's a pre-test stall on Travis builds that can cause Karma to
 		//  fail with the default timeout of 10s.  I'm not sure what's causing
 		//  the stall, but this mitigates it for now.
 		browserNoActivityTimeout: 30000,
-		browsers: ['PhantomJS'],
+		browsers: ['ChromeHeadless'],
 		files: [
-			'node_modules/phantomjs-polyfill/bind-polyfill.js',
 			'./src/**/__tests__/**/*.js'
 		],
 		frameworks: ['browserify', 'jasmine'],

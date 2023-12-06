@@ -6,10 +6,10 @@ describe('PDF Native Support', function() {
 
 	beforeEach(function() {
 		window.ActiveXObject = undefined;
-		navigator.mimeTypes = {};
 	});
 
 	it('should return false if no mimeType entry', function() {
+		navigator.mimeTypes['application/pdf'] = undefined;
 		var result = supportsNativePdf();
 		expect(result).toBeFalsy();
 	});

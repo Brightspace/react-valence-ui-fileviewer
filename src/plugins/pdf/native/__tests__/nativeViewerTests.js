@@ -9,6 +9,7 @@ describe('PDF Native Viewer', function() {
 
 	beforeEach(function() {
 		NativeViewer.__Rewire__('GenericViewer', 'div');
+		NativeViewer.__Rewire__('ImportedNativeViewer', 'div');
 	});
 
 	it('should render to the page', function() {
