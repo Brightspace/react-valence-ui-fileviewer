@@ -27,4 +27,4 @@ jobs:
         uses: BrightspaceUI/actions/semantic-release@main
         with:
           DEFAULT_BRANCH: master
-          GITHUB_TOKEN: ${{ secrets.D2L_GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.D2L_RELEASE_TOKEN }}
