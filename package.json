@@ -56,7 +56,7 @@
     "eslint-config-brightspace": "^0.2.1",
     "eslint-plugin-react": "^3.5.0",
     "esmify": "^2.1.1",
-    "http-server": "^0.8.5",
+    "http-server": "^14.1.1",
     "istanbul": "gotwarlost/istanbul#source-map",
     "jasmine-core": "^2.4.1",
     "karma": "^6.4.0",
