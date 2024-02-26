@@ -21,10 +21,8 @@ jobs:
         run: npm ci
       - name: Lint and Test
         run: npm run test
-      - name: Report coverage
-        uses: coverallsapp/github-action@v2
       - name: Semantic Release
         uses: BrightspaceUI/actions/semantic-release@main
         with:
           DEFAULT_BRANCH: master
-          GITHUB_TOKEN: ${{ secrets.D2L_GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.D2L_RELEASE_TOKEN }}
