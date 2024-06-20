@@ -15,7 +15,7 @@ describe('Html Plugin', function() {
 	});
 
 	it('should return a view', function() {
-		var viewer = HtmlPlugin.getComponent();
+		var viewer = HtmlPlugin.getComponent({src: 'test.html'});
 		expect(viewer).toBeDefined();
 	});
 

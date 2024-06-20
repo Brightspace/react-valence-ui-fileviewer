@@ -18,7 +18,7 @@ describe('Image Plugin', function() {
 	});
 
 	it('should return a view', function() {
-		var viewer = ImagePlugin.getComponent();
+		var viewer = ImagePlugin.getComponent({src: 'test'});
 		expect(viewer).toBeDefined();
 	});
 
