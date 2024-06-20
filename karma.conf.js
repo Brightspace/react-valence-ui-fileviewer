@@ -4,6 +4,7 @@ const puppeteer = require('puppeteer');
 process.env.CHROME_BIN = puppeteer.executablePath();
 
 var babelify = ['babelify', {
+	global: true,
 	plugins: ['babel-plugin-rewire']
 }];
 var istanbul = ['browserify-istanbul', {
