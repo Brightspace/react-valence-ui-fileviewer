@@ -39,7 +39,7 @@ describe('pdfjsWorkerSrcInit', function() {
 	});
 
 	describe('', function() {
-		beforeEach(async () => {
+		beforeEach( async () => {
 			await pdfjsWorkerSrcInit();
 			requests[0].respond(200, { 'Content-Type': 'application/javascript'	}, 'var x = 10000;');
 		}, 50000);
