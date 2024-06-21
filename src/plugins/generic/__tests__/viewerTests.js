@@ -1,7 +1,7 @@
 'use strict';
 
 var React = require('react'), //eslint-disable-line no-unused-
-	ReactTestUtils = require('react-dom/test-utils'),
+	TestUtils = require('react-dom/test-utils'),
 	Viewer = require('../viewer.js'),
 	Icon = require('../icon.js'),
 	Size = require('../size.js'),
@@ -16,9 +16,9 @@ describe('Generic Viewer', function() {
 
 	beforeEach(function() {
 		sandbox = sinon.sandbox.create();
-		// sandbox.stub(Icon.prototype, 'render').returns(<div></div>);
-		// sandbox.stub(Download.prototype, 'render').returns(<div></div>);
-		// sandbox.stub(Size.prototype, 'render').returns(<div></div>);
+		sandbox.stub(Icon.prototype, 'render').returns(<div></div>);
+		sandbox.stub(Download.prototype, 'render').returns(<div></div>);
+		sandbox.stub(Size.prototype, 'render').returns(<div></div>);
 
 		ViewerTester = stubIntlMessage(
 			Viewer,
@@ -40,11 +40,11 @@ describe('Generic Viewer', function() {
 	});
 
 	it('should render wrapper with expected class name', function() {
-		var elem = ReactTestUtils.renderIntoDocument(
+		var elem = TestUtils.renderIntoDocument(
 
 			<ViewerTester mimeType='audio/mp3' srcdownload='foo.mp3' />
 		);
-		var wrapper = ReactTestUtils.findRenderedDOMComponentWithClass(
+		var wrapper = TestUtils.findRenderedDOMComponentWithClass(
 			elem.refs.component,
 			'vui-fileviewer-generic'
 		);
@@ -52,11 +52,10 @@ describe('Generic Viewer', function() {
 	});
 
 	it('should render a download area if fileInfoProvider returns data', function() {
-		//ReactTestUtils.renderIntoDocument(<input></input>);
-		var elem = ReactTestUtils.renderIntoDocument(
+		var elem = TestUtils.renderIntoDocument(
 			<ViewerTester mimeType='audio/mp3' srcdownload='foo.mp3' />
 		);
-		var wrapper = ReactTestUtils.scryRenderedDOMComponentsWithClass(
+		var wrapper = TestUtils.scryRenderedDOMComponentsWithClass(
 			elem.refs.component,
 			'generic-download-area'
 		);
@@ -66,7 +65,7 @@ describe('Generic Viewer', function() {
 	it('should call the resizeCallback function', function() {
 		var resizeCallback = sinon.stub();
 
-		ReactTestUtils.renderIntoDocument(
+		TestUtils.renderIntoDocument(
 			<ViewerTester mimeType='audio/mp3' srcdownload='foo.mp3' resizeCallback={resizeCallback}/>
 		);
 
@@ -74,10 +73,10 @@ describe('Generic Viewer', function() {
 	});
 
 	it('should not render a download area if fileInfoProvider returns an error', function() {
-		var elem = ReactTestUtils.renderIntoDocument(
+		var elem = TestUtils.renderIntoDocument(
 			<ViewerTester mimeType='audio/mp3' srcdownload='foo.bar' />
 		);
-		var wrapper = ReactTestUtils.scryRenderedDOMComponentsWithClass(
+		var wrapper = TestUtils.scryRenderedDOMComponentsWithClass(
 			elem.refs.component,
 			'generic-download-area'
 		);
@@ -85,10 +84,10 @@ describe('Generic Viewer', function() {
 	});
 
 	it('should not render if fileInfoProvider returns no file info', function() {
-		var elem = ReactTestUtils.renderIntoDocument(
+		var elem = TestUtils.renderIntoDocument(
 			<ViewerTester mimeType='audio/mp3' srcdownload='file1.gif' />
 		);
-		var wrapper = ReactTestUtils.scryRenderedDOMComponentsWithClass(
+		var wrapper = TestUtils.scryRenderedDOMComponentsWithClass(
 			elem.refs.component,
 			'vui-fileviewer-generic'
 		);
@@ -96,10 +95,10 @@ describe('Generic Viewer', function() {
 	});
 
 	it('should use the mimetype from the download if it exists', function() {
-		var elem = ReactTestUtils.renderIntoDocument(
+		var elem = TestUtils.renderIntoDocument(
 			<ViewerTester srcdownload='foo.mp3' />
 		);
-		var wrapper = ReactTestUtils.findRenderedComponentWithType(
+		var wrapper = TestUtils.findRenderedComponentWithType(
 			elem.refs.component,
 			Icon
 		);
@@ -108,10 +107,10 @@ describe('Generic Viewer', function() {
 	});
 
 	it('should use the mimetype passed in as a prop if the download one does not exist', function() {
-		var elem = ReactTestUtils.renderIntoDocument(
+		var elem = TestUtils.renderIntoDocument(
 			<ViewerTester mimeType='testType' srcdownload='foo2.mp3' />
 		);
-		var wrapper = ReactTestUtils.findRenderedComponentWithType(
+		var wrapper = TestUtils.findRenderedComponentWithType(
 			elem.refs.component,
 			Icon
 		);
@@ -120,10 +119,10 @@ describe('Generic Viewer', function() {
 	});
 
 	it('should render the download button to the screen', function() {
-		var elem = ReactTestUtils.renderIntoDocument(
+		var elem = TestUtils.renderIntoDocument(
 			<ViewerTester mimeType='testType' srcdownload='foo2.mp3' />
 		);
-		var wrapper = ReactTestUtils.findRenderedComponentWithType(
+		var wrapper = TestUtils.findRenderedComponentWithType(
 			elem.refs.component,
 			Download
 		);
@@ -132,10 +131,10 @@ describe('Generic Viewer', function() {
 	});
 
 	it('should render the file Size to the screen', function() {
-		var elem = ReactTestUtils.renderIntoDocument(
+		var elem = TestUtils.renderIntoDocument(
 			<ViewerTester mimeType='testType' srcdownload='foo.mp3' />
 		);
-		var wrapper = ReactTestUtils.findRenderedComponentWithType(
+		var wrapper = TestUtils.findRenderedComponentWithType(
 			elem.refs.component,
 			Size
 		);

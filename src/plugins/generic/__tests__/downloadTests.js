@@ -2,7 +2,7 @@
 
 var React = require('react'), //eslint-disable-line no-unused-vars
 	ReactDOM = require( 'react-dom' ),
-	TestUtils = require( 'react-addons-test-utils' ),
+	TestUtils = require('react-dom/test-utils'),
 	Download = require('../download.js'),
 	sinon = require('sinon'),
 	stubIntlMessage = require('./utils/stubIntlMessage');
