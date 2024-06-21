@@ -43,7 +43,7 @@ describe('pdfjsWorkerSrcInit', function() {
 			const promise1 = pdfjsWorkerSrcInit();
 			requests[0].respond(200, { 'Content-Type': 'application/javascript'	}, 'var x = 10000;');
 			return promise1;
-		}, 10000);
+		});
 
 		it('should get worker js file and set workerSrc to an object URL', function() {
 			expect(requests.length).toBe(1);
@@ -58,7 +58,7 @@ describe('pdfjsWorkerSrcInit', function() {
 			const promise2 = pdfjsWorkerSrcInit();
 			requests[0].respond(200, { 'Content-Type': 'application/javascript'	}, 'var x = 10000;');
 			return Promise.all([promise1, promise2]);
-		}, 50000);
+		});
 
 		it('should not get worker js file if it has already been retrieved', function() {
 			expect(requests.length).toBe(1);
@@ -72,7 +72,7 @@ describe('pdfjsWorkerSrcInit', function() {
 			var promise1 = pdfjsWorkerSrcInit();
 			requests[0].respond(404);
 			return promise1;
-		}, 50000);
+		});
 
 		it('should not get worker js file if it has already been retrieved', function() {
 			expect(requests.length).toBe(1);
@@ -85,7 +85,7 @@ describe('pdfjsWorkerSrcInit', function() {
 		beforeEach( () => {
 			workerSrcIsCrossDomain = false;
 			return pdfjsWorkerSrcInit();
-		}, 50000);
+		});
 
 		it('should not get worker js file if it has already been retrieved', function() {
 			expect(requests.length).toBe(0);
