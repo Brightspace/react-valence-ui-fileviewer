@@ -1,6 +1,5 @@
 'use strict';
 
-const { mode } = require('babel-core/lib/transformation/file/options/config');
 const path = require('path');
 
 module.exports = {

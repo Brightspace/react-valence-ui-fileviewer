@@ -1,4 +1,3 @@
-
 # react-valence-ui-fileviewer
 [![Build status][ci-image]][ci-url]
 
