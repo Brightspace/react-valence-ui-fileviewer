@@ -4,14 +4,14 @@ const { mode } = require('babel-core/lib/transformation/file/options/config');
 const path = require('path');
 
 module.exports = {
-	entry: './sample-webpack/app.js',
+	entry: './sample/app.js',
 	output: {
-		path: path.resolve(__dirname, 'dist'),
+		path: path.resolve(__dirname, 'sample', 'dist'),
 		filename: 'app.js'
 	},
 	devServer: {
 		static: {
-		  directory: path.join(__dirname, 'sample-webpack'),
+		  directory: path.join(__dirname, 'sample'),
 		},
 		compress: true,
 		port: 8080,
@@ -24,7 +24,7 @@ module.exports = {
 				exclude: /\.min\.js$/,
 				include: [
 					path.join( __dirname, 'src' ),
-					path.join( __dirname, 'sample-webpack' )
+					path.join( __dirname, 'sample' )
 				]
 			},
 			{

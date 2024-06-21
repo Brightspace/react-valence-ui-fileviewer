@@ -8,6 +8,7 @@
     "build-sample": "npm run build-sample:js && npm run build-sample:css",
     "build-sample:js": "webpack --env=dev --progress --profile --color",
     "build-sample:css": "sass -I node_modules -I ./ ./sample/app.scss  ./sample/dist/app.css",
+    "build-sample:watch": "npm run build-sample:css && webpack-dev-server --env=dev --progress --profile --color --hot",
     "lint": "eslint src",
     "postinstall": "bower install",
     "serve": "http-server -p 8080 ./sample/",
