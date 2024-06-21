@@ -9,7 +9,6 @@ module.exports = {
 		path: path.resolve(__dirname, 'dist'),
 		filename: 'app.js'
 	},
-	watch: true,
 	devServer: {
 		static: {
 		  directory: path.join(__dirname, 'sample-webpack'),
