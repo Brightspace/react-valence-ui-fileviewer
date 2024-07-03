@@ -1,6 +1,6 @@
 'use strict';
 
-var React = require('react'), //eslint-disable-line no-unused-
+var React = require('react'),
 	TestUtils = require('react-dom/test-utils'),
 	Viewer = require('../viewer.js'),
 	Icon = require('../icon.js'),
