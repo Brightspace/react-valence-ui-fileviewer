@@ -41,7 +41,6 @@ describe('Generic Viewer', function() {
 
 	it('should render wrapper with expected class name', function() {
 		var elem = TestUtils.renderIntoDocument(
-
 			<ViewerTester mimeType='audio/mp3' srcdownload='foo.mp3' />
 		);
 		var wrapper = TestUtils.findRenderedDOMComponentWithClass(
