@@ -39,10 +39,10 @@ describe('pdfjsWorkerSrcInit', function() {
 	});
 
 	describe('', function() {
-		beforeEach(function(done) {
-			var promise = pdfjsWorkerSrcInit();
+		beforeEach( () => {
+			const promise1 = pdfjsWorkerSrcInit();
 			requests[0].respond(200, { 'Content-Type': 'application/javascript'	}, 'var x = 10000;');
-			promise.then(done);
+			return promise1;
 		});
 
 		it('should get worker js file and set workerSrc to an object URL', function() {
@@ -53,11 +53,11 @@ describe('pdfjsWorkerSrcInit', function() {
 	});
 
 	describe('', function() {
-		beforeEach(function(done) {
-			var promise1 = pdfjsWorkerSrcInit();
-			var promise2 = pdfjsWorkerSrcInit();
+		beforeEach( () => {
+			const promise1 = pdfjsWorkerSrcInit();
+			const promise2 = pdfjsWorkerSrcInit();
 			requests[0].respond(200, { 'Content-Type': 'application/javascript'	}, 'var x = 10000;');
-			return Promise.all([promise1, promise2]).then(done);
+			return Promise.all([promise1, promise2]);
 		});
 
 		it('should not get worker js file if it has already been retrieved', function() {
@@ -68,10 +68,10 @@ describe('pdfjsWorkerSrcInit', function() {
 	});
 
 	describe('', function() {
-		beforeEach(function(done) {
-			var promise = pdfjsWorkerSrcInit();
+		beforeEach(() => {
+			var promise1 = pdfjsWorkerSrcInit();
 			requests[0].respond(404);
-			return promise.then(done);
+			return promise1;
 		});
 
 		it('should not get worker js file if it has already been retrieved', function() {
@@ -82,9 +82,9 @@ describe('pdfjsWorkerSrcInit', function() {
 	});
 
 	describe('', function() {
-		beforeEach(function(done) {
+		beforeEach( () => {
 			workerSrcIsCrossDomain = false;
-			return pdfjsWorkerSrcInit().then(done);
+			return pdfjsWorkerSrcInit();
 		});
 
 		it('should not get worker js file if it has already been retrieved', function() {

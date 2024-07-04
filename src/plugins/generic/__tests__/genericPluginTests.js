@@ -10,7 +10,7 @@ describe('Generic Plugin', function() {
 	});
 
 	it('should return a view', function() {
-		var viewer = GenericPlugin.getComponent();
+		var viewer = GenericPlugin.getComponent({src: 'test'});
 		expect(viewer).toBeDefined();
 	});
 

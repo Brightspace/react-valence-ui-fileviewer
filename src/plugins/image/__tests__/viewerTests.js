@@ -1,8 +1,8 @@
 'use strict';
 
-var React = require('react'), //eslint-disable-line no-unused-vars
+var React = require('react'),
 	ReactDOM = require( 'react-dom' ),
-	TestUtils = require( 'react-addons-test-utils' ),
+	TestUtils = require('react-dom/test-utils'),
 	Viewer = require('../viewer.js'),
 	sinon = require('sinon');
 
