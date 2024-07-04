@@ -114,7 +114,7 @@ To learn how to create major releases and release from maintenance branches, ref
 ## Contributing
 Contributions are welcome, please submit a pull request!
 
-### Code Style
+### Code Style 
 
 This repository is configured with [EditorConfig](http://editorconfig.org) and [eslint](http://eslint.org/) rules and contributions should make use of them.
 
